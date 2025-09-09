@@ -351,5 +351,4 @@ Python: Selecionar Interpretador
 Escolha o interpretador que está dentro da sua pasta do ambiente virtual, por exemplo
 
 - C:\Users\lucia\OneDrive\Área de Trabalho\NASA\EcoPathogens\venv\Scripts\python.exe
-#   N A S A  
- 
+#

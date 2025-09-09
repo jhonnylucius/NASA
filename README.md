@@ -248,7 +248,6 @@ Aqui estão os principais serviços do **AWS Free Tier** que você pode utilizar
 
 ### **Conclusão**:
 
-Sim, com os serviços do **AWS Free Tier**, você tem **recursos mais do que suficientes** para criar e testar um **MVP do EcoPathogens**. Esses serviços vão permitir que você armazene dados, execute análises, treine e implemente modelos de **IA**, e até mesmo crie uma interface web simples para interação com os usuários.
 
 ### **2. Estrutura de Arquivos e Pastas**
 
@@ -327,31 +326,7 @@ Agora, vamos definir a estrutura de **arquivos e pastas** que facilitará o dese
 
 ---
 
-### **Conclusão**
-
-Essa estrutura modularizada permitirá que a equipe trabalhe de forma eficiente e escalável, enquanto facilita a **colaboração** entre os diferentes setores do projeto (análise de dados, desenvolvimento de modelos, front-end, etc.). A infraestrutura em nuvem garante que o projeto possa lidar com **grandes volumes de dados** e se escalar conforme necessário.
 
 
-# ativa o ambiente virtual
 
-  -  & "C:\Users\lucia\OneDrive\Área de Trabalho\NASA\EcoPathogens\venv\Scripts\Activate.ps1"
-
-  # instalar bibliote 
-
-  - pip install -r src/requirements.txt
-
-  # interpretador
-
-  Esse aviso geralmente aparece no VS Code quando:
-
-O Python interpretado pelo VS Code não é o mesmo do seu ambiente virtual.
-O ambiente virtual não está selecionado como o Python ativo no VS Code.
-Como resolver:
-
-No VS Code, pressione Ctrl+Shift+P e digite/select:
-Python: Selecionar Interpretador
-Escolha o interpretador que está dentro da sua pasta do ambiente virtual, por exemplo
-
-- C:\Users\lucia\OneDrive\Área de Trabalho\NASA\EcoPathogens\venv\Scripts\python.exe
-#
 

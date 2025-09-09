@@ -1,0 +1,51 @@
+[
+  {
+    "catalog": "M2M_CATALOG",
+    "activityID": "2025-08-21T16:34:00-IPS-001",
+    "location": "STEREO A",
+    "eventTime": "2025-08-21T16:34Z",
+    "submissionTime": "2025-08-21T21:01Z",
+    "versionId": 1,
+    "link": "https://webtools.ccmc.gsfc.nasa.gov/DONKI/view/IPS/40703/-1",
+    "instruments": [
+      {
+        "displayName": "STEREO A: IMPACT"
+      },
+      {
+        "displayName": "STEREO A: PLASTIC"
+      }
+    ],
+    "linkedEvents": [
+      {
+        "activityID": "2025-08-21T18:13:00-HSS-001"
+      }
+    ],
+    "sentNotifications": null
+  },
+  {
+    "catalog": "M2M_CATALOG",
+    "activityID": "2025-08-24T17:10:00-IPS-001",
+    "location": "Earth",
+    "eventTime": "2025-08-24T17:10Z",
+    "submissionTime": "2025-08-25T23:23Z",
+    "versionId": 1,
+    "link": "https://webtools.ccmc.gsfc.nasa.gov/DONKI/view/IPS/40844/-1",
+    "instruments": [
+      {
+        "displayName": "ACE: MAG"
+      },
+      {
+        "displayName": "ACE: SWEPAM"
+      },
+      {
+        "displayName": "DSCOVR: PLASMAG"
+      }
+    ],
+    "linkedEvents": [
+      {
+        "activityID": "2025-08-20T05:12:00-CME-001"
+      }
+    ],
+    "sentNotifications": null
+  }
+]

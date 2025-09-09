@@ -1,0 +1,203 @@
+[
+  {
+    "flrID": "2025-08-19T03:51:00-FLR-001",
+    "catalog": "M2M_CATALOG",
+    "instruments": [
+      {
+        "displayName": "GOES-P: EXIS 1.0-8.0"
+      }
+    ],
+    "beginTime": "2025-08-19T03:51Z",
+    "peakTime": "2025-08-19T04:39Z",
+    "endTime": "2025-08-19T05:07Z",
+    "classType": "M1.1",
+    "sourceLocation": "S09E88",
+    "activeRegionNum": null,
+    "note": "No current active region designation to flaring area, located just inside the SE limb and distinctly separate from nearby AR 14188 (S09E70 at flare peak).",
+    "submissionTime": "2025-08-19T11:35Z",
+    "versionId": 1,
+    "link": "https://webtools.ccmc.gsfc.nasa.gov/DONKI/view/FLR/40647/-1",
+    "linkedEvents": [
+      {
+        "activityID": "2025-08-19T04:48:00-CME-001"
+      }
+    ],
+    "sentNotifications": null
+  },
+  {
+    "flrID": "2025-08-22T17:56:00-FLR-001",
+    "catalog": "M2M_CATALOG",
+    "instruments": [
+      {
+        "displayName": "GOES-P: EXIS 1.0-8.0"
+      }
+    ],
+    "beginTime": "2025-08-22T17:56Z",
+    "peakTime": "2025-08-22T18:59Z",
+    "endTime": "2025-08-22T19:05Z",
+    "classType": "M1.7",
+    "sourceLocation": "S17E90",
+    "activeRegionNum": 14197,
+    "note": "This flare originated from a region beyond the southeast limb which has since been numbered as Active Region 14197. There may have been additional, but minor, flaring contribution from Active Region 14191 (N12E61) at the time of this event.",
+    "submissionTime": "2025-08-25T13:41Z",
+    "versionId": 2,
+    "link": "https://webtools.ccmc.gsfc.nasa.gov/DONKI/view/FLR/40733/-1",
+    "linkedEvents": [
+      {
+        "activityID": "2025-08-22T19:30:00-CME-001"
+      }
+    ],
+    "sentNotifications": null
+  },
+  {
+    "flrID": "2025-08-23T19:53:00-FLR-001",
+    "catalog": "M2M_CATALOG",
+    "instruments": [
+      {
+        "displayName": "GOES-P: EXIS 1.0-8.0"
+      }
+    ],
+    "beginTime": "2025-08-23T19:53Z",
+    "peakTime": "2025-08-23T20:06Z",
+    "endTime": "2025-08-23T20:16Z",
+    "classType": "M1.9",
+    "sourceLocation": "S15E90",
+    "activeRegionNum": null,
+    "note": "",
+    "submissionTime": "2025-08-24T00:44Z",
+    "versionId": 3,
+    "link": "https://webtools.ccmc.gsfc.nasa.gov/DONKI/view/FLR/40758/-1",
+    "linkedEvents": null,
+    "sentNotifications": null
+  },
+  {
+    "flrID": "2025-08-24T08:26:00-FLR-001",
+    "catalog": "M2M_CATALOG",
+    "instruments": [
+      {
+        "displayName": "GOES-P: EXIS 1.0-8.0"
+      }
+    ],
+    "beginTime": "2025-08-24T08:26Z",
+    "peakTime": "2025-08-24T08:36Z",
+    "endTime": "2025-08-24T08:42Z",
+    "classType": "M1.3",
+    "sourceLocation": "N07E90",
+    "activeRegionNum": 14199,
+    "note": "",
+    "submissionTime": "2025-08-25T19:26Z",
+    "versionId": 2,
+    "link": "https://webtools.ccmc.gsfc.nasa.gov/DONKI/view/FLR/40769/-1",
+    "linkedEvents": null,
+    "sentNotifications": null
+  },
+  {
+    "flrID": "2025-08-25T05:01:00-FLR-001",
+    "catalog": "M2M_CATALOG",
+    "instruments": [
+      {
+        "displayName": "GOES-P: EXIS 1.0-8.0"
+      }
+    ],
+    "beginTime": "2025-08-25T05:01Z",
+    "peakTime": "2025-08-25T05:24Z",
+    "endTime": "2025-08-25T05:40Z",
+    "classType": "M4.5",
+    "sourceLocation": "N05E90",
+    "activeRegionNum": 14199,
+    "note": "Flare on (or from just behind) the NE limb.",
+    "submissionTime": "2025-08-25T19:27Z",
+    "versionId": 6,
+    "link": "https://webtools.ccmc.gsfc.nasa.gov/DONKI/view/FLR/40813/-1",
+    "linkedEvents": [
+      {
+        "activityID": "2025-08-25T05:36:00-CME-001"
+      }
+    ],
+    "sentNotifications": null
+  },
+  {
+    "flrID": "2025-08-25T09:04:00-FLR-001",
+    "catalog": "M2M_CATALOG",
+    "instruments": [
+      {
+        "displayName": "GOES-P: EXIS 1.0-8.0"
+      }
+    ],
+    "beginTime": "2025-08-25T09:04Z",
+    "peakTime": "2025-08-25T09:07Z",
+    "endTime": "2025-08-25T09:09Z",
+    "classType": "M1.0",
+    "sourceLocation": "S17E61",
+    "activeRegionNum": 14197,
+    "note": "",
+    "submissionTime": "2025-08-25T11:31Z",
+    "versionId": 1,
+    "link": "https://webtools.ccmc.gsfc.nasa.gov/DONKI/view/FLR/40814/-1",
+    "linkedEvents": null,
+    "sentNotifications": null
+  },
+  {
+    "flrID": "2025-08-25T15:06:00-FLR-001",
+    "catalog": "M2M_CATALOG",
+    "instruments": [
+      {
+        "displayName": "GOES-P: EXIS 1.0-8.0"
+      }
+    ],
+    "beginTime": "2025-08-25T15:06Z",
+    "peakTime": "2025-08-25T15:18Z",
+    "endTime": "2025-08-25T15:28Z",
+    "classType": "M1.2",
+    "sourceLocation": "N04E87",
+    "activeRegionNum": 14199,
+    "note": "",
+    "submissionTime": "2025-08-25T19:27Z",
+    "versionId": 3,
+    "link": "https://webtools.ccmc.gsfc.nasa.gov/DONKI/view/FLR/40818/-1",
+    "linkedEvents": null,
+    "sentNotifications": null
+  },
+  {
+    "flrID": "2025-08-25T15:30:00-FLR-001",
+    "catalog": "M2M_CATALOG",
+    "instruments": [
+      {
+        "displayName": "GOES-P: EXIS 1.0-8.0"
+      }
+    ],
+    "beginTime": "2025-08-25T15:30Z",
+    "peakTime": "2025-08-25T15:38Z",
+    "endTime": "2025-08-25T15:41Z",
+    "classType": "M1.1",
+    "sourceLocation": "N06E90",
+    "activeRegionNum": 14199,
+    "note": "",
+    "submissionTime": "2025-08-25T19:27Z",
+    "versionId": 3,
+    "link": "https://webtools.ccmc.gsfc.nasa.gov/DONKI/view/FLR/40819/-1",
+    "linkedEvents": null,
+    "sentNotifications": null
+  },
+  {
+    "flrID": "2025-08-26T00:22:00-FLR-001",
+    "catalog": "M2M_CATALOG",
+    "instruments": [
+      {
+        "displayName": "GOES-P: EXIS 1.0-8.0"
+      }
+    ],
+    "beginTime": "2025-08-26T00:22Z",
+    "peakTime": "2025-08-26T00:30Z",
+    "endTime": "2025-08-26T00:35Z",
+    "classType": "M3.3",
+    "sourceLocation": "N02E80",
+    "activeRegionNum": 14199,
+    "note": "",
+    "submissionTime": "2025-08-26T00:40Z",
+    "versionId": 2,
+    "link": "https://webtools.ccmc.gsfc.nasa.gov/DONKI/view/FLR/40845/-1",
+    "linkedEvents": null,
+    "sentNotifications": null
+  }
+]

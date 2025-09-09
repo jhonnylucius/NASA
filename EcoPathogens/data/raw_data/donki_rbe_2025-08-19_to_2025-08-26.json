@@ -1,0 +1,56 @@
+[
+  {
+    "rbeID": "2025-08-21T17:10:00-RBE-001",
+    "eventTime": "2025-08-21T17:10Z",
+    "instruments": [
+      {
+        "displayName": "GOES-P: SEISS >2MeV"
+      }
+    ],
+    "submissionTime": "2025-08-21T17:18Z",
+    "versionId": 1,
+    "link": "https://webtools.ccmc.gsfc.nasa.gov/DONKI/view/RBE/40696/-1",
+    "linkedEvents": [
+      {
+        "activityID": "2025-08-18T06:30:00-HSS-001"
+      }
+    ],
+    "sentNotifications": [
+      {
+        "messageID": "20250821-AL-003",
+        "messageIssueTime": "2025-08-21T17:18Z",
+        "messageURL": "https://webtools.ccmc.gsfc.nasa.gov/DONKI/view/Alert/40697/1"
+      },
+      {
+        "messageID": "20250821-AL-004",
+        "messageIssueTime": "2025-08-21T18:14Z",
+        "messageURL": "https://webtools.ccmc.gsfc.nasa.gov/DONKI/view/Alert/40699/1"
+      },
+      {
+        "messageID": "20250823-AL-002",
+        "messageIssueTime": "2025-08-23T17:50Z",
+        "messageURL": "https://webtools.ccmc.gsfc.nasa.gov/DONKI/view/Alert/40753/1"
+      }
+    ]
+  },
+  {
+    "rbeID": "2025-08-24T13:40:00-RBE-001",
+    "eventTime": "2025-08-24T13:40Z",
+    "instruments": [
+      {
+        "displayName": "GOES-P: SEISS >2MeV"
+      }
+    ],
+    "submissionTime": "2025-08-24T13:51Z",
+    "versionId": 1,
+    "link": "https://webtools.ccmc.gsfc.nasa.gov/DONKI/view/RBE/40771/-1",
+    "linkedEvents": null,
+    "sentNotifications": [
+      {
+        "messageID": "20250824-AL-001",
+        "messageIssueTime": "2025-08-24T13:51Z",
+        "messageURL": "https://webtools.ccmc.gsfc.nasa.gov/DONKI/view/Alert/40772/1"
+      }
+    ]
+  }
+]

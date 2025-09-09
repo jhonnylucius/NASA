@@ -1,0 +1,23 @@
+[
+  {
+    "hssID": "2025-08-21T18:13:00-HSS-001",
+    "eventTime": "2025-08-21T18:13Z",
+    "instruments": [
+      {
+        "displayName": "STEREO A: IMPACT"
+      },
+      {
+        "displayName": "STEREO A: PLASTIC"
+      }
+    ],
+    "submissionTime": "2025-08-21T21:00Z",
+    "versionId": 1,
+    "link": "https://webtools.ccmc.gsfc.nasa.gov/DONKI/view/HSS/40702/-1",
+    "linkedEvents": [
+      {
+        "activityID": "2025-08-21T16:34:00-IPS-001"
+      }
+    ],
+    "sentNotifications": null
+  }
+]

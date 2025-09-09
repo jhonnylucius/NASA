@@ -1,0 +1,9 @@
+# Configuração para o botão "Sponsor" (Patrocinar)
+
+# A configuração do Stripe no GitHub é para o GitHub Sponsors.
+# Substitua 'SEU-USUARIO-GITHUB' pelo seu nome de usuário no GitHub.
+github: [https://github.com/jhonnylucius]
+
+# Links personalizados para outras plataformas de doação.
+custom:
+  - "https://www.paypal.me/jhonnylucius"

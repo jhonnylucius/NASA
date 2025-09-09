@@ -1,5 +1,7 @@
 ## **Projeto: EcoPathogens - Identificação de Padrões Epidemiológicos e Mudanças Climáticas a partir de Migrações e Variáveis Ambientais**
 
+## EM DESENVOLVIMENTO
+
 ### **Visão Geral do Projeto**
 
 O **EcoPathogens** é um projeto inovador com o objetivo de **identificar e prever padrões epidemiológicos**, **mudanças climáticas** e as **correlações entre fenômenos naturais** (como **migração de animais**, **florescimento de plantas**, **chuvas**, **temperatura da água**, **camada de ozônio**, etc.) e seus efeitos no **comportamento das espécies** e na **distribuição de doenças**. Este projeto busca analisar como as **variáveis ambientais** interagem e influenciam o comportamento de vida na Terra, revelando **novos padrões de propagação de doenças**, alterações nos ciclos naturais, e como a **atividade humana** pode estar alterando esses ciclos e acelerando a mudança global.
@@ -352,3 +354,4 @@ Escolha o interpretador que está dentro da sua pasta do ambiente virtual, por e
 
 - C:\Users\lucia\OneDrive\Área de Trabalho\NASA\EcoPathogens\venv\Scripts\python.exe
 #
+

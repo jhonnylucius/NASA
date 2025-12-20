@@ -1,86 +1,90 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="🌳 EcoGuardians - Sistema de Monitoramento Ambiental da Amazônia | NASA Space Apps Challenge 2025">
-    <meta name="keywords" content="amazônia, nasa, meio ambiente, monitoramento, desmatamento, queimadas, IA, machine learning">
+    <meta name="description"
+        content="🌳 EcoGuardians - Sistema de Monitoramento Ambiental da Amazônia | UNION DESENVOLVIMENTO DE SOFTWARES">
+    <meta name="keywords"
+        content="amazônia, nasa, meio ambiente, monitoramento, desmatamento, queimadas, IA, machine learning">
     <meta name="author" content="EcoGuardians Team">
     <meta property="og:title" content="🌳 EcoGuardians - Protegendo a Amazônia">
-    <meta property="og:description" content="Sistema avançado de monitoramento ambiental com 50 anos de dados históricos e IA para predições">
+    <meta property="og:description"
+        content="Sistema avançado de monitoramento ambiental com 50 anos de dados históricos e IA para predições">
     <meta property="og:image" content="https://ecoguardians.com.br/assets/images/og-image.jpg">
     <meta property="og:url" content="https://ecoguardians.com.br">
     <meta name="twitter:card" content="summary_large_image">
-    
-    <title>🌳 EcoGuardians - NASA Space Apps Challenge 2025</title>
-    
+
+    <title>🌳 EcoGuardians - UNION DESENVOLVIMENTO DE SOFTWARES</title>
+
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
     <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
-    
+
     <!-- Preload critical resources -->
     <link rel="preload" href="/assets/fonts/montserrat-bold.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="/assets/fonts/open-sans-regular.woff2" as="font" type="font/woff2" crossorigin>
-    
+
     <!-- CSS -->
     <link rel="stylesheet" href="/assets/css/style.css">
     <link rel="stylesheet" href="/assets/css/animations.css">
     <link rel="stylesheet" href="/assets/css/responsive.css">
-    
+
     <!-- Plotly.js -->
     <script src="https://cdn.plot.ly/plotly-2.26.0.min.js"></script>
-    
+
     <!-- Leaflet -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-    
+
     <!-- Chart.js -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    
+
     <!-- GSAP Premium Complete Suite (45 plugins!) -->
     <!-- CORE -->
     <script src="/assets/js/gsap/gsap.min.js"></script>
-    
+
     <!-- ESSENTIAL PLUGINS -->
     <script src="/assets/js/gsap/ScrollTrigger.min.js"></script>
     <script src="/assets/js/gsap/Observer.min.js"></script>
     <script src="/assets/js/gsap/ScrollToPlugin.min.js"></script>
-    
+
     <!-- PREMIUM ANIMATION PLUGINS -->
     <script src="/assets/js/gsap/MorphSVGPlugin.min.js"></script>
     <script src="/assets/js/gsap/DrawSVGPlugin.min.js"></script>
     <script src="/assets/js/gsap/SplitText.min.js"></script>
     <script src="/assets/js/gsap/ScrollSmoother.min.js"></script>
     <script src="/assets/js/gsap/MotionPathPlugin.min.js"></script>
-    
+
     <!-- PREMIUM PHYSICS & INTERACTION -->
     <script src="/assets/js/gsap/Physics2DPlugin.min.js"></script>
     <script src="/assets/js/gsap/PhysicsPropsPlugin.min.js"></script>
     <script src="/assets/js/gsap/InertiaPlugin.min.js"></script>
     <script src="/assets/js/gsap/Draggable.min.js"></script>
-    
+
     <!-- PREMIUM EASING & EFFECTS -->
     <script src="/assets/js/gsap/CustomEase.min.js"></script>
     <script src="/assets/js/gsap/CustomBounce.min.js"></script>
     <script src="/assets/js/gsap/CustomWiggle.min.js"></script>
     <script src="/assets/js/gsap/EasePack.min.js"></script>
-    
+
     <!-- PREMIUM TEXT EFFECTS -->
     <script src="/assets/js/gsap/TextPlugin.min.js"></script>
     <script src="/assets/js/gsap/ScrambleTextPlugin.min.js"></script>
-    
+
     <!-- PREMIUM LAYOUT & TRANSITIONS -->
     <script src="/assets/js/gsap/Flip.min.js"></script>
     <script src="/assets/js/gsap/CSSRulePlugin.min.js"></script>
-    
+
     <!-- PREMIUM INTEGRATIONS -->
     <script src="/assets/js/gsap/EaselPlugin.min.js"></script>
     <script src="/assets/js/gsap/PixiPlugin.min.js"></script>
-    
+
     <!-- DEVELOPMENT TOOLS -->
     <script src="/assets/js/gsap/GSDevTools.min.js"></script>
     <script src="/assets/js/gsap/MotionPathHelper.min.js"></script>
-    
+
     <!-- Structured Data -->
     <script type="application/ld+json">
     {
@@ -97,14 +101,15 @@
     }
     </script>
 </head>
+
 <body>
     <!-- Loading Screen with GSAP Premium Animation -->
     <div id="loading-screen" class="loading-screen">
         <div class="loading-container">
             <div class="loading-logo">
                 <svg width="120" height="120" viewBox="0 0 120 120" class="logo-svg">
-                    <circle cx="60" cy="60" r="50" stroke="#2E8B57" stroke-width="3" fill="none" class="logo-circle"/>
-                    <path d="M30 60 Q60 30 90 60 Q60 90 30 60" fill="#228B22" class="logo-leaf"/>
+                    <circle cx="60" cy="60" r="50" stroke="#2E8B57" stroke-width="3" fill="none" class="logo-circle" />
+                    <path d="M30 60 Q60 30 90 60 Q60 90 30 60" fill="#228B22" class="logo-leaf" />
                     <text x="60" y="65" text-anchor="middle" class="logo-text">🌳</text>
                 </svg>
             </div>
@@ -144,7 +149,7 @@
                     </div>
                     <div class="floating-particles"></div>
                 </div>
-                
+
                 <div class="hero-content">
                     <div class="hero-text">
                         <h1 class="hero-title">
@@ -153,7 +158,7 @@
                             <span class="title-line highlight">Amazônia</span>
                         </h1>
                         <p class="hero-description">
-                            Sistema avançado de monitoramento ambiental com <strong>50 anos de dados históricos</strong> 
+                            Sistema avançado de monitoramento ambiental com <strong>50 anos de dados históricos</strong>
                             e inteligência artificial para predições em tempo real.
                         </p>
                         <div class="hero-stats">
@@ -528,16 +533,18 @@
                 <div class="container">
                     <div class="about-content">
                         <div class="about-text">
-                            <h2 class="section-title">🏆 NASA Space Apps Challenge 2025</h2>
+                            <h2 class="section-title">🏆 UNION DESENVOLVIMENTO DE SOFTWARES</h2>
                             <p class="about-description">
-                                O <strong>EcoGuardians</strong> é um sistema revolucionário de monitoramento ambiental 
-                                desenvolvido para o <strong>NASA Space Apps Challenge 2025</strong>. 
+                                O <strong>EcoGuardians</strong> é um sistema revolucionário de monitoramento ambiental
+                                desenvolvido por <strong>UNION DESENVOLVIMENTO DE SOFTWARES</strong>.
                             </p>
                             <p>
-                                Nosso diferencial é a compilação e análise de <strong>50 anos de dados históricos</strong> 
-                                da Amazônia (1975-2025), integrados com modelos de inteligência artificial de última geração.
+                                Nosso diferencial é a compilação e análise de <strong>50 anos de dados
+                                    históricos</strong>
+                                da Amazônia (1975-2025), integrados com modelos de inteligência artificial de última
+                                geração.
                             </p>
-                            
+
                             <div class="features-grid">
                                 <div class="feature-item">
                                     <div class="feature-icon">🛰️</div>
@@ -564,7 +571,7 @@
                             <div class="team-info">
                                 <h3>👥 Nossa Missão</h3>
                                 <p>
-                                    Democratizar o acesso a dados ambientais e criar ferramentas que auxiliem 
+                                    Democratizar o acesso a dados ambientais e criar ferramentas que auxiliem
                                     na proteção da maior floresta tropical do mundo.
                                 </p>
                             </div>
@@ -645,7 +652,7 @@
                         </div>
                     </div>
                     <div class="footer-bottom">
-                        <p>&copy; 2025 EcoGuardians | NASA Space Apps Challenge 2025</p>
+                        <p>&copy; 2025 EcoGuardians | UNION DESENVOLVIMENTO DE SOFTWARES</p>
                         <p>Desenvolvido com 💚 para proteger a Amazônia</p>
                     </div>
                 </div>
@@ -681,4 +688,5 @@
         }
     </script>
 </body>
+
 </html>

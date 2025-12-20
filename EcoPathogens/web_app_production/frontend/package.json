@@ -1,7 +1,7 @@
 {
   "name": "ecoguardians-frontend",
   "version": "1.0.0",
-  "description": "🌳 EcoGuardians Frontend - NASA Space Apps Challenge 2025 (Pure HTML + GSAP Premium)",
+  "description": "🌳 EcoGuardians Frontend - UNION DESENVOLVIMENTO DE SOFTWARES (Pure HTML + GSAP Premium)",
   "main": "index.html",
   "scripts": {
     "start": "live-server public --port=3000 --open=/",

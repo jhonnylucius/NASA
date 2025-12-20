@@ -2,7 +2,7 @@
 echo.
 echo ======================================
 echo   🎬 EcoGuardians - Introducao Cinematografica
-echo   NASA Space Apps Challenge 2025
+echo   UNION DESENVOLVIMENTO DE SOFTWARES
 echo   ✨ USANDO SUAS 128+ IMAGENS REAIS! ✨
 echo ======================================
 echo.

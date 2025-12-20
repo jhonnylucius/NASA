@@ -11,7 +11,7 @@ class CinematicIntro {
         this.imageContainers = [];
         this.isIntroComplete = false;
         this.introContainer = null;
-        
+
         this.init();
     }
 
@@ -202,10 +202,10 @@ class CinematicIntro {
         ];
 
         const images = [];
-        
+
         // Pega as primeiras 125 imagens para desastres
         const disasterImages = realImages.slice(0, 125);
-        
+
         // Adiciona as 125 imagens de desastres
         disasterImages.forEach((imageName, index) => {
             images.push({
@@ -216,7 +216,7 @@ class CinematicIntro {
                 fallback: `https://picsum.photos/300/200?random=${index + 1}`
             });
         });
-        
+
         // Adiciona as 3 imagens especiais em triângulo (para queimar)
         const triangleImages = [
             {
@@ -227,7 +227,7 @@ class CinematicIntro {
                 fallback: 'https://images.unsplash.com/photo-1574482620007-57f80dc0de84?w=500&h=400&fit=crop&q=80'
             },
             {
-                src: `/assets/images/DERRETENDO.jpg`, 
+                src: `/assets/images/DERRETENDO.jpg`,
                 type: 'triangle',
                 name: 'DERRETENDO',
                 position: 'bottom-left', // Esquerda-baixo do triângulo
@@ -235,18 +235,18 @@ class CinematicIntro {
             },
             {
                 src: `/assets/images/DOENTE.jpg`,
-                type: 'triangle', 
+                type: 'triangle',
                 name: 'DOENTE',
                 position: 'bottom-right', // Direita-baixo do triângulo
                 fallback: 'https://images.unsplash.com/photo-1583947215259-38e31be8751f?w=500&h=400&fit=crop&q=80'
             }
         ];
-        
+
         // Adiciona as 3 imagens do triângulo
         triangleImages.forEach(triangleImg => {
             images.push(triangleImg);
         });
-        
+
         return images;
     }
 
@@ -255,7 +255,7 @@ class CinematicIntro {
      */
     getCategoryFromName(imageName) {
         const name = imageName.toUpperCase();
-        
+
         if (name.includes('DERRETIMENTO') || name.includes('CALOTA')) return 'climate-change';
         if (name.includes('DESMATAMENTO')) return 'deforestation';
         if (name.includes('QUEIMADA') || name.includes('CHAMAS')) return 'fires';
@@ -271,7 +271,7 @@ class CinematicIntro {
         if (name.includes('SATELITE')) return 'technology';
         if (name.includes('SOL')) return 'solar';
         if (name.includes('ANALISE')) return 'data';
-        
+
         return 'environmental';
     }
 
@@ -333,10 +333,10 @@ class CinematicIntro {
 
         // Adiciona estilos CSS
         this.addIntroStyles();
-        
+
         // Insere no DOM
         document.body.insertBefore(this.introContainer, document.body.firstChild);
-        
+
         // Salva referência global para controles
         window.cinematicIntro = this;
     }
@@ -383,12 +383,12 @@ class CinematicIntro {
                 font-size: 4rem;
                 font-weight: 900;
                 margin: 0;
-                background: linear-gradient(45deg, #2E8B57, #228B22, #32CD32);
-                background-size: 200% 200%;
-                -webkit-background-clip: text;
-                -webkit-text-fill-color: transparent;
-                background-clip: text;
-                animation: gradientShift 3s ease-in-out infinite;
+                color: #39FF14;
+                text-shadow: 
+                    4px 4px 0px #000000,
+                    0 0 20px rgba(57, 255, 20, 0.6);
+                letter-spacing: 1px;
+                text-transform: uppercase;
             }
 
             .intro-title p {
@@ -703,22 +703,23 @@ class CinematicIntro {
      */
     async startCinematicIntro() {
         console.log('🎬 Iniciando abertura cinematográfica...');
-        
+
         // Animação inicial do título
         this.animateIntroTitle();
-        
+
         // Aguarda 2 segundos antes de começar as imagens
-        await this.delay(2000);
-        
+        await this.delay(100);
+
         // Mostra as 125 imagens de desastres (agora ficam na tela)
         await this.showDisasterImages();
-        
+
         // Aguarda 1 segundo
-        await this.delay(1000);
-        
+        await this.delay(100);
+
         // Mostra as 3 imagens em triângulo ao redor do título e queima
-        await this.showTriangleImages();
-        
+        // REMOVIDO: Imagens de triângulo/planetas
+        // await this.showTriangleImages();
+
         // Transição final
         await this.finishIntro();
     }
@@ -728,25 +729,25 @@ class CinematicIntro {
      */
     animateIntroTitle() {
         const tl = gsap.timeline();
-        
+
         tl.from('.intro-title h1', {
             duration: 2,
             y: 50,
             opacity: 0,
             ease: 'power3.out'
         })
-        .from('.intro-title p', {
-            duration: 1.5,
-            y: 30,
-            opacity: 0,
-            ease: 'power2.out'
-        }, '-=1')
-        .from('.intro-progress', {
-            duration: 1,
-            y: 20,
-            opacity: 0,
-            ease: 'power2.out'
-        }, '-=0.5');
+            .from('.intro-title p', {
+                duration: 1.5,
+                y: 30,
+                opacity: 0,
+                ease: 'power2.out'
+            }, '-=1')
+            .from('.intro-progress', {
+                duration: 1,
+                y: 20,
+                opacity: 0,
+                ease: 'power2.out'
+            }, '-=0.5');
     }
 
     /**
@@ -758,28 +759,28 @@ class CinematicIntro {
         const progressText = this.introContainer.querySelector('.progress-text');
         const currentCount = this.introContainer.querySelector('.current-count');
         const totalCount = this.introContainer.querySelector('.total-count');
-        
+
         // Filtra apenas as imagens de desastres (não triângulo)
         const disasterImages = this.images.filter(img => img.type === 'disaster');
-        
+
         // Atualiza contador total
         totalCount.textContent = disasterImages.length;
-        
+
         for (let i = 0; i < disasterImages.length; i++) {
             const image = disasterImages[i];
-            
+
             // Cria elemento da imagem
             const imageEl = this.createImageElement(image, i);
             container.appendChild(imageEl);
-            
+
             // Anima entrada da imagem
             this.animateImageEntrance(imageEl);
-            
+
             // Atualiza progresso e contador
             const progress = ((i + 1) / disasterImages.length) * 100;
             progressFill.style.width = `${progress}%`;
             currentCount.textContent = i + 1;
-            
+
             // Mostra informação mais específica baseada na categoria
             const category = image.category;
             const categoryNames = {
@@ -800,13 +801,13 @@ class CinematicIntro {
                 'data': 'análise de dados',
                 'environmental': 'impacto ambiental'
             };
-            
+
             const categoryName = categoryNames[category] || 'eventos ambientais';
             progressText.textContent = `Processando ${categoryName}...`;
-            
-            // Aguarda antes da próxima imagem (0.6 segundos - mais rápido)
-            await this.delay(600);
-            
+
+            // Aguarda antes da próxima imagem (0.1 segundos - super rápido)
+            await this.delay(100);
+
             // MUDANÇA: Não remove mais as imagens - elas ficam se sobrepondo
             // Apenas adiciona um pouco de transparência às mais antigas
             if (i > 20) {
@@ -821,7 +822,7 @@ class CinematicIntro {
                 }
             }
         }
-        
+
         progressText.textContent = 'Preparando análise final...';
         currentCount.textContent = disasterImages.length;
     }
@@ -832,11 +833,11 @@ class CinematicIntro {
     async showTriangleImages() {
         const triangleImages = this.images.filter(img => img.type === 'triangle');
         const progressText = this.introContainer.querySelector('.progress-text');
-        
+
         progressText.textContent = 'Analisando situação crítica...';
-        
+
         await this.delay(1000);
-        
+
         // Remove todas as imagens de fundo com fade out
         gsap.to('.intro-image', {
             duration: 1.5,
@@ -845,7 +846,7 @@ class CinematicIntro {
             filter: 'blur(2px)',
             ease: 'power2.inOut'
         });
-        
+
         // Esconde a barra de progresso
         gsap.to('.intro-progress', {
             duration: 1,
@@ -853,22 +854,22 @@ class CinematicIntro {
             y: 50,
             ease: 'power2.in'
         });
-        
+
         await this.delay(500);
-        
+
         // Cria e mostra as 3 imagens do triângulo
         for (let i = 0; i < triangleImages.length; i++) {
             const image = triangleImages[i];
             const triangleEl = this.createTriangleElement(image, i);
             this.introContainer.appendChild(triangleEl);
-            
+
             // Anima entrada com delay escalonado
-            await this.delay(800);
+            await this.delay(100);
             this.animateTriangleEntrance(triangleEl, image.position);
         }
-        
+
         await this.delay(2000);
-        
+
         // Inicia efeito de queimadura em todas simultaneamente
         this.startTriangleBurnEffect();
     }
@@ -880,31 +881,31 @@ class CinematicIntro {
         const triangleEl = document.createElement('div');
         triangleEl.className = 'triangle-image';
         triangleEl.setAttribute('data-position', image.position);
-        
+
         // Define posições do triângulo ao redor do título
         const positions = {
-            'top': { 
-                top: '25%', 
-                left: '50%', 
+            'top': {
+                top: '25%',
+                left: '50%',
                 transform: 'translate(-50%, -50%)',
                 size: '320px' // EMCHAMAS maior no topo
             },
-            'bottom-left': { 
-                top: '65%', 
-                left: '25%', 
+            'bottom-left': {
+                top: '65%',
+                left: '25%',
                 transform: 'translate(-50%, -50%)',
                 size: '280px' // DERRETENDO à esquerda
             },
-            'bottom-right': { 
-                top: '65%', 
-                right: '25%', 
+            'bottom-right': {
+                top: '65%',
+                right: '25%',
                 transform: 'translate(50%, -50%)',
                 size: '280px' // DOENTE à direita
             }
         };
-        
+
         const pos = positions[image.position];
-        
+
         triangleEl.innerHTML = `
             <img src="${image.src}" alt="${image.name}" 
                  onerror="this.src='${image.fallback}'"
@@ -912,7 +913,7 @@ class CinematicIntro {
             <div class="triangle-burn-effect"></div>
             <div class="triangle-label">${this.getTriangleLabel(image.name)}</div>
         `;
-        
+
         // Aplica estilos de posição
         Object.assign(triangleEl.style, {
             position: 'fixed',
@@ -926,7 +927,7 @@ class CinematicIntro {
             overflow: 'hidden',
             ...pos
         });
-        
+
         return triangleEl;
     }
 
@@ -952,18 +953,18 @@ class CinematicIntro {
             'bottom-left': { x: -200, y: 100, rotation: 15 },
             'bottom-right': { x: 200, y: 100, rotation: -15 }
         };
-        
+
         const config = entranceConfig[position];
-        
-        gsap.fromTo(element, 
-            { 
-                opacity: 0, 
+
+        gsap.fromTo(element,
+            {
+                opacity: 0,
                 scale: 0.3,
                 x: config.x || 0,
                 y: config.y || 0,
                 rotation: config.rotation
             },
-            { 
+            {
                 duration: 1.5,
                 opacity: 1,
                 scale: 1,
@@ -990,19 +991,19 @@ class CinematicIntro {
      */
     startTriangleBurnEffect() {
         const triangleImages = document.querySelectorAll('.triangle-image');
-        
+
         triangleImages.forEach((triangleEl, index) => {
             const burnEffect = triangleEl.querySelector('.triangle-burn-effect');
-            
+
             // Delay escalonado para cada imagem
             setTimeout(() => {
                 // Anima o efeito de queimadura de baixo para cima
-                gsap.fromTo(burnEffect, 
-                    { 
+                gsap.fromTo(burnEffect,
+                    {
                         height: '0%',
                         opacity: 0.8
                     },
-                    { 
+                    {
                         duration: 3,
                         height: '100%',
                         opacity: 1,
@@ -1030,17 +1031,17 @@ class CinematicIntro {
     createImageElement(image, index) {
         const imageEl = document.createElement('div');
         imageEl.className = 'intro-image';
-        
+
         // Posição aleatória na tela (evitando sobreposição)
         const position = this.getRandomPosition(index);
         imageEl.style.left = position.x + 'px';
         imageEl.style.top = position.y + 'px';
-        
+
         // Cria tag img com fallback
         const imgTag = document.createElement('img');
         imgTag.alt = image.name;
         imgTag.loading = 'lazy';
-        
+
         // Tenta carregar imagem principal, usa fallback se falhar
         imgTag.src = image.src;
         imgTag.onerror = () => {
@@ -1048,9 +1049,9 @@ class CinematicIntro {
                 imgTag.src = image.fallback;
             }
         };
-        
+
         imageEl.appendChild(imgTag);
-        
+
         this.imageContainers.push(imageEl);
         return imageEl;
     }
@@ -1062,13 +1063,13 @@ class CinematicIntro {
         const padding = 50;
         const imageWidth = 150;
         const imageHeight = 100;
-        
+
         const maxX = window.innerWidth - imageWidth - padding;
         const maxY = window.innerHeight - imageHeight - padding;
-        
+
         let attempts = 0;
         let position;
-        
+
         do {
             position = {
                 x: Math.random() * maxX + padding,
@@ -1076,7 +1077,7 @@ class CinematicIntro {
             };
             attempts++;
         } while (this.isPositionOccupied(position, imageWidth, imageHeight) && attempts < 10);
-        
+
         return position;
     }
 
@@ -1085,17 +1086,17 @@ class CinematicIntro {
      */
     isPositionOccupied(newPos, width, height) {
         const recentImages = this.imageContainers.slice(-6); // Últimas 6 imagens
-        
+
         return recentImages.some(img => {
             if (!img || img.style.opacity === '0') return false;
-            
+
             const imgRect = {
                 x: parseInt(img.style.left),
                 y: parseInt(img.style.top),
                 width: width,
                 height: height
             };
-            
+
             return this.isOverlapping(newPos, { width, height }, imgRect);
         });
     }
@@ -1104,17 +1105,17 @@ class CinematicIntro {
      * Verifica sobreposição entre retângulos
      */
     isOverlapping(pos1, size1, rect2) {
-        return !(pos1.x + size1.width < rect2.x || 
-                rect2.x + rect2.width < pos1.x || 
-                pos1.y + size1.height < rect2.y || 
-                rect2.y + rect2.height < pos1.y);
+        return !(pos1.x + size1.width < rect2.x ||
+            rect2.x + rect2.width < pos1.x ||
+            pos1.y + size1.height < rect2.y ||
+            rect2.y + rect2.height < pos1.y);
     }
 
     /**
      * Anima entrada de uma imagem
      */
     animateImageEntrance(imageEl) {
-        gsap.fromTo(imageEl, 
+        gsap.fromTo(imageEl,
             {
                 opacity: 0,
                 scale: 0.5,
@@ -1155,9 +1156,9 @@ class CinematicIntro {
     async burnPlanets() {
         const progressText = this.introContainer.querySelector('.progress-text');
         progressText.textContent = 'Analisando planetas...';
-        
+
         const planets = this.introContainer.querySelectorAll('.planet-wrapper');
-        
+
         // Mostra planetas primeiro
         gsap.to(planets, {
             duration: 1.5,
@@ -1166,16 +1167,16 @@ class CinematicIntro {
             stagger: 0.3,
             ease: 'power3.out'
         });
-        
-        await this.delay(2000);
-        
+
+        await this.delay(100);
+
         // Queima planetas sequencialmente
         for (let i = 0; i < planets.length; i++) {
             const planet = planets[i];
             const burnEffect = planet.querySelector('.burn-effect');
-            
+
             progressText.textContent = `Queimando planeta ${i + 1}/3...`;
-            
+
             // Efeito de queimadura de baixo para cima
             gsap.timeline()
                 .to(burnEffect, {
@@ -1197,10 +1198,10 @@ class CinematicIntro {
                     filter: 'brightness(0.5) grayscale(100%)',
                     ease: 'power2.in'
                 });
-            
+
             await this.delay(2500);
         }
-        
+
         progressText.textContent = 'Iniciando EcoGuardians...';
     }
 
@@ -1208,8 +1209,8 @@ class CinematicIntro {
      * Finaliza a introdução e inicia a aplicação
      */
     async finishIntro() {
-        await this.delay(2000);
-        
+        await this.delay(100);
+
         // Remove todas as imagens restantes do fundo
         gsap.to('.intro-image', {
             duration: 1,
@@ -1218,7 +1219,7 @@ class CinematicIntro {
             stagger: 0.05,
             ease: 'power2.in'
         });
-        
+
         // Fade out do título e progresso
         gsap.to('.intro-content', {
             duration: 1.5,
@@ -1226,7 +1227,7 @@ class CinematicIntro {
             y: -100,
             ease: 'power2.in'
         });
-        
+
         // Fade out das imagens do triângulo
         gsap.to('.triangle-image', {
             duration: 1.5,
@@ -1236,7 +1237,7 @@ class CinematicIntro {
             stagger: 0.2,
             ease: 'power2.in'
         });
-        
+
         // Fade out final da introdução completa
         gsap.to(this.introContainer, {
             duration: 2,
@@ -1253,10 +1254,10 @@ class CinematicIntro {
      */
     skipIntro() {
         console.log('⏭️ Pulando introdução cinematográfica...');
-        
+
         // Para todas as animações em andamento
         gsap.killTweensOf('*');
-        
+
         // Fade out rápido
         gsap.to(this.introContainer, {
             duration: 1,
@@ -1277,18 +1278,18 @@ class CinematicIntro {
         if (this.introContainer && this.introContainer.parentNode) {
             this.introContainer.parentNode.removeChild(this.introContainer);
         }
-        
+
         // Remove loading screen se ainda existir
         const loadingScreen = document.getElementById('loading-screen');
         if (loadingScreen) {
             loadingScreen.style.display = 'none';
         }
-        
+
         // Mostra e anima a aplicação principal
         const smoothWrapper = document.getElementById('smooth-wrapper');
         if (smoothWrapper) {
             smoothWrapper.style.pointerEvents = 'auto';
-            
+
             // Animação de entrada da aplicação principal
             gsap.timeline()
                 .to(smoothWrapper, {
@@ -1317,18 +1318,39 @@ class CinematicIntro {
                     ease: 'power2.out'
                 }, '-=0.5');
         }
-        
+
         // Permite scroll novamente
         document.body.style.overflow = 'auto';
-        
+
         // Inicia outras animações se existirem
         if (typeof window.initMainAnimations === 'function') {
             window.initMainAnimations();
         }
-        
+
+        // CORREÇÃO: Força atualização do mapa e gráficos
+        setTimeout(() => {
+            console.log('🔄 Intro finalizada - Forçando atualização da UI');
+
+            // Força resize para corrigir Leaflet e Plotly
+            window.dispatchEvent(new Event('resize'));
+
+            // Garante que o MapsManager atualize
+            if (window.mapsManager) {
+                if (window.mapsManager.map) {
+                    window.mapsManager.map.invalidateSize();
+                }
+                // Tenta carregar dados novamente se estiver vazio
+                window.mapsManager.loadRealAmazonData();
+            }
+        }, 100);
+
         // Limpa referência global
         window.cinematicIntro = null;
-        
+
+        // ✅ DISPARA EVENTO PARA INICIALIZAR O MAPA
+        console.log('📡 Disparando evento "cinematicIntroComplete"');
+        document.dispatchEvent(new Event('cinematicIntroComplete'));
+
         console.log('✅ Introdução cinematográfica concluída! Aplicação principal carregada.');
     }
 

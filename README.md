@@ -293,7 +293,7 @@ Este projeto está sob a licença GLP-3.0. Veja o arquivo [LICENSE](LICENSE) par
 **UNION Desenvolvimento de Softwares**
 
 - 🌐 Website: [union.dev.br](https://union.dev.br)
-- 💼 LinkedIn: [seu-linkedin](#)
+- 💼 LinkedIn: [linkedin](https://www.linkedin.com/in/luciano-ribeiro-559a05307/)
 - 📧 Email: contato@union.dev.br
 
 ---
@@ -317,5 +317,6 @@ Este projeto está sob a licença GLP-3.0. Veja o arquivo [LICENSE](LICENSE) par
 © 2025 EcoGuardians | UNION Desenvolvimento de Softwares
 
 </div>
+
 
 

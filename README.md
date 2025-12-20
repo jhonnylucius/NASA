@@ -8,7 +8,7 @@
 [![Leaflet](https://img.shields.io/badge/Leaflet-Maps-199900?style=for-the-badge&logo=leaflet)](https://leafletjs.com/)
 [![JavaScript](https://img.shields.io/badge/JavaScript-ES6+-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)](https://developer.mozilla.org/)
 
-<img src="frontend\dev\assets\images\INDIGINAS7.jpg" alt="EcoGuardians Preview" width="600">
+<img src="EcoPathogens/web_app_production/frontend/public/assets/images/INDIGINAS7.jpg" alt="EcoGuardians Preview" width="600">
 
 **Plataforma de monitoramento ambiental com 50 anos de dados históricos e inteligência artificial**
 
@@ -232,16 +232,16 @@ http://localhost:8080
 <summary>📸 Ver Screenshots</summary>
 
 ### Dashboard Principal
-![Dashboard](frontend/public/assets/images/screenshot-dashboard.jpeg)
+![Dashboard](EcoPathogens/web_app_production/frontend/public/assets/images/screenshot-dashboard.jpeg)
 
 ### Mapa de Queimadas (FIRMS)
-![FIRMS](frontend/public/assets/images/screenshot-firms.jpeg)
+![FIRMS](EcoPathogens/web_app_production/frontend/public/assets/images/screenshot-firms.jpeg)
 
 ### Desastres Naturais (EONET)
-![EONET](frontend/public/assets/images/screenshot-eonet.jpeg)
+![EONET](EcoPathogens/web_app_production/frontend/public/assets/images/screenshot-eonet.jpeg)
 
 ### Terra ao Vivo (EPIC)
-![EPIC](frontend/public/assets/images/screenshot-epic.jpeg)
+![EPIC](EcoPathogens/web_app_production/frontend/public/assets/images/screenshot-epic.jpeg)
 
 </details>
 

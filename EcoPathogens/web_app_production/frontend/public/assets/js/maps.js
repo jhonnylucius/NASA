@@ -1333,8 +1333,9 @@ class MapsManager {
                 attributionControl: true
             });
 
-            // Camadas base - TODAS as opções disponíveis
+            // Camadas base - TODAS as opções disponíveis (EXPANDIDO!)
             const baseLayers = {
+                // === MAPAS BÁSICOS ===
                 '🗺️ Streets': L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
                     attribution: '© OpenStreetMap contributors',
                     maxZoom: 19
@@ -1349,7 +1350,7 @@ class MapsManager {
                     subdomains: ['0', '1', '2', '3'],
                     maxZoom: 20
                 }),
-                '🏔️ Terreno': L.tileLayer('https://mt{s}.google.com/vt/lyrs=p&x={x}&y={y}&z={z}', {
+                '🏔️ Terreno Google': L.tileLayer('https://mt{s}.google.com/vt/lyrs=p&x={x}&y={y}&z={z}', {
                     attribution: '© Google Terrain',
                     subdomains: ['0', '1', '2', '3'],
                     maxZoom: 20
@@ -1362,14 +1363,77 @@ class MapsManager {
                     attribution: '© OpenStreetMap',
                     maxZoom: 19,
                     className: 'amazon-green-filter'
+                }),
+
+                // === NOVAS CAMADAS DE TERRENO ===
+                '🏞️ Topográfico': L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', {
+                    attribution: '© OpenTopoMap',
+                    maxZoom: 17
+                }),
+                '🎨 Aquarela': L.tileLayer('https://tiles.stadiamaps.com/tiles/stamen_watercolor/{z}/{x}/{y}.jpg', {
+                    attribution: '© Stadia Maps © Stamen Design',
+                    maxZoom: 16
+                }),
+
+                // === SATÉLITES ALTERNATIVOS ===
+                '🛰️ ESRI Satellite': L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+                    attribution: '© ESRI',
+                    maxZoom: 19
+                }),
+                '🌐 ESRI Topo': L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}', {
+                    attribution: '© ESRI',
+                    maxZoom: 19
+                }),
+
+                // === ESTILOS ESPECIAIS ===
+                '🖤 CartoDB Positron': L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+                    attribution: '© CartoDB',
+                    maxZoom: 19
+                }),
+                '🎯 CartoDB Voyager': L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
+                    attribution: '© CartoDB',
+                    maxZoom: 19
+                })
+            };
+
+            // === OVERLAYS DE DADOS (podem ser combinados com qualquer mapa base) ===
+            const overlayLayers = {
+                '🔥 Focos de Calor (FIRMS)': L.tileLayer('https://firms.modaps.eosdis.nasa.gov/web-services/active_fire/kml/VIIRS_NOAA20_NRT/South_America_24h', {
+                    attribution: '© NASA FIRMS',
+                    opacity: 0.7
+                }),
+                '🌧️ Precipitação': L.tileLayer('https://tile.openweathermap.org/map/precipitation_new/{z}/{x}/{y}.png?appid=9de243494c0b295cca9337e1e96b00e2', {
+                    attribution: '© OpenWeatherMap',
+                    opacity: 0.6,
+                    maxZoom: 19
+                }),
+                '☁️ Nuvens': L.tileLayer('https://tile.openweathermap.org/map/clouds_new/{z}/{x}/{y}.png?appid=9de243494c0b295cca9337e1e96b00e2', {
+                    attribution: '© OpenWeatherMap',
+                    opacity: 0.5,
+                    maxZoom: 19
+                }),
+                '🌡️ Temperatura': L.tileLayer('https://tile.openweathermap.org/map/temp_new/{z}/{x}/{y}.png?appid=9de243494c0b295cca9337e1e96b00e2', {
+                    attribution: '© OpenWeatherMap',
+                    opacity: 0.6,
+                    maxZoom: 19
+                }),
+                '💨 Vento': L.tileLayer('https://tile.openweathermap.org/map/wind_new/{z}/{x}/{y}.png?appid=9de243494c0b295cca9337e1e96b00e2', {
+                    attribution: '© OpenWeatherMap',
+                    opacity: 0.5,
+                    maxZoom: 19
+                }),
+                '🛣️ Estradas': L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                    attribution: '© OpenStreetMap',
+                    opacity: 0.4,
+                    maxZoom: 19
                 })
             };
 
             // Adiciona camada padrão Streets
             baseLayers['🗺️ Streets'].addTo(this.map);
 
-            // Controle de camadas
-            L.control.layers(baseLayers, {}, {
+            // Controle de camadas COM OVERLAYS
+            L.control.layers(baseLayers, overlayLayers, {
                 position: 'topright',
                 collapsed: true
             }).addTo(this.map);

@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🗺️ EcoGuardians - Mapa Avançado da Amazônia</title>
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #2E8B57, #228B22);
+            color: white;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+        
+        .map-container {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+        
+        .map-header {
+            background: linear-gradient(45deg, #2E8B57, #228B22);
+            color: white;
+            padding: 20px;
+        }
+        
+        .map-title {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .map-description {
+            opacity: 0.9;
+            margin-bottom: 15px;
+        }
+        
+        .map-controls {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .map-filter {
+            background: rgba(255,255,255,0.2);
+            color: white;
+            border: 2px solid rgba(255,255,255,0.3);
+            padding: 8px 16px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+        
+        .map-filter:hover,
+        .map-filter.active {
+            background: rgba(255,255,255,0.9);
+            color: #2E8B57;
+            border-color: white;
+            transform: translateY(-2px);
+        }
+        
+        #interactive-map {
+            height: 600px;
+            width: 100%;
+        }
+        
+        .map-tools {
+            background: #f8f9fa;
+            color: #333;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .search-box {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+        
+        .search-box input {
+            padding: 8px 12px;
+            border: 2px solid #ddd;
+            border-radius: 20px;
+            width: 200px;
+        }
+        
+        .search-box button {
+            background: #2E8B57;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 20px;
+            cursor: pointer;
+        }
+        
+        .map-stats {
+            display: flex;
+            gap: 20px;
+            font-size: 0.9em;
+        }
+        
+        .stat-item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .feature-card {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 20px;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        
+        .feature-card h3 {
+            font-size: 1.3em;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .feature-card ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .feature-card li {
+            padding: 5px 0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .feature-card li:before {
+            content: "✅";
+        }
+        
+        @media (max-width: 768px) {
+            .map-controls {
+                flex-direction: column;
+            }
+            
+            .map-tools {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .search-box {
+                width: 100%;
+                justify-content: center;
+            }
+            
+            .map-stats {
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🗺️ EcoGuardians - Mapa Avançado da Amazônia</h1>
+            <p>Dados reais do OpenStreetMap + Overpass API | NASA Space Apps Challenge 2025</p>
+        </div>
+        
+        <div class="map-container">
+            <div class="map-header">
+                <h3 class="map-title">
+                    <span id="layer-icon">�</span>
+                    <span id="layer-title">Imagem Satelital HD</span>
+                </h3>
+                <p class="map-description" id="layer-description">
+                    Vista satelital HD da região amazônica com dados científicos sobrepostos
+                </p>
+                
+                <div class="map-controls">
+                    <button class="map-filter active" data-layer="satellite">� Satélite</button>
+                    <button class="map-filter" data-layer="indigenous">🏞️ Terras Indígenas</button>
+                    <button class="map-filter" data-layer="protected">🛡️ Conservação</button>
+                    <button class="map-filter" data-layer="cities">🏙️ Cidades</button>
+                    <button class="map-filter" data-layer="deforestation">⚠️ Desmatamento</button>
+                    <button class="map-filter" data-layer="rivers">� Rios</button>
+                    <button class="map-filter" data-layer="all">🌍 Completo</button>
+                </div>
+            </div>
+            
+            <div id="interactive-map"></div>
+            
+            <div class="map-tools">
+                <div class="search-box">
+                    <input type="text" id="location-search" placeholder="Buscar localização na Amazônia...">
+                    <button onclick="searchLocation()">🔍 Buscar</button>
+                    <button onclick="exportMapData()">📁 Exportar</button>
+                </div>
+                
+                <div class="map-stats">
+                    <div class="stat-item">
+                        <span>🏞️</span>
+                        <span id="indigenous-count">-</span> Terras Indígenas
+                    </div>
+                    <div class="stat-item">
+                        <span>🛡️</span>
+                        <span id="protected-count">-</span> Áreas Protegidas
+                    </div>
+                    <div class="stat-item">
+                        <span>🌊</span>
+                        <span id="rivers-count">-</span> Rios
+                    </div>
+                    <div class="stat-item">
+                        <span>🏙️</span>
+                        <span id="cities-count">-</span> Cidades
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="features">
+            <div class="feature-card">
+                <h3>🌍 Floresta Real</h3>
+                <ul>
+                    <li>Formato real da Amazônia</li>
+                    <li>Coordenadas geográficas precisas</li>
+                    <li>Contorno de 5.5 milhões km²</li>
+                    <li>Núcleo da floresta destacado</li>
+                    <li>Baseado em dados científicos</li>
+                </ul>
+            </div>
+            
+            <div class="feature-card">
+                <h3>🗺️ Dados Amazônicos</h3>
+                <ul>
+                    <li>Terras indígenas demarcadas</li>
+                    <li>Unidades de conservação</li>
+                    <li>Rios principais e afluentes</li>
+                    <li>Cidades amazônicas</li>
+                    <li>Focos de desmatamento</li>
+                </ul>
+            </div>
+            
+            <div class="feature-card">
+                <h3>📊 Informações Reais</h3>
+                <ul>
+                    <li>305 etnias indígenas</li>
+                    <li>83% de floresta preservada</li>
+                    <li>9 países abrangidos</li>
+                    <li>60% no território brasileiro</li>
+                    <li>10% da biodiversidade mundial</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    
+    <!-- Maps Manager + IBGE Loader -->
+    <script src="assets/js/maps-satelital.js"></script>
+    <script src="assets/js/ibge-loader.js"></script>
+    <script>
+        let mapsManager;
+        let ibgeLoader;
+        
+        // Inicializa quando a página carrega
+        document.addEventListener('DOMContentLoaded', async () => {
+            console.log('�️ Inicializando demo com Google Satellite + dados IBGE...');
+            
+            try {
+                // Cria o gerenciador de mapas
+                mapsManager = new SatelliteMapManager();
+                
+                // Cria o carregador IBGE
+                ibgeLoader = new IBGEDataLoader();
+                
+                // Aguarda mapa estar pronto
+                await new Promise(resolve => {
+                    const checkMap = () => {
+                        if (mapsManager.isInitialized && mapsManager.map) {
+                            resolve();
+                        } else {
+                            setTimeout(checkMap, 100);
+                        }
+                    };
+                    checkMap();
+                });
+
+                console.log('📊 Carregando dados oficiais IBGE...');
+                
+                // Carrega dados IBGE
+                const amazoniaData = await ibgeLoader.loadAmazoniaLegal();
+                
+                if (amazoniaData) {
+                    // Adiciona contorno da Amazônia Legal
+                    const amazonLayer = ibgeLoader.addToMap(mapsManager.map);
+                    if (amazonLayer) {
+                        mapsManager.layers.amazonLegal = amazonLayer;
+                        console.log('🗺️ Contorno oficial da Amazônia Legal adicionado');
+                    }
+                    
+                    // Adiciona estados
+                    const estadosLayer = ibgeLoader.addEstadosAmazonicos(mapsManager.map);
+                    if (estadosLayer) {
+                        mapsManager.layers.estados = estadosLayer;
+                        console.log('🏛️ Estados da Amazônia Legal adicionados');
+                    }
+                    
+                    // Adiciona municípios
+                    const municipiosLayer = ibgeLoader.addMunicipiosAmazonicos(mapsManager.map);
+                    if (municipiosLayer) {
+                        mapsManager.layers.municipios = municipiosLayer;
+                        console.log('🏙️ Municípios da Amazônia Legal adicionados');
+                    }
+                }
+                
+                console.log('🎉 Demo com dados IBGE + Google Satellite inicializado!');
+                
+                // Atualiza status
+                updateLayerInfo('amazonLegal');
+                
+            } catch (error) {
+                console.error('❌ Erro ao inicializar demo:', error);
+            }
+        });
+        
+        // Função para trocar camadas
+        function changeLayer(layer) {
+            console.log(`🔄 Mudando para camada: ${layer}`);
+            
+            if (!mapsManager || !mapsManager.isInitialized) {
+                console.warn('Mapa não inicializado');
+                return;
+            }
+            
+        // Função para trocar camadas
+        function changeLayer(layer) {
+            console.log(`🔄 Mudando para camada: ${layer}`);
+            
+            if (!mapsManager || !mapsManager.isInitialized) {
+                console.warn('Mapa não inicializado');
+                return;
+            }
+            
+            // Remove todas as camadas opcionais
+            const allLayers = ['estados', 'municipios'];
+            allLayers.forEach(layerName => {
+                if (mapsManager.layers[layerName] && mapsManager.map.hasLayer(mapsManager.layers[layerName])) {
+                    mapsManager.map.removeLayer(mapsManager.layers[layerName]);
+                }
+            });
+            
+            // Adiciona camada selecionada
+            switch(layer) {
+                case 'amazonLegal':
+                    // Amazônia Legal sempre visível (não faz nada)
+                    break;
+                case 'estados':
+                    if (mapsManager.layers.estados) {
+                        mapsManager.map.addLayer(mapsManager.layers.estados);
+                    }
+                    break;
+                case 'cities':
+                    if (mapsManager.layers.municipios) {
+                        mapsManager.map.addLayer(mapsManager.layers.municipios);
+                    }
+                    break;
+                case 'all':
+                    // Adiciona todas as camadas
+                    allLayers.forEach(layerName => {
+                        if (mapsManager.layers[layerName]) {
+                            mapsManager.map.addLayer(mapsManager.layers[layerName]);
+                        }
+                    });
+                    break;
+            }
+            
+            // Atualiza UI
+            updateLayerInfo(layer);
+        }
+
+        function updateLayerInfo(layer) {
+            const layerInfo = {
+                amazonLegal: {
+                    icon: '🏛️',
+                    title: 'Amazônia Legal',
+                    description: 'Limites oficiais estabelecidos pelo IBGE - 5.2 milhões km²'
+                },
+                estados: {
+                    icon: '🏛️',
+                    title: 'Estados Amazônicos',
+                    description: '9 estados da federação que compõem a Amazônia Legal'
+                },
+                cities: {
+                    icon: '🏙️',
+                    title: 'Municípios Principais',
+                    description: 'Principais centros urbanos da Amazônia Legal'
+                },
+                indigenous: {
+                    icon: '🏞️',
+                    title: 'Terras Indígenas',
+                    description: 'Territórios tradicionais demarcados - 305 etnias'
+                },
+                protected: {
+                    icon: '🛡️',
+                    title: 'Unidades de Conservação', 
+                    description: 'Parques nacionais, reservas e estações ecológicas'
+                },
+                rivers: {
+                    icon: '🌊',
+                    title: 'Rede Hidrográfica',
+                    description: 'Principais rios da bacia amazônica'
+                },
+                all: {
+                    icon: '🌍',
+                    title: 'Visão Completa',
+                    description: 'Todos os dados sobre imagem satelital do Google Earth'
+                }
+            };
+            
+            const info = layerInfo[layer] || layerInfo.amazonLegal;
+            
+            const iconElement = document.getElementById('layer-icon');
+            const titleElement = document.getElementById('layer-title');
+            const descElement = document.getElementById('layer-description');
+            
+            if (iconElement) iconElement.textContent = info.icon;
+            if (titleElement) titleElement.textContent = info.title;
+            if (descElement) descElement.textContent = info.description;
+        }
+
+        // Escuta eventos de estatísticas
+        document.addEventListener('mapStatsUpdated', (event) => {
+            updateStatsDisplay(event.detail);
+        });
+
+        // Atualiza informações da camada ao clicar nos filtros
+        document.addEventListener('click', (e) => {
+            if (e.target.classList.contains('map-filter')) {
+                const layer = e.target.getAttribute('data-layer');
+                changeLayer(layer);
+            }
+        });
+            const layerInfo = {
+                satellite: {
+                    icon: '�',
+                    title: 'Imagem Satelital HD',
+                    description: 'Vista satelital HD da região amazônica em tempo real'
+                },
+                indigenous: {
+                    icon: '🏞️',
+                    title: 'Terras Indígenas',
+                    description: 'Territórios tradicionais demarcados - 305 etnias na Amazônia'
+                },
+                protected: {
+                    icon: '🛡️',
+                    title: 'Unidades de Conservação', 
+                    description: 'Parques nacionais, reservas e estações ecológicas'
+                },
+                cities: {
+                    icon: '🏙️',
+                    title: 'Centros Urbanos',
+                    description: 'Principais cidades: Manaus, Belém, Porto Velho, Rio Branco'
+                },
+                deforestation: {
+                    icon: '⚠️',
+                    title: 'Focos de Desmatamento',
+                    description: 'Áreas críticas de perda florestal monitoradas pelo INPE'
+                },
+                rivers: {
+                    icon: '�',
+                    title: 'Rede Hidrográfica',
+                    description: 'Principais rios da bacia amazônica e seus afluentes'
+                },
+                all: {
+                    icon: '🌍',
+                    title: 'Amazônia Completa',
+                    description: 'Visão integrada de todos os dados sobre imagem satelital'
+                }
+            };
+            
+            const info = layerInfo[layer] || layerInfo.satellite;
+            
+            document.getElementById('layer-icon').textContent = info.icon;
+            document.getElementById('layer-title').textContent = info.title;
+            document.getElementById('layer-description').textContent = info.description;
+        }
+        
+        function searchLocation() {
+            const query = document.getElementById('location-search').value;
+            if (mapsManager && query) {
+                mapsManager.searchLocation(query);
+            }
+        }
+        
+        function exportMapData() {
+            if (mapsManager) {
+                mapsManager.exportMapData();
+            }
+        }
+        
+        // Adiciona enter key para busca
+        document.getElementById('location-search').addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                searchLocation();
+            }
+        });
+        
+        console.log('🗺️ Demo do mapa avançado com dados IBGE carregado!');
+    </script>
+</body>
+</html>
+        

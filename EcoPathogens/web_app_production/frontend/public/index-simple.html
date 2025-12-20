@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🌳 EcoGuardians - NASA Space Apps Challenge 2025</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Open+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- CSS Inline para debug -->
+    <style>
+        :root {
+            --primary-color: #2E8B57;
+            --secondary-color: #228B22;
+            --accent-color: #FF6B35;
+            --text-primary: #212529;
+            --text-light: #FFFFFF;
+            --font-primary: 'Montserrat', sans-serif;
+            --font-secondary: 'Open Sans', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-secondary);
+            line-height: 1.6;
+            color: var(--text-primary);
+            background: #FFFFFF;
+        }
+
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #2E8B57 0%, #228B22 100%);
+            display: flex;
+            align-items: center;
+            padding: 2rem;
+        }
+
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .hero-title {
+            font-family: var(--font-primary);
+            font-size: 3.5rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            color: var(--text-light);
+        }
+
+        .title-line {
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .title-line.highlight {
+            color: #003d1a;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+            font-weight: 900;
+            font-size: 1.1em;
+        }
+
+        .hero-description {
+            font-size: 1.25rem;
+            line-height: 1.6;
+            color: rgba(255,255,255,0.9);
+            margin-bottom: 2rem;
+            max-width: 500px;
+        }
+
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .stat-card {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 12px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255,255,255,0.15);
+        }
+
+        .stat-value {
+            display: block;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--text-light);
+            margin-bottom: 0.25rem;
+        }
+
+        .stat-unit {
+            display: block;
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.8);
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-primary {
+            background: var(--accent-color);
+            color: var(--text-light);
+        }
+
+        .btn-primary:hover {
+            background: #e55a30;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--text-light);
+            border: 2px solid rgba(255,255,255,0.3);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255,255,255,0.1);
+            border-color: rgba(255,255,255,0.5);
+        }
+
+        .dashboard {
+            padding: 4rem 2rem;
+            background: #f8f9fa;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        .section-subtitle {
+            font-size: 1.2rem;
+            text-align: center;
+            color: #6c757d;
+            margin-bottom: 3rem;
+        }
+
+        .metric-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .metric-card {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            border: 1px solid #e9ecef;
+            transition: all 0.3s ease;
+        }
+
+        .metric-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+
+        .metric-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #6c757d;
+            margin-bottom: 0.5rem;
+        }
+
+        .metric-value {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .metric-trend {
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .trend-positive {
+            color: #dc3545;
+        }
+
+        .trend-negative {
+            color: #28a745;
+        }
+
+        .timeline {
+            padding: 4rem 2rem;
+            background: white;
+        }
+
+        @media (max-width: 768px) {
+            .hero-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+                text-align: center;
+            }
+
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .hero-stats {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-actions {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section id="hero" class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    <span class="title-line">🌳 EcoGuardians</span>
+                    <span class="title-line">Protegendo a</span>
+                    <span class="title-line highlight">Amazônia</span>
+                </h1>
+                <p class="hero-description">
+                    Sistema avançado de monitoramento ambiental com <strong>50 anos de dados históricos</strong> 
+                    e inteligência artificial para predições em tempo real.
+                </p>
+                <div class="hero-stats">
+                    <div class="stat-card">
+                        <span class="stat-value">758.470</span>
+                        <span class="stat-unit">km² desmatados</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-value">+1.3°C</span>
+                        <span class="stat-unit">aquecimento</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-value">7</span>
+                        <span class="stat-unit">modelos de IA</span>
+                    </div>
+                </div>
+                <div class="hero-actions">
+                    <button class="btn btn-primary" onclick="scrollToSection('dashboard')">
+                        📊 Ver Dashboard
+                    </button>
+                    <button class="btn btn-secondary" onclick="scrollToSection('timeline')">
+                        📈 Timeline 50 Anos
+                    </button>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div style="background: rgba(255,255,255,0.1); border-radius: 12px; padding: 2rem; text-align: center; color: white;">
+                    <h3>🗺️ Mapa Interativo</h3>
+                    <p>Visualização dos dados em tempo real</p>
+                    <div style="height: 200px; background: rgba(255,255,255,0.1); border-radius: 8px; margin-top: 1rem; display: flex; align-items: center; justify-content: center;">
+                        <span style="font-size: 3rem;">🌍</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dashboard Section -->
+    <section id="dashboard" class="dashboard">
+        <h2 class="section-title">📊 Dashboard Interativo</h2>
+        <p class="section-subtitle">Explore dados em tempo real e análises avançadas da Amazônia</p>
+        
+        <div class="metric-cards">
+            <div class="metric-card">
+                <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+                    <span style="font-size: 2rem;">🌳</span>
+                    <div>
+                        <h3 class="metric-title">Desmatamento</h3>
+                    </div>
+                </div>
+                <div class="metric-value">758.470</div>
+                <div class="metric-trend trend-positive">+23% últimos 10 anos</div>
+            </div>
+            
+            <div class="metric-card">
+                <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+                    <span style="font-size: 2rem;">🌡️</span>
+                    <div>
+                        <h3 class="metric-title">Temperatura</h3>
+                    </div>
+                </div>
+                <div class="metric-value">+1.3°C</div>
+                <div class="metric-trend trend-positive">Aquecimento acelerado</div>
+            </div>
+            
+            <div class="metric-card">
+                <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+                    <span style="font-size: 2rem;">🔥</span>
+                    <div>
+                        <h3 class="metric-title">Focos de Queimadas</h3>
+                    </div>
+                </div>
+                <div class="metric-value">2.211.979</div>
+                <div class="metric-trend trend-positive">Detecções por satélite</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline Section -->
+    <section id="timeline" class="timeline">
+        <h2 class="section-title">📈 Timeline de 50 Anos</h2>
+        <p class="section-subtitle">Explore a evolução histórica da Amazônia de 1975 a 2025</p>
+        
+        <div style="text-align: center; margin: 2rem 0;">
+            <div style="background: #f8f9fa; border-radius: 12px; padding: 2rem; max-width: 800px; margin: 0 auto;">
+                <div style="margin-bottom: 2rem;">
+                    <span style="font-size: 3rem; color: var(--primary-color);">2025</span>
+                    <p style="margin-top: 0.5rem; color: #6c757d;">Ano atual da análise</p>
+                </div>
+                
+                <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
+                    <button class="btn btn-primary" style="font-size: 1rem;">▶️ Play</button>
+                    <button class="btn btn-secondary" style="font-size: 1rem;">⏸️ Pause</button>
+                    <button class="btn btn-secondary" style="font-size: 1rem;">🔄 Reset</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer style="background: var(--primary-color); color: white; padding: 2rem; text-align: center;">
+        <h3>🏆 NASA Space Apps Challenge 2025</h3>
+        <p style="margin: 1rem 0;">O EcoGuardians é um sistema revolucionário de monitoramento ambiental desenvolvido para o NASA Space Apps Challenge 2025.</p>
+        <p style="color: rgba(255,255,255,0.8);">© 2025 EcoGuardians | Protegendo a Amazônia com tecnologia e dados</p>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Função para scroll suave
+        function scrollToSection(sectionId) {
+            const element = document.getElementById(sectionId);
+            if (element) {
+                element.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+                console.log(`Navegando para: ${sectionId}`);
+            }
+        }
+
+        // Animações simples ao carregar
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('🚀 EcoGuardians carregado com sucesso!');
+            
+            // Animar cards ao hover
+            const cards = document.querySelectorAll('.stat-card, .metric-card');
+            cards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-5px)';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0)';
+                });
+            });
+        });
+    </script>
+</body>
+</html>

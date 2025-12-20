@@ -1,0 +1,46 @@
+{
+  "name": "ecoguardians-frontend",
+  "version": "1.0.0",
+  "description": "🌳 EcoGuardians Frontend - NASA Space Apps Challenge 2025 (Pure HTML + GSAP Premium)",
+  "main": "index.html",
+  "scripts": {
+    "start": "live-server --port=3000 --open=/index.html",
+    "build": "node scripts/build.js",
+    "deploy": "node scripts/deploy.js",
+    "optimize": "node scripts/optimize.js",
+    "compress": "gzip -9 dist/js/*.js && gzip -9 dist/css/*.css"
+  },
+  "dependencies": {
+    "axios": "^1.4.0",
+    "chart.js": "^4.3.0",
+    "leaflet": "^1.9.4",
+    "plotly.js-dist": "^2.26.0",
+    "date-fns": "^2.30.0",
+    "lodash": "^4.17.21"
+  },
+  "devDependencies": {
+    "live-server": "^1.2.2",
+    "uglify-js": "^3.17.4",
+    "clean-css": "^5.3.2",
+    "html-minifier": "^4.0.0",
+    "imagemin": "^8.0.1",
+    "imagemin-webp": "^8.0.0",
+    "imagemin-mozjpeg": "^10.0.0"
+  },
+  "gsap": {
+    "version": "premium",
+    "plugins": [
+      "ScrollTrigger",
+      "MotionPath",
+      "MorphSVG", 
+      "DrawSVG",
+      "SplitText",
+      "ScrollSmoother",
+      "CustomEase",
+      "InertiaPlugin",
+      "Physics2D",
+      "ThrowProps"
+    ],
+    "note": "🎉 GSAP Premium plugins disponíveis localmente!"
+  }
+}

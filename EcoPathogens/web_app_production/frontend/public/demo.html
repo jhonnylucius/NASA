@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎬 Teste da Introdução Cinematográfica - EcoGuardians</title>
+    
+    <!-- GSAP CDN para teste -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/CustomEase.min.js"></script>
+    
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background: #000;
+            color: white;
+            overflow: hidden;
+        }
+        
+        #main-content {
+            padding: 20px;
+            text-align: center;
+            opacity: 0;
+        }
+        
+        h1 {
+            font-size: 3rem;
+            margin: 2rem 0;
+            background: linear-gradient(45deg, #2E8B57, #228B22);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .demo-info {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+            background: rgba(255,255,255,0.1);
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .demo-info h2 {
+            color: #2E8B57;
+            margin-bottom: 1rem;
+        }
+        
+        .demo-info ul {
+            text-align: left;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .demo-info li {
+            margin: 0.5rem 0;
+            padding-left: 1rem;
+        }
+        
+        .tech-badge {
+            display: inline-block;
+            padding: 0.3rem 0.8rem;
+            margin: 0.2rem;
+            background: #2E8B57;
+            border-radius: 20px;
+            font-size: 0.8rem;
+        }
+        
+        .controls {
+            margin: 2rem 0;
+        }
+        
+        .btn {
+            padding: 12px 24px;
+            margin: 10px;
+            background: #2E8B57;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .btn:hover {
+            background: #228B22;
+            transform: translateY(-2px);
+        }
+        
+        .btn.secondary {
+            background: #FF6B35;
+        }
+        
+        .btn.secondary:hover {
+            background: #e55a2e;
+        }
+        
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+        }
+        
+        .stat {
+            text-align: center;
+            padding: 1rem;
+            background: rgba(46, 139, 87, 0.2);
+            border-radius: 8px;
+            min-width: 120px;
+        }
+        
+        .stat-value {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #2E8B57;
+            display: block;
+        }
+        
+        .stat-label {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body>
+    
+    <div id="main-content">
+        <h1>🌳 EcoGuardians</h1>
+        
+        <div class="demo-info">
+            <h2>🎬 Demonstração da Introdução Cinematográfica</h2>
+            
+            <div class="stats">
+                <div class="stat">
+                    <span class="stat-value">128+</span>
+                    <span class="stat-label">Imagens Reais</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-value">125</span>
+                    <span class="stat-label">Desastres</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-value">3</span>
+                    <span class="stat-label">Planetas</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-value">16</span>
+                    <span class="stat-label">Categorias</span>
+                </div>
+            </div>
+            
+            <h3>✨ Características da Introdução:</h3>
+            <ul>
+                <li>🖼️ <strong>128+ imagens REAIS</strong> do seu projeto aparecendo rapidamente (0.6s cada)</li>
+                <li>📂 <strong>16 categorias</strong>: derretimento, desmatamento, queimadas, enchentes, epidemias, vulcões, etc.</li>
+                <li>🎯 <strong>Imagens ficam na tela</strong> se sobrepondo como fotos espalhadas numa mesa</li>
+                <li>🔄 <strong>Rotação e escala</strong> animadas com GSAP Premium</li>
+                <li>🔥 <strong>3 imagens em triângulo</strong>: EMCHAMAS.jpg (topo), DERRETENDO.jpg (esquerda), DOENTE.jpg (direita)</li>
+                <li>🌋 <strong>Disposição ao redor do título</strong> no centro da tela em formato triangular</li>
+                <li>🔥 <strong>Efeito de queimadura</strong> de baixo para cima nas 3 imagens maiores</li>
+                <li>📊 <strong>Barra de progresso</strong> mostrando categorias sendo processadas</li>
+                <li>⚡ <strong>Transição suave</strong> para aplicação principal</li>
+                <li>📱 <strong>Design responsivo</strong> para mobile e desktop</li>
+            </ul>
+            
+            <h3>🛠️ Tecnologias Utilizadas:</h3>
+            <div>
+                <span class="tech-badge">GSAP Premium</span>
+                <span class="tech-badge">ScrollTrigger</span>
+                <span class="tech-badge">CustomEase</span>
+                <span class="tech-badge">Physics2D</span>
+                <span class="tech-badge">JavaScript ES6+</span>
+                <span class="tech-badge">CSS3 Animations</span>
+                <span class="tech-badge">Responsive Design</span>
+                <span class="tech-badge">Real Images</span>
+            </div>
+            
+            <div class="controls">
+                <button class="btn" onclick="startDemo()">
+                    🎬 Iniciar Demonstração
+                </button>
+                <button class="btn secondary" onclick="skipToApp()">
+                    ⏭️ Pular para App
+                </button>
+                <button class="btn" onclick="location.reload()">
+                    🔄 Reiniciar
+                </button>
+                <button class="btn" onclick="showRealImagesList()" style="background: #8B4513;">
+                    📋 Ver Lista de Imagens
+                </button>
+                <button class="btn" onclick="generateDetailedReport()" style="background: #6A5ACD;">
+                    🔍 Relatório Detalhado
+                </button>
+            </div>
+            
+            <p><strong>🎉 Agora usando as suas 128+ imagens REAIS!</strong><br>
+            <em>Sistema automaticamente carrega: DERRETIMENTOCALOTASPOLARES*.jpg, DESMATAMENTOAWS*.jpg, 
+            QUEIMADAS*.jpg, ENCHENTES*.jpg, EPIDEMIAS*.jpg, VULCAO*.jpg, TORNADO*.jpg, INDIGINAS*.jpg, 
+            e todas as outras categorias do seu projeto!</em></p>
+            
+            <div style="margin-top: 20px; padding: 15px; background: rgba(46, 139, 87, 0.2); border-radius: 8px; border-left: 4px solid #2E8B57;">
+                <h4 style="margin: 0 0 10px 0; color: #2E8B57;">🔗 Integração com Aplicação Principal</h4>
+                <p style="margin: 0; font-size: 0.9rem;">
+                    • <strong>index.html</strong>: Introdução cinematográfica + aplicação completa<br>
+                    • <strong>demo.html</strong>: Apenas demonstração da introdução<br>
+                    • <strong>Integração inteligente</strong>: Detecta performance e pula automaticamente se necessário<br>
+                    • <strong>Controles</strong>: Ctrl+Alt+I (reiniciar), Ctrl+Alt+S (pular), Ctrl+Alt+R (reset)
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts da introdução cinematográfica -->
+    <script src="assets/js/image-verifier.js"></script>
+    <script src="assets/js/cinematic-intro.js"></script>
+    <script src="assets/js/local-test.js"></script>
+    
+    <script>
+        // Registra plugins GSAP
+        gsap.registerPlugin(ScrollTrigger, CustomEase);
+        
+        function startDemo() {
+            // Esconde conteúdo principal
+            gsap.to('#main-content', {
+                duration: 1,
+                opacity: 0,
+                y: -50,
+                ease: 'power2.in',
+                onComplete: () => {
+                    document.getElementById('main-content').style.display = 'none';
+                    
+                    // Inicia a introdução cinematográfica
+                    if (window.CinematicIntro) {
+                        new window.CinematicIntro();
+                    } else {
+                        console.error('CinematicIntro não encontrado!');
+                    }
+                }
+            });
+        }
+        
+        function skipToApp() {
+            gsap.to('#main-content', {
+                duration: 1,
+                opacity: 0,
+                scale: 0.8,
+                ease: 'power2.in',
+                onComplete: () => {
+                    document.body.innerHTML = `
+                        <div style="
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            height: 100vh;
+                            text-align: center;
+                            flex-direction: column;
+                        ">
+                            <h1 style="font-size: 4rem; margin-bottom: 2rem;">🌳 EcoGuardians</h1>
+                            <h2 style="color: #2E8B57; margin-bottom: 2rem;">Aplicação Principal</h2>
+                            <p style="font-size: 1.2rem; max-width: 600px; opacity: 0.8;">
+                                Aqui seria carregado o dashboard completo com dados históricos de 50 anos,
+                                modelos de IA, mapas interativos e análises em tempo real da Amazônia.
+                            </p>
+                            <button onclick="location.reload()" style="
+                                padding: 15px 30px;
+                                margin-top: 2rem;
+                                background: #2E8B57;
+                                color: white;
+                                border: none;
+                                border-radius: 8px;
+                                font-size: 1.1rem;
+                                cursor: pointer;
+                            ">🔄 Voltar ao Início</button>
+                        </div>
+                    `;
+                }
+            });
+        }
+        
+        function showRealImagesList() {
+            const imagesByCategory = {
+                "🧊 Derretimento e Calotas": [
+                    "5DERRETIMENTOCALOTASPOLARES14.jpg", "DERRETENDO.jpg", "DERRETIMENTOCALOTASPOLARES.jpg",
+                    "DERRETIMENTOCALOTASPOLARES1.jpg até DERRETIMENTOCALOTASPOLARES15.jpg"
+                ],
+                "🌳 Desmatamento": [
+                    "DESMATAMENTOAWS.jpg", "DESMATAMENTOAWS1.jpg até DESMATAMENTOAWS11.jpg"
+                ],
+                "🔥 Queimadas": [
+                    "EMCHAMAS.jpg", "QUEIMADAS.jpg", "QUEIMADAS1.jpg até QUEIMADAS9.jpg"
+                ],
+                "💧 Enchentes": [
+                    "ENCHENTES.jpg", "ENCHENTES1.jpg até ENCHENTES9.jpg"
+                ],
+                "🦠 Epidemias e Vírus": [
+                    "EPIDEMIAS.jpg", "EPIDEMIAS1.jpg até EPIDEMIAS8.jpg", "EPIDEMIASAGRICOLA.jpg",
+                    "VIRUS.jpg", "VIRUS1.jpg até VIRUS5.jpg"
+                ],
+                "🌪️ Tornados e Furacões": [
+                    "FURACAO-TORNADO.jpg", "FURACAO.jpg", "FURACAO1.jpg",
+                    "TORNADO.jpg", "TORNADO1.jpg até TORNADO7.jpg"
+                ],
+                "🌋 Vulcões": [
+                    "VULCAO.jpg", "VULCAO1.jpg até VULCAO4.jpg"
+                ],
+                "🏞️ Indígenas": [
+                    "INDIGINAS.jpg", "INDIGINAS1.jpg até INDIGINAS9.jpg"
+                ],
+                "⛏️ Garimpo Ilegal": [
+                    "GARIMPOILEGAL.jpg", "GARIMPOILEGAL1.jpg até GARIMPOILEGAL5.jpg"
+                ],
+                "😷 Sofrimento": [
+                    "DOENTE.jpg", "SOFRIMENTO.jpg", "SOFRIMENTO1.jpg até SOFRIMENTO5.jpg"
+                ],
+                "🌍 Planetas Especiais": [
+                    "PLANETA.jpg", "PLANETA1.jpg", "PLANETA2.jpg", "PLANETA3.jpg"
+                ]
+            };
+            
+            const listWindow = window.open('', '_blank', 'width=800,height=600');
+            listWindow.document.write(`
+                <html>
+                    <head>
+                        <title>📋 Lista Completa de Imagens - EcoGuardians</title>
+                        <style>
+                            body { font-family: Arial; padding: 20px; background: #1a1a1a; color: white; line-height: 1.6; }
+                            .category { margin: 20px 0; padding: 15px; background: #333; border-radius: 8px; }
+                            .category h3 { color: #2E8B57; margin-top: 0; }
+                            .images { margin-left: 20px; }
+                            .image-item { margin: 5px 0; padding: 5px; background: #444; border-radius: 4px; font-family: monospace; }
+                            h1 { color: #2E8B57; text-align: center; }
+                            .total { text-align: center; background: #2E8B57; color: white; padding: 15px; border-radius: 8px; margin-bottom: 20px; }
+                        </style>
+                    </head>
+                    <body>
+                        <h1>📋 Lista Completa de Imagens Reais</h1>
+                        <div class="total">
+                            <strong>Total: 128+ imagens reais do projeto</strong><br>
+                            Organizadas por categoria de impacto ambiental
+                        </div>
+                        ${Object.entries(imagesByCategory).map(([category, images]) => `
+                            <div class="category">
+                                <h3>${category}</h3>
+                                <div class="images">
+                                    ${images.map(img => `<div class="image-item">📄 ${img}</div>`).join('')}
+                                </div>
+                            </div>
+                        `).join('')}
+                        <div style="text-align: center; margin-top: 30px; padding: 20px; background: #444; border-radius: 8px;">
+                            <h3>🎬 Como funciona na introdução:</h3>
+                            <p>1. <strong>125 imagens de desastres</strong> aparecem rapidamente na tela (0.8s cada)</p>
+                            <p>2. <strong>3 planetas</strong> (PLANETA1, PLANETA2, PLANETA3) aparecem no final</p>
+                            <p>3. <strong>Efeito de queimadura</strong> de baixo para cima nos planetas</p>
+                            <p>4. <strong>Transição suave</strong> para aplicação principal</p>
+                        </div>
+                    </body>
+                </html>
+            `);
+        }
+        
+        // Anima entrada da página inicial
+        window.addEventListener('load', () => {
+            gsap.fromTo('#main-content', 
+                {
+                    opacity: 0,
+                    y: 50
+                },
+                {
+                    duration: 2,
+                    opacity: 1,
+                    y: 0,
+                    ease: 'power3.out'
+                }
+            );
+        });
+        
+        // Adiciona efeito de partículas de fundo
+        function createBackgroundParticles() {
+            for (let i = 0; i < 50; i++) {
+                const particle = document.createElement('div');
+                particle.style.cssText = `
+                    position: fixed;
+                    width: 2px;
+                    height: 2px;
+                    background: rgba(46, 139, 87, 0.5);
+                    border-radius: 50%;
+                    pointer-events: none;
+                    z-index: -1;
+                `;
+                
+                document.body.appendChild(particle);
+                
+                gsap.set(particle, {
+                    x: Math.random() * window.innerWidth,
+                    y: Math.random() * window.innerHeight
+                });
+                
+                gsap.to(particle, {
+                    duration: Math.random() * 20 + 10,
+                    x: Math.random() * window.innerWidth,
+                    y: Math.random() * window.innerHeight,
+                    repeat: -1,
+                    ease: 'none'
+                });
+            }
+        }
+        
+        createBackgroundParticles();
+        
+        console.log('🎬 Página de demonstração carregada!');
+        console.log('✨ Clique em "Iniciar Demonstração" para ver a introdução cinematográfica');
+    </script>
+</body>
+</html>

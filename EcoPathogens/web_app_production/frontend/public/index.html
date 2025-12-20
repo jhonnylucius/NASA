@@ -38,6 +38,7 @@
     <link rel="stylesheet" href="/assets/css/epic.css">
     <link rel="stylesheet" href="/assets/css/donki.css">
     <link rel="stylesheet" href="/assets/css/firms.css">
+    <link rel="stylesheet" href="/assets/css/eonet.css">
 
     <!-- Plotly.js -->
     <script src="https://cdn.plot.ly/plotly-2.26.0.min.js"></script>
@@ -738,13 +739,138 @@
                     <div class="firms-info">
                         <div class="firms-info-title">ℹ️ Sobre os Dados</div>
                         <p class="firms-info-text">
-                            Os dados de queimadas são obtidos em tempo quase real do sistema FIRMS (Fire Information for Resource Management System) da NASA.
-                            Os satélites VIIRS e MODIS detectam anomalias térmicas na superfície terrestre, identificando focos de incêndio ativos.
+                            Os dados de queimadas são obtidos em tempo quase real do sistema FIRMS (Fire Information for
+                            Resource Management System) da NASA.
+                            Os satélites VIIRS e MODIS detectam anomalias térmicas na superfície terrestre,
+                            identificando focos de incêndio ativos.
                             A potência radiativa do fogo (FRP) indica a intensidade da queimada em megawatts.
                         </p>
                         <p class="firms-info-source">
                             Fonte: <a href="https://firms.modaps.eosdis.nasa.gov/" target="_blank">NASA FIRMS</a> |
                             Última atualização: <span id="firms-last-updated">--</span>
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 🌍 EONET Natural Events Section -->
+            <section id="natural-events" class="eonet-section">
+                <div class="container">
+                    <div class="section-header">
+                        <h2 class="section-title">🌍 Desastres Naturais</h2>
+                        <p class="section-description">
+                            Rastreamento global de eventos naturais em tempo real - Vulcões, Tempestades, Terremotos e
+                            mais
+                        </p>
+                    </div>
+
+                    <!-- Category Filters -->
+                    <div class="eonet-categories">
+                        <button class="eonet-category-btn active" data-category="all">
+                            <span class="icon">🌍</span>
+                            <span class="text">Todos</span>
+                        </button>
+                        <button class="eonet-category-btn" data-category="wildfires">
+                            <span class="icon">🔥</span>
+                            <span class="text">Incêndios</span>
+                        </button>
+                        <button class="eonet-category-btn" data-category="volcanoes">
+                            <span class="icon">🌋</span>
+                            <span class="text">Vulcões</span>
+                        </button>
+                        <button class="eonet-category-btn" data-category="severeStorms">
+                            <span class="icon">🌀</span>
+                            <span class="text">Tempestades</span>
+                        </button>
+                        <button class="eonet-category-btn" data-category="earthquakes">
+                            <span class="icon">🌍</span>
+                            <span class="text">Terremotos</span>
+                        </button>
+                        <button class="eonet-category-btn" data-category="floods">
+                            <span class="icon">🌊</span>
+                            <span class="text">Inundações</span>
+                        </button>
+                        <button class="eonet-category-btn" data-category="landslides">
+                            <span class="icon">⛰️</span>
+                            <span class="text">Deslizamentos</span>
+                        </button>
+                        <button class="eonet-category-btn" data-category="drought">
+                            <span class="icon">☀️</span>
+                            <span class="text">Secas</span>
+                        </button>
+                        <button class="eonet-category-btn" data-category="seaLakeIce">
+                            <span class="icon">🧊</span>
+                            <span class="text">Gelo</span>
+                        </button>
+                    </div>
+
+                    <!-- Controls -->
+                    <div class="eonet-controls">
+                        <button class="eonet-btn" id="eonet-refresh">🔄 Atualizar Eventos</button>
+                        <button class="eonet-btn eonet-btn-secondary" id="eonet-focus-brazil">🇧🇷 Brasil</button>
+                        <button class="eonet-btn eonet-btn-secondary" id="eonet-focus-world">🌍 Mundo</button>
+                    </div>
+
+                    <!-- Main Content -->
+                    <div class="eonet-content">
+                        <!-- Map -->
+                        <div class="eonet-map-container">
+                            <div id="eonet-map"></div>
+                            <div class="eonet-loading" id="eonet-loading">
+                                <div class="eonet-loading-globe"></div>
+                                <span class="eonet-loading-text">Carregando eventos globais...</span>
+                            </div>
+                        </div>
+
+                        <!-- Events Sidebar -->
+                        <div class="eonet-sidebar">
+                            <div class="eonet-sidebar-header">
+                                <h3>📍 Eventos Recentes</h3>
+                            </div>
+                            <div class="eonet-events-scroll" id="eonet-events">
+                                <div class="eonet-loading-text">Carregando...</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Statistics -->
+                    <div class="eonet-stats">
+                        <div class="eonet-stat-card">
+                            <div class="eonet-stat-icon">🌍</div>
+                            <div class="eonet-stat-value" id="eonet-total-events">0</div>
+                            <div class="eonet-stat-label">Total de Eventos</div>
+                        </div>
+                        <div class="eonet-stat-card">
+                            <div class="eonet-stat-icon">🔥</div>
+                            <div class="eonet-stat-value" id="eonet-wildfires-count">0</div>
+                            <div class="eonet-stat-label">Incêndios Florestais</div>
+                        </div>
+                        <div class="eonet-stat-card">
+                            <div class="eonet-stat-icon">🌀</div>
+                            <div class="eonet-stat-value" id="eonet-storms-count">0</div>
+                            <div class="eonet-stat-label">Tempestades</div>
+                        </div>
+                        <div class="eonet-stat-card">
+                            <div class="eonet-stat-icon">🌋</div>
+                            <div class="eonet-stat-value" id="eonet-volcanoes-count">0</div>
+                            <div class="eonet-stat-label">Vulcões Ativos</div>
+                        </div>
+                    </div>
+
+                    <!-- Info Panel -->
+                    <div class="eonet-info">
+                        <div class="eonet-info-title">ℹ️ Sobre o EONET</div>
+                        <p class="eonet-info-text">
+                            O Earth Observatory Natural Event Tracker (EONET) é um sistema da NASA que rastreia eventos
+                            naturais ao redor do mundo em tempo real.
+                            Os dados incluem vulcões, furacões, terremotos, incêndios florestais, inundações e outros
+                            fenômenos naturais.
+                            Clique em um evento no mapa para ver mais detalhes ou use os filtros para explorar
+                            categorias específicas.
+                        </p>
+                        <p class="eonet-info-source">
+                            Fonte: <a href="https://eonet.gsfc.nasa.gov/" target="_blank">NASA EONET</a> |
+                            Última atualização: <span id="eonet-last-updated">--</span>
                         </p>
                     </div>
                 </div>
@@ -993,6 +1119,7 @@
     <script src="/assets/js/footer-nav.js"></script>
     <script src="/assets/js/predictions.js"></script>
     <script src="/assets/js/firms.js"></script>
+    <script src="/assets/js/eonet.js"></script>
     <script src="/assets/js/animations.js"></script>
     <script src="/assets/js/main.js"></script>
 

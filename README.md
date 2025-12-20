@@ -8,7 +8,7 @@
 [![Leaflet](https://img.shields.io/badge/Leaflet-Maps-199900?style=for-the-badge&logo=leaflet)](https://leafletjs.com/)
 [![JavaScript](https://img.shields.io/badge/JavaScript-ES6+-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)](https://developer.mozilla.org/)
 
-<img src="frontend\dev\assets\images\INDIGINAS7.jpg" alt="EcoGuardians Preview" width="600">
+<img src="..\frontend\dev\assets\images\INDIGINAS7.jpg" alt="EcoGuardians Preview" width="600">
 
 **Plataforma de monitoramento ambiental com 50 anos de dados históricos e inteligência artificial**
 
@@ -317,3 +317,4 @@ Este projeto está sob a licença GLP-3.0. Veja o arquivo [LICENSE](LICENSE) par
 © 2025 EcoGuardians | UNION Desenvolvimento de Softwares
 
 </div>
+

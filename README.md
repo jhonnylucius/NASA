@@ -317,3 +317,5 @@ Este projeto está sob a licença GLP-3.0. Veja o arquivo [LICENSE](LICENSE) par
 © 2025 EcoGuardians | UNION Desenvolvimento de Softwares
 
 </div>
+
+

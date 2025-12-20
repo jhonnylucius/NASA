@@ -106,7 +106,7 @@ body {
 }
 
 .hero-content h1 {
-    font-size: 3.5rem;
+    font-size: 2.8rem;
     margin-bottom: 1.5rem;
     font-weight: 700;
 }
@@ -165,7 +165,8 @@ body {
     flex-wrap: wrap;
 }
 
-.btn-primary, .btn-secondary {
+.btn-primary,
+.btn-secondary {
     padding: 1rem 2rem;
     border: none;
     border-radius: 25px;
@@ -773,41 +774,41 @@ body {
 /* Responsive Design */
 @media (max-width: 768px) {
     .hero-content h1 {
-        font-size: 2.5rem;
+        font-size: 1.8rem;
     }
-    
+
     .hero-content p {
         font-size: 1.1rem;
     }
-    
+
     .stats-grid {
         grid-template-columns: 1fr;
     }
-    
+
     .dashboard-grid,
     .predictions-grid {
         grid-template-columns: 1fr;
     }
-    
+
     .decades-grid,
     .scenarios-grid {
         grid-template-columns: 1fr;
     }
-    
+
     .filter-buttons {
         flex-direction: column;
         align-items: center;
     }
-    
+
     .image-grid {
         grid-template-columns: 1fr;
     }
-    
+
     .cta-buttons {
         flex-direction: column;
         align-items: center;
     }
-    
+
     .mission-stats {
         grid-template-columns: 1fr;
     }

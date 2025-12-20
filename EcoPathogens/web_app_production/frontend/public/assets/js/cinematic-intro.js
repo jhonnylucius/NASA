@@ -1289,33 +1289,48 @@ class CinematicIntro {
         const smoothWrapper = document.getElementById('smooth-wrapper');
         if (smoothWrapper) {
             smoothWrapper.style.pointerEvents = 'auto';
+            smoothWrapper.style.opacity = '1';
+
+            // CORREÇÃO: Define estados iniciais e anima para estados finais visíveis
+            // Usando gsap.set() para definir estado inicial e gsap.to() para animar para visível
+
+            // Define estados iniciais
+            gsap.set('.hero-title .title-line', { y: 50, opacity: 0 });
+            gsap.set('.hero-description', { y: 30, opacity: 0 });
+            gsap.set('.hero-stats .stat-card', { y: 30, opacity: 0 });
+            gsap.set('.hero-text', { opacity: 1, x: 0 });
+            gsap.set('.hero-visual', { opacity: 1, x: 0 });
+            gsap.set('.metric-card', { opacity: 1, y: 0 });
 
             // Animação de entrada da aplicação principal
             gsap.timeline()
                 .to(smoothWrapper, {
-                    duration: 2,
+                    duration: 1,
                     opacity: 1,
                     ease: 'power2.out'
                 })
-                .from('.hero-title .title-line', {
+                .to('.hero-title .title-line', {
                     duration: 1.5,
-                    y: 100,
-                    opacity: 0,
+                    y: 0,
+                    opacity: 1,
                     stagger: 0.2,
-                    ease: 'power3.out'
-                }, '-=1')
-                .from('.hero-description', {
-                    duration: 1,
-                    y: 50,
-                    opacity: 0,
-                    ease: 'power2.out'
+                    ease: 'power3.out',
+                    clearProps: 'all'
                 }, '-=0.5')
-                .from('.hero-stats .stat-card', {
+                .to('.hero-description', {
                     duration: 1,
-                    y: 50,
-                    opacity: 0,
+                    y: 0,
+                    opacity: 1,
+                    ease: 'power2.out',
+                    clearProps: 'all'
+                }, '-=1')
+                .to('.hero-stats .stat-card', {
+                    duration: 1,
+                    y: 0,
+                    opacity: 1,
                     stagger: 0.1,
-                    ease: 'power2.out'
+                    ease: 'power2.out',
+                    clearProps: 'all'
                 }, '-=0.5');
         }
 

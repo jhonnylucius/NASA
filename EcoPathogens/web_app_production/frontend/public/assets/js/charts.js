@@ -18,11 +18,23 @@ class ChartsManager {
     init() {
         console.log('📊 ChartsManager inicializado');
         this.setupEventListeners();
-        
+
         // Aguardar dados serem carregados
         window.addEventListener('dataLoaded', (event) => {
+            console.log('✅ Dados recebidos via evento dataLoaded');
             this.createAllCharts(event.detail);
         });
+
+        // ✅ FALLBACK: Se dados já existem, usa diretamente
+        setTimeout(() => {
+            if (window.dataLoader?.historicalData && !this.charts.has('timeline')) {
+                console.log('📊 Carregando charts com dados existentes (fallback)');
+                this.createAllCharts({
+                    historical: window.dataLoader.historicalData,
+                    realTime: window.dataLoader.realTimeData
+                });
+            }
+        }, 1000);
     }
 
     setupEventListeners() {
@@ -48,23 +60,78 @@ class ChartsManager {
                 this.updatePredictions('precipitation', parseInt(e.target.value));
             });
         }
+
+        // ✅ NOVO: Controles da Timeline (Play/Pause/Reset)
+        this.setupTimelineControls();
+    }
+
+    setupTimelineControls() {
+        const playBtn = document.getElementById('play-timeline');
+        const pauseBtn = document.getElementById('pause-timeline');
+        const resetBtn = document.getElementById('reset-timeline');
+        const yearSlider = document.getElementById('year-range');
+
+        this.timelineInterval = null;
+        this.isPlaying = false;
+
+        if (playBtn) {
+            playBtn.addEventListener('click', () => {
+                if (!this.isPlaying) {
+                    console.log('▶️ Play timeline');
+                    this.isPlaying = true;
+                    this.timelineInterval = setInterval(() => {
+                        const current = parseInt(yearSlider.value);
+                        if (current >= 2025) {
+                            yearSlider.value = 1975;
+                        } else {
+                            yearSlider.value = current + 1;
+                        }
+                        this.updateChartsForYear(parseInt(yearSlider.value));
+                    }, 500); // Avança 1 ano a cada 500ms
+                }
+            });
+        }
+
+        if (pauseBtn) {
+            pauseBtn.addEventListener('click', () => {
+                console.log('⏸️ Pause timeline');
+                this.isPlaying = false;
+                if (this.timelineInterval) {
+                    clearInterval(this.timelineInterval);
+                    this.timelineInterval = null;
+                }
+            });
+        }
+
+        if (resetBtn) {
+            resetBtn.addEventListener('click', () => {
+                console.log('🔄 Reset timeline');
+                this.isPlaying = false;
+                if (this.timelineInterval) {
+                    clearInterval(this.timelineInterval);
+                    this.timelineInterval = null;
+                }
+                yearSlider.value = 1975;
+                this.updateChartsForYear(1975);
+            });
+        }
     }
 
     createAllCharts(data) {
         if (!data.historical) return;
-        
+
         // Gráficos das métricas
         this.createDeforestationChart(data.historical);
         this.createFiresChart(data.historical);
         this.createTemperatureChart(data.historical);
         this.createBiodiversityChart(data.historical);
-        
+
         // Gráfico da timeline
         this.createTimelineChart(data.historical);
-        
+
         // Gráficos de predição
         this.createPredictionCharts(data.historical);
-        
+
         // Gráfico hero
         this.createHeroChart(data.historical);
     }
@@ -97,9 +164,9 @@ class ChartsManager {
             font: { family: 'Open Sans', size: 12 }
         };
 
-        Plotly.newPlot(element, [trace], layout, { 
-            responsive: true, 
-            displayModeBar: false 
+        Plotly.newPlot(element, [trace], layout, {
+            responsive: true,
+            displayModeBar: false
         });
 
         this.charts.set('deforestation', { element, trace, layout });
@@ -116,7 +183,7 @@ class ChartsManager {
             x: years,
             y: values,
             type: 'bar',
-            marker: { 
+            marker: {
                 color: values.map(v => v > 80000 ? this.colors.danger : this.colors.warning),
                 line: { width: 0 }
             },
@@ -134,9 +201,9 @@ class ChartsManager {
             font: { family: 'Open Sans', size: 12 }
         };
 
-        Plotly.newPlot(element, [trace], layout, { 
-            responsive: true, 
-            displayModeBar: false 
+        Plotly.newPlot(element, [trace], layout, {
+            responsive: true,
+            displayModeBar: false
         });
 
         this.charts.set('fires', { element, trace, layout });
@@ -166,9 +233,9 @@ class ChartsManager {
             showlegend: false,
             margin: { l: 40, r: 20, t: 20, b: 40 },
             xaxis: { showgrid: false, zeroline: false },
-            yaxis: { 
-                showgrid: true, 
-                zeroline: true, 
+            yaxis: {
+                showgrid: true,
+                zeroline: true,
                 zerolinecolor: '#ccc',
                 gridcolor: '#f0f0f0',
                 title: 'Anomalia (°C)'
@@ -178,9 +245,9 @@ class ChartsManager {
             font: { family: 'Open Sans', size: 12 }
         };
 
-        Plotly.newPlot(element, [trace], layout, { 
-            responsive: true, 
-            displayModeBar: false 
+        Plotly.newPlot(element, [trace], layout, {
+            responsive: true,
+            displayModeBar: false
         });
 
         this.charts.set('temperature', { element, trace, layout });
@@ -198,7 +265,7 @@ class ChartsManager {
             y: values,
             type: 'scatter',
             mode: 'lines+markers',
-            line: { 
+            line: {
                 color: this.colors.success,
                 width: 3,
                 shape: 'spline',
@@ -213,9 +280,9 @@ class ChartsManager {
             showlegend: false,
             margin: { l: 40, r: 20, t: 20, b: 40 },
             xaxis: { showgrid: false, zeroline: false },
-            yaxis: { 
-                showgrid: true, 
-                zeroline: false, 
+            yaxis: {
+                showgrid: true,
+                zeroline: false,
                 gridcolor: '#f0f0f0',
                 tickformat: '.0s'
             },
@@ -224,9 +291,9 @@ class ChartsManager {
             font: { family: 'Open Sans', size: 12 }
         };
 
-        Plotly.newPlot(element, [trace], layout, { 
-            responsive: true, 
-            displayModeBar: false 
+        Plotly.newPlot(element, [trace], layout, {
+            responsive: true,
+            displayModeBar: false
         });
 
         this.charts.set('biodiversity', { element, trace, layout });
@@ -234,7 +301,23 @@ class ChartsManager {
 
     createTimelineChart(data) {
         const element = document.getElementById('timeline-chart');
-        if (!element) return;
+        if (!element) {
+            console.warn('⚠️ Elemento #timeline-chart não encontrado');
+            return;
+        }
+
+        if (!data || data.length === 0) {
+            console.warn('⚠️ Dados vazios para timeline');
+            element.innerHTML = `
+                <div style="padding: 60px 20px; text-align: center; color: #666; background: #f5f5f5; border-radius: 8px;">
+                    <div style="font-size: 48px; margin-bottom: 15px;">⌛</div>
+                    <p style="font-size: 16px; margin: 0;">Aguardando dados da timeline...</p>
+                </div>
+            `;
+            return;
+        }
+
+        console.log(`📊 Criando timeline com ${data.length} pontos de dados`);
 
         const years = data.map(d => d.year);
         const deforestation = data.map(d => d.deforestation);
@@ -287,13 +370,21 @@ class ChartsManager {
             font: { family: 'Open Sans', size: 12 }
         };
 
-        Plotly.newPlot(element, traces, layout, { 
-            responsive: true, 
+        Plotly.newPlot(element, traces, layout, {
+            responsive: true,
             displayModeBar: true,
             modeBarButtonsToAdd: ['pan2d', 'lasso2d']
         });
 
         this.charts.set('timeline', { element, traces, layout });
+        console.log('✅ Timeline chart criado com sucesso');
+
+        // ✅ Inicializa mostrando apenas dados até o ano do slider
+        const yearSlider = document.getElementById('year-range');
+        if (yearSlider) {
+            const currentYear = parseInt(yearSlider.value);
+            this.updateChartsForYear(currentYear);
+        }
     }
 
     createPredictionCharts(data) {
@@ -367,9 +458,9 @@ class ChartsManager {
             font: { family: 'Open Sans', size: 12 }
         };
 
-        Plotly.newPlot(element, traces, layout, { 
-            responsive: true, 
-            displayModeBar: false 
+        Plotly.newPlot(element, traces, layout, {
+            responsive: true,
+            displayModeBar: false
         });
 
         this.charts.set('deforestation-prediction', { element, traces, layout });
@@ -423,9 +514,9 @@ class ChartsManager {
             font: { family: 'Open Sans', size: 12 }
         };
 
-        Plotly.newPlot(element, [trace, trendLine], layout, { 
-            responsive: true, 
-            displayModeBar: false 
+        Plotly.newPlot(element, [trace, trendLine], layout, {
+            responsive: true,
+            displayModeBar: false
         });
 
         this.charts.set('fires-prediction', { element, traces: [trace, trendLine], layout });
@@ -481,9 +572,9 @@ class ChartsManager {
             font: { family: 'Open Sans', size: 12 }
         };
 
-        Plotly.newPlot(element, traces, layout, { 
-            responsive: true, 
-            displayModeBar: false 
+        Plotly.newPlot(element, traces, layout, {
+            responsive: true,
+            displayModeBar: false
         });
 
         this.charts.set('biodiversity-prediction', { element, traces, layout });
@@ -516,9 +607,9 @@ class ChartsManager {
             plot_bgcolor: 'transparent'
         };
 
-        Plotly.newPlot(element, [trace], layout, { 
-            responsive: true, 
-            displayModeBar: false 
+        Plotly.newPlot(element, [trace], layout, {
+            responsive: true,
+            displayModeBar: false
         });
 
         this.charts.set('hero', { element, trace, layout });
@@ -528,6 +619,61 @@ class ChartsManager {
         const yearDisplay = document.getElementById('current-year');
         if (yearDisplay) {
             yearDisplay.textContent = year;
+        }
+
+        // ✅ ANIMAÇÃO PROGRESSIVA: Atualiza gráfico mostrando apenas dados até o ano atual
+        if (this.charts.has('timeline') && window.dataLoader?.historicalData) {
+            const timelineChart = this.charts.get('timeline');
+            const element = timelineChart.element;
+
+            if (element) {
+                // Filtra dados até o ano atual
+                const dataUpToYear = window.dataLoader.historicalData.filter(d => d.year <= year);
+
+                const years = dataUpToYear.map(d => d.year);
+                const deforestation = dataUpToYear.map(d => d.deforestation);
+                const fires = dataUpToYear.map(d => d.fires / 10);
+                const temperature = dataUpToYear.map(d => (d.temperature - 25) * 1000);
+
+                // Atualiza os dados do gráfico (animação das linhas)
+                Plotly.restyle(element, {
+                    x: [years, years, years],
+                    y: [deforestation, fires, temperature]
+                }, [0, 1, 2]);
+
+                // Adiciona linha vertical mostrando o ano atual
+                Plotly.relayout(element, {
+                    shapes: [{
+                        type: 'line',
+                        x0: year,
+                        x1: year,
+                        y0: 0,
+                        y1: 1,
+                        yref: 'paper',
+                        line: {
+                            color: '#FF6B35',
+                            width: 3,
+                            dash: 'dash'
+                        }
+                    }],
+                    annotations: [{
+                        x: year,
+                        y: 1.05,
+                        yref: 'paper',
+                        text: `<b>${year}</b>`,
+                        showarrow: false,
+                        font: {
+                            size: 16,
+                            color: '#FF6B35',
+                            family: 'Open Sans'
+                        },
+                        bgcolor: 'rgba(255,255,255,0.9)',
+                        bordercolor: '#FF6B35',
+                        borderwidth: 2,
+                        borderpad: 4
+                    }]
+                });
+            }
         }
 
         // Atualizar dados baseado no ano
@@ -599,7 +745,7 @@ class ChartsManager {
 // Inicializar ChartsManager
 window.addEventListener('DOMContentLoaded', () => {
     window.chartsManager = new ChartsManager();
-    
+
     // Redimensionar gráficos quando a janela mudar de tamanho
     window.addEventListener('resize', () => {
         if (window.chartsManager) {

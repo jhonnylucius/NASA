@@ -389,6 +389,7 @@ class CinematicIntro {
                     0 0 20px rgba(57, 255, 20, 0.6);
                 letter-spacing: 1px;
                 text-transform: uppercase;
+                white-space: nowrap;
             }
 
             .intro-title p {

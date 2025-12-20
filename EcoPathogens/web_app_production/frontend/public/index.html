@@ -36,6 +36,7 @@
     <link rel="stylesheet" href="/assets/css/gallery.css">
     <link rel="stylesheet" href="/assets/css/footer.css">
     <link rel="stylesheet" href="/assets/css/epic.css">
+    <link rel="stylesheet" href="/assets/css/donki.css">
 
     <!-- Plotly.js -->
     <script src="https://cdn.plot.ly/plotly-2.26.0.min.js"></script>
@@ -590,6 +591,52 @@
                 </div>
             </section>
 
+            <!-- Space Weather Section - NASA DONKI -->
+            <section id="space-weather" class="donki-section">
+                <div class="container">
+                    <h2 class="section-title">🌞 Clima Espacial</h2>
+                    <p class="section-description">
+                        Monitoramento de eventos solares que afetam a Terra em tempo real
+                    </p>
+
+                    <!-- Alertas Ativos -->
+                    <div class="alerts-container">
+                        <h3>⚡ Alertas Ativos</h3>
+                        <div id="donki-alerts" class="active-alerts">
+                            <div class="no-alerts">🔄 Carregando alertas...</div>
+                        </div>
+                    </div>
+
+                    <!-- Timeline de Eventos -->
+                    <div class="timeline-container">
+                        <h3>📅 Eventos Recentes (Últimos 30 Dias)</h3>
+                        <div id="donki-timeline" class="events-timeline">
+                            <div class="no-alerts">🔄 Carregando eventos...</div>
+                        </div>
+                    </div>
+
+                    <!-- Estatísticas -->
+                    <div class="donki-stats">
+                        <div class="donki-stat">
+                            <span class="value" id="donki-flares-count">0</span>
+                            <span class="label">☀️ Erupções Solares</span>
+                        </div>
+                        <div class="donki-stat">
+                            <span class="value" id="donki-storms-count">0</span>
+                            <span class="label">⚡ Tempestades Geomagnéticas</span>
+                        </div>
+                        <div class="donki-stat">
+                            <span class="value" id="donki-cmes-count">0</span>
+                            <span class="label">🌊 Ejeções de Massa Coronal</span>
+                        </div>
+                        <div class="donki-stat">
+                            <span class="value" id="donki-total-count">0</span>
+                            <span class="label">📊 Total de Eventos</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
             <!-- Predictions Section -->
             <section id="predictions" class="predictions-section">
                 <div class="container">
@@ -791,10 +838,10 @@
                             <div class="footer-section">
                                 <h4>📊 Dados</h4>
                                 <ul>
-                                    <li><a href="/api/data/historical">API Histórica</a></li>
-                                    <li><a href="/api/predictions">API Predições</a></li>
-                                    <li><a href="/docs">Documentação</a></li>
-                                    <li><a href="/download">Download Dataset</a></li>
+                                    <li><a href="#timeline">Dados Históricos</a></li>
+                                    <li><a href="#predictions">Predições IA</a></li>
+                                    <li><a href="#earth-live">Terra ao Vivo</a></li>
+                                    <li><a href="#space-weather">Clima Espacial</a></li>
                                 </ul>
                             </div>
                             <div class="footer-section">
@@ -803,7 +850,7 @@
                                     <li><a href="https://eonet.gsfc.nasa.gov/" target="_blank">EONET</a></li>
                                     <li><a href="https://firms.modaps.eosdis.nasa.gov/" target="_blank">FIRMS</a></li>
                                     <li><a href="https://epic.gsfc.nasa.gov/" target="_blank">EPIC</a></li>
-                                    <li><a href="https://donki.gsfc.nasa.gov/" target="_blank">DONKI</a></li>
+                                    <li><a href="https://ccmc.gsfc.nasa.gov/tools/DONKI/" target="_blank">DONKI</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -829,6 +876,8 @@
     <script src="/assets/js/maps.js"></script>
     <script src="/assets/js/gallery.js"></script>
     <script src="/assets/js/epic.js"></script>
+    <script src="/assets/js/donki.js"></script>
+    <script src="/assets/js/footer-nav.js"></script>
     <script src="/assets/js/predictions.js"></script>
     <script src="/assets/js/animations.js"></script>
     <script src="/assets/js/main.js"></script>

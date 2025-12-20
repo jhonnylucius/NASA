@@ -4,7 +4,7 @@
   "description": "🌳 EcoGuardians Frontend - NASA Space Apps Challenge 2025 (Pure HTML + GSAP Premium)",
   "main": "index.html",
   "scripts": {
-    "start": "live-server --port=3000 --open=/index.html",
+    "start": "live-server public --port=3000 --open=/",
     "build": "node scripts/build.js",
     "deploy": "node scripts/deploy.js",
     "optimize": "node scripts/optimize.js",
@@ -32,7 +32,7 @@
     "plugins": [
       "ScrollTrigger",
       "MotionPath",
-      "MorphSVG", 
+      "MorphSVG",
       "DrawSVG",
       "SplitText",
       "ScrollSmoother",

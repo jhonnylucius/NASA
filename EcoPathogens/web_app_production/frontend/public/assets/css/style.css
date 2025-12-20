@@ -269,6 +269,7 @@ body {
 .title-line {
     display: block;
     overflow: hidden;
+    white-space: nowrap;
 }
 
 .title-line .char {

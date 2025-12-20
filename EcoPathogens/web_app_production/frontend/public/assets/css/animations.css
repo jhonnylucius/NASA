@@ -1,0 +1,266 @@
+/* 🎬 EcoGuardians - Animations CSS
+   Estilos específicos para animações GSAP Premium */
+
+/* Loading Screen */
+.loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #2E8B57 0%, #228B22 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    overflow: hidden;
+}
+
+.loading-logo {
+    margin-bottom: 2rem;
+}
+
+.loading-title {
+    font-size: 3rem;
+    font-weight: 800;
+    color: white;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.loading-title .char {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(50px) rotateX(-90deg);
+}
+
+.loading-subtitle {
+    font-size: 1.2rem;
+    color: rgba(255,255,255,0.8);
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.progress-container {
+    width: 300px;
+    height: 4px;
+    background: rgba(255,255,255,0.2);
+    border-radius: 2px;
+    overflow: hidden;
+    margin-bottom: 2rem;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, #ffffff, #e0e0e0);
+    transform: translateX(-100%);
+    border-radius: 2px;
+}
+
+/* Floating Particles */
+.floating-particles {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.particle {
+    position: absolute;
+    pointer-events: auto;
+    user-select: none;
+    cursor: grab;
+    transition: transform 0.3s ease;
+}
+
+.particle:active {
+    cursor: grabbing;
+}
+
+/* GSAP ScrollTrigger Animations */
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+.fade-in-up {
+    opacity: 0;
+    transform: translateY(50px);
+}
+
+.fade-in-left {
+    opacity: 0;
+    transform: translateX(-50px);
+}
+
+.fade-in-right {
+    opacity: 0;
+    transform: translateX(50px);
+}
+
+.scale-in {
+    opacity: 0;
+    transform: scale(0.8);
+}
+
+/* Interactive Elements */
+.interactive-card {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+}
+
+.interactive-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+.draggable-element {
+    cursor: move;
+    cursor: grab;
+}
+
+.draggable-element:active {
+    cursor: grabbing;
+}
+
+/* Morphing SVG Animations */
+.svg-morph {
+    transition: all 0.5s ease;
+}
+
+.draw-svg path {
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
+}
+
+/* Text Animation Classes */
+.split-text .char {
+    display: inline-block;
+    transform: translateY(100px);
+    opacity: 0;
+}
+
+.scramble-text {
+    font-family: 'Fira Code', monospace;
+}
+
+.scrambled {
+    color: #00ff00;
+    text-shadow: 0 0 10px #00ff00;
+}
+
+/* Timeline Animations */
+.timeline-item {
+    opacity: 0;
+    transform: translateX(-50px);
+}
+
+.timeline-item.animate {
+    opacity: 1;
+    transform: translateX(0);
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Physics Animations */
+.physics-element {
+    will-change: transform;
+}
+
+.bouncing {
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 20%, 53%, 80%, 100% {
+        transform: translate3d(0, 0, 0);
+    }
+    40%, 43% {
+        transform: translate3d(0, -30px, 0);
+    }
+    70% {
+        transform: translate3d(0, -15px, 0);
+    }
+    90% {
+        transform: translate3d(0, -4px, 0);
+    }
+}
+
+/* Flip Animations */
+.flip-container {
+    perspective: 1000px;
+}
+
+.flip-card {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+}
+
+.flip-container:hover .flip-card {
+    transform: rotateY(180deg);
+}
+
+.flip-front, .flip-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 12px;
+}
+
+.flip-back {
+    transform: rotateY(180deg);
+}
+
+/* Custom Eases Visual Feedback */
+.ease-preview {
+    width: 50px;
+    height: 50px;
+    background: #2E8B57;
+    border-radius: 50%;
+    animation: customEaseDemo 3s infinite;
+}
+
+@keyframes customEaseDemo {
+    0% { transform: translateX(0); }
+    50% { transform: translateX(200px); }
+    100% { transform: translateX(0); }
+}
+
+/* Responsive Animations */
+@media (max-width: 768px) {
+    .loading-title {
+        font-size: 2rem;
+    }
+    
+    .particle {
+        font-size: 16px;
+    }
+    
+    .progress-container {
+        width: 250px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .particle,
+    .animate-on-scroll,
+    .interactive-card,
+    .timeline-item {
+        animation: none !important;
+        transition: none !important;
+    }
+    
+    .loading-title .char {
+        opacity: 1 !important;
+        transform: none !important;
+    }
+}

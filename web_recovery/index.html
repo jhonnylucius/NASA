@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🌍 EcoGuardians - 50 Anos de História Ambiental da Amazônia</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div id="loading-screen">
+        <div class="loading-content">
+            <h1>🌍 EcoGuardians</h1>
+            <h2>50 Anos de História Ambiental da Amazônia</h2>
+            <p>NASA Space Apps Challenge 2025</p>
+            <div class="loading-bar">
+                <div class="loading-progress" id="loading-progress"></div>
+            </div>
+            <p id="loading-text">Carregando impactos ambientais... <span id="image-counter">0 / 128</span> imagens</p>
+            <button id="skip-intro">⏭️ Pular Introdução</button>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div id="main-content" style="display: none;">
+        <!-- Header -->
+        <header class="hero-section">
+            <div class="hero-content">
+                <h1>🌳 EcoGuardians - Protegendo a Amazônia</h1>
+                <p>Sistema avançado de monitoramento ambiental com 50 anos de dados históricos e inteligência artificial para predições em tempo real.</p>
+                
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <span class="stat-number">758.470KM²</span>
+                        <span class="stat-label">DESMATADOS</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">+1.3°C</span>
+                        <span class="stat-label">AQUECIMENTO</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">7</span>
+                        <span class="stat-label">MODELOS DE IA</span>
+                    </div>
+                </div>
+
+                <div class="cta-buttons">
+                    <button class="btn-primary" onclick="scrollToSection('dashboard')">📊 Ver Dashboard</button>
+                    <button class="btn-secondary" onclick="scrollToSection('timeline')">📈 Timeline 50 Anos</button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Dashboard Section -->
+        <section id="dashboard" class="dashboard-section">
+            <h2>📊 Dashboard Interativo</h2>
+            
+            <div class="dashboard-grid">
+                <!-- Desmatamento Card -->
+                <div class="dashboard-card">
+                    <div class="card-icon">🌳</div>
+                    <div class="card-content">
+                        <h3>Desmatamento</h3>
+                        <div class="big-number">586.269 km²</div>
+                        <div class="subtitle">em 50 anos</div>
+                        <div class="trend negative">-23% últimos 10 anos</div>
+                        <canvas id="deforestation-chart" width="300" height="150"></canvas>
+                    </div>
+                </div>
+
+                <!-- Queimadas Card -->
+                <div class="dashboard-card">
+                    <div class="card-icon">🔥</div>
+                    <div class="card-content">
+                        <h3>Queimadas</h3>
+                        <div class="big-number">1.709.655</div>
+                        <div class="subtitle">focos detectados</div>
+                        <div class="trend positive">+15% últimos 5 anos</div>
+                        <canvas id="fires-chart" width="300" height="150"></canvas>
+                    </div>
+                </div>
+
+                <!-- Temperatura Card -->
+                <div class="dashboard-card">
+                    <div class="card-icon">🌡️</div>
+                    <div class="card-content">
+                        <h3>Temperatura</h3>
+                        <div class="big-number">+1.3 °C</div>
+                        <div class="subtitle">em 50 anos</div>
+                        <div class="trend negative">Acima da média global</div>
+                        <canvas id="temperature-chart" width="300" height="150"></canvas>
+                    </div>
+                </div>
+
+                <!-- Biodiversidade Card -->
+                <div class="dashboard-card">
+                    <div class="card-icon">🦋</div>
+                    <div class="card-content">
+                        <h3>Biodiversidade</h3>
+                        <div class="big-number">51.726</div>
+                        <div class="subtitle">espécies estimadas</div>
+                        <div class="trend negative">-33,076 perdidas</div>
+                        <canvas id="biodiversity-chart" width="300" height="150"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mapa Interativo -->
+            <div class="map-section">
+                <h3>🌍 Mapa Interativo Global</h3>
+                <h4>📍 Monitoramento Ambiental Global</h4>
+                <div id="interactive-map" class="map-container">
+                    <!-- Aqui seria integrado um mapa real, por enquanto placeholder -->
+                    <div class="map-placeholder">
+                        <p>🗺️ Mapa Interativo da Amazônia</p>
+                        <p>Dados em tempo real de desmatamento, queimadas e biodiversidade</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Timeline Section -->
+        <section id="timeline" class="timeline-section">
+            <h2>📈 Timeline de 50 Anos</h2>
+            
+            <div class="decades-analysis">
+                <h3>📊 Análise por Décadas</h3>
+                <div class="decades-grid">
+                    <div class="decade-card">
+                        <h4>1970s</h4>
+                        <p class="decade-label">INÍCIO DA EXPANSÃO</p>
+                        <p class="decade-value">16,600km²/ano</p>
+                    </div>
+                    <div class="decade-card worst">
+                        <h4>1980s</h4>
+                        <p class="decade-label">PIOR PERÍODO</p>
+                        <p class="decade-value">21,331km²/ano</p>
+                    </div>
+                    <div class="decade-card best">
+                        <h4>2010s</h4>
+                        <p class="decade-label">GRANDE MELHORIA</p>
+                        <p class="decade-value">6,724km²/ano</p>
+                    </div>
+                    <div class="decade-card">
+                        <h4>2020s</h4>
+                        <p class="decade-label">TENDÊNCIA DE ALTA</p>
+                        <p class="decade-value">9,330km²/ano</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gallery Section -->
+        <section id="gallery" class="gallery-section">
+            <h2>📸 Galeria de Impacto</h2>
+            <p class="gallery-subtitle">62 imagens reais que documentam os impactos ambientais e a diversidade cultural da Amazônia</p>
+            
+            <!-- Filter Buttons -->
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-filter="all">Todas (62)</button>
+                <button class="filter-btn" data-filter="desmatamento">🌳 Desmatamento</button>
+                <button class="filter-btn" data-filter="queimadas">🔥 Queimadas</button>
+                <button class="filter-btn" data-filter="inundacoes">🌊 Inundações</button>
+                <button class="filter-btn" data-filter="secas">🏜️ Secas</button>
+                <button class="filter-btn" data-filter="poluicao">☠️ Poluição</button>
+                <button class="filter-btn" data-filter="indigenas">🏹 Povos Indígenas</button>
+            </div>
+
+            <!-- Image Gallery -->
+            <div class="image-grid" id="image-gallery">
+                <!-- As imagens serão carregadas dinamicamente via JavaScript -->
+            </div>
+        </section>
+
+        <!-- AI Predictions Section -->
+        <section id="predictions" class="predictions-section">
+            <h2>🔮 Predições com IA</h2>
+            <p class="predictions-subtitle">Modelos de machine learning treinados com 50 anos de dados</p>
+            
+            <div class="predictions-grid">
+                <!-- Predição Desmatamento -->
+                <div class="prediction-card">
+                    <h3>🌳 Predição de Desmatamento</h3>
+                    <div class="r-squared">R² = 0.580</div>
+                    <div class="chart-container">
+                        <canvas id="deforestation-prediction-chart" width="400" height="250"></canvas>
+                    </div>
+                    <div class="prediction-result">
+                        <p><strong>Predição 2030:</strong> 45.000km²</p>
+                        <p><strong>Confiança:</strong> 58.0%</p>
+                        <p><strong>Temperatura (°C):</strong> 27.0</p>
+                    </div>
+                </div>
+
+                <!-- Predição Queimadas -->
+                <div class="prediction-card">
+                    <h3>🔥 Predição de Queimadas</h3>
+                    <div class="r-squared">R² = 0.490</div>
+                    <div class="chart-container">
+                        <canvas id="fires-prediction-chart" width="400" height="250"></canvas>
+                    </div>
+                    <div class="prediction-result">
+                        <p><strong>Predição 2030:</strong> 89.000 eventos</p>
+                        <p><strong>Confiança:</strong> 49.0%</p>
+                        <p><strong>Precipitação (mm):</strong> 2200</p>
+                    </div>
+                </div>
+
+                <!-- Predição Biodiversidade -->
+                <div class="prediction-card">
+                    <h3>🦋 Predição de Biodiversidade</h3>
+                    <div class="r-squared">R² = 0.954</div>
+                    <div class="chart-container">
+                        <canvas id="biodiversity-prediction-chart" width="400" height="250"></canvas>
+                    </div>
+                    <div class="prediction-result">
+                        <p><strong>Espécies em 2030:</strong> 62,341</p>
+                        <p><strong>Perda estimada:</strong> -4,583</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Cenários 2030 -->
+            <div class="scenarios-section">
+                <h3>📊 Análise de Cenários 2030</h3>
+                <div class="scenarios-grid">
+                    <div class="scenario-card optimistic">
+                        <h4>🌟 Cenário Otimista</h4>
+                        <ul>
+                            <li>Desmatamento: -50%</li>
+                            <li>Queimadas: -40%</li>
+                            <li>Áreas protegidas: +30%</li>
+                        </ul>
+                    </div>
+                    <div class="scenario-card realistic">
+                        <h4>⚖️ Cenário Realista</h4>
+                        <ul>
+                            <li>Desmatamento: -20%</li>
+                            <li>Queimadas: estável</li>
+                            <li>Áreas protegidas: +15%</li>
+                        </ul>
+                    </div>
+                    <div class="scenario-card pessimistic">
+                        <h4>⚠️ Cenário Pessimista</h4>
+                        <ul>
+                            <li>Desmatamento: +25%</li>
+                            <li>Queimadas: +35%</li>
+                            <li>Áreas protegidas: +5%</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- NASA Challenge Section -->
+        <section id="nasa-challenge" class="nasa-section">
+            <h2>🏆 NASA Space Apps Challenge 2025</h2>
+            
+            <div class="challenge-grid">
+                <div class="challenge-card">
+                    <h3>👥 Nossa Missão</h3>
+                    <div class="mission-stats">
+                        <div class="mission-stat">
+                            <span class="stat-icon">📊</span>
+                            <span class="stat-text">Dados NASA</span>
+                        </div>
+                        <div class="mission-stat">
+                            <span class="stat-icon">📅</span>
+                            <span class="stat-text">50 Anos</span>
+                        </div>
+                        <div class="mission-stat">
+                            <span class="stat-icon">🤖</span>
+                            <span class="stat-text">IA Avançada</span>
+                        </div>
+                        <div class="mission-stat">
+                            <span class="stat-icon">📷</span>
+                            <span class="stat-text">128 Fotos</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="challenge-card">
+                    <h3>⚙️ Tecnologias</h3>
+                    <div class="tech-list">
+                        <div class="tech-item">🚀 Projeto</div>
+                        <div class="tech-item">📊 Dados</div>
+                        <div class="tech-item">🛰️ NASA APIs</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Image Modal -->
+    <div id="image-modal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <img id="modal-image" src="" alt="">
+            <div class="modal-info">
+                <h3 id="modal-title"></h3>
+                <p id="modal-location"></p>
+                <p id="modal-date"></p>
+                <p id="modal-description"></p>
+                <div id="modal-category"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

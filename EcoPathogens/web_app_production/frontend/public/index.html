@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="🌳 EcoGuardians - Sistema de Monitoramento Ambiental da Amazônia | NASA Space Apps Challenge 2025">
+    <meta name="keywords" content="amazônia, nasa, meio ambiente, monitoramento, desmatamento, queimadas, IA, machine learning">
+    <meta name="author" content="EcoGuardians Team">
+    <meta property="og:title" content="🌳 EcoGuardians - Protegendo a Amazônia">
+    <meta property="og:description" content="Sistema avançado de monitoramento ambiental com 50 anos de dados históricos e IA para predições">
+    <meta property="og:image" content="https://ecoguardians.com.br/assets/images/og-image.jpg">
+    <meta property="og:url" content="https://ecoguardians.com.br">
+    <meta name="twitter:card" content="summary_large_image">
+    
+    <title>🌳 EcoGuardians - NASA Space Apps Challenge 2025</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Open+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="/assets/css/animations.css">
+    <link rel="stylesheet" href="/assets/css/responsive.css">
+    
+    <!-- Plotly.js -->
+    <script src="https://cdn.plot.ly/plotly-2.26.0.min.js"></script>
+    
+    <!-- Leaflet -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <!-- GSAP Premium Complete Suite (45 plugins!) -->
+    <!-- CORE -->
+    <script src="/assets/js/gsap/gsap.min.js"></script>
+    
+    <!-- ESSENTIAL PLUGINS -->
+    <script src="/assets/js/gsap/ScrollTrigger.min.js"></script>
+    <script src="/assets/js/gsap/Observer.min.js"></script>
+    <script src="/assets/js/gsap/ScrollToPlugin.min.js"></script>
+    
+    <!-- PREMIUM ANIMATION PLUGINS -->
+    <script src="/assets/js/gsap/MorphSVGPlugin.min.js"></script>
+    <script src="/assets/js/gsap/DrawSVGPlugin.min.js"></script>
+    <script src="/assets/js/gsap/SplitText.min.js"></script>
+    <script src="/assets/js/gsap/ScrollSmoother.min.js"></script>
+    <script src="/assets/js/gsap/MotionPathPlugin.min.js"></script>
+    
+    <!-- PREMIUM PHYSICS & INTERACTION -->
+    <script src="/assets/js/gsap/Physics2DPlugin.min.js"></script>
+    <script src="/assets/js/gsap/PhysicsPropsPlugin.min.js"></script>
+    <script src="/assets/js/gsap/InertiaPlugin.min.js"></script>
+    <script src="/assets/js/gsap/Draggable.min.js"></script>
+    
+    <!-- PREMIUM EASING & EFFECTS -->
+    <script src="/assets/js/gsap/CustomEase.min.js"></script>
+    <script src="/assets/js/gsap/CustomBounce.min.js"></script>
+    <script src="/assets/js/gsap/CustomWiggle.min.js"></script>
+    <script src="/assets/js/gsap/EasePack.min.js"></script>
+    
+    <!-- PREMIUM TEXT EFFECTS -->
+    <script src="/assets/js/gsap/TextPlugin.min.js"></script>
+    <script src="/assets/js/gsap/ScrambleTextPlugin.min.js"></script>
+    
+    <!-- PREMIUM LAYOUT & TRANSITIONS -->
+    <script src="/assets/js/gsap/Flip.min.js"></script>
+    <script src="/assets/js/gsap/CSSRulePlugin.min.js"></script>
+    
+    <!-- PREMIUM INTEGRATIONS -->
+    <script src="/assets/js/gsap/EaselPlugin.min.js"></script>
+    <script src="/assets/js/gsap/PixiPlugin.min.js"></script>
+    
+    <!-- DEVELOPMENT TOOLS -->
+    <script src="/assets/js/gsap/GSDevTools.min.js"></script>
+    <script src="/assets/js/gsap/MotionPathHelper.min.js"></script>
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "EcoGuardians",
+        "url": "https://ecoguardians.com.br",
+        "description": "Sistema de monitoramento ambiental da Amazônia com inteligência artificial",
+        "foundingDate": "2025",
+        "areaServed": "Brazil",
+        "sameAs": [
+            "https://github.com/ecoguardians"
+        ]
+    }
+    </script>
+</head>
+<body>
+    <!-- Loading Screen with GSAP Premium Animation -->
+    <div id="loading-screen" class="loading-screen">
+        <div class="loading-container">
+            <div class="loading-logo">
+                <svg width="120" height="120" viewBox="0 0 120 120" class="logo-svg">
+                    <circle cx="60" cy="60" r="50" stroke="#2E8B57" stroke-width="3" fill="none" class="logo-circle"/>
+                    <path d="M30 60 Q60 30 90 60 Q60 90 30 60" fill="#228B22" class="logo-leaf"/>
+                    <text x="60" y="65" text-anchor="middle" class="logo-text">🌳</text>
+                </svg>
+            </div>
+            <div class="loading-text">
+                <h1 class="loading-title">EcoGuardians</h1>
+                <p class="loading-subtitle">Carregando dados de 50 anos da Amazônia...</p>
+                <div class="loading-progress">
+                    <div class="progress-bar"></div>
+                </div>
+            </div>
+        </div>
+        <div class="loading-stats">
+            <div class="stat-item">
+                <span class="stat-number" data-target="758470">0</span>
+                <span class="stat-label">km² desmatados</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number" data-target="2211979">0</span>
+                <span class="stat-label">focos de queimadas</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number" data-target="50">0</span>
+                <span class="stat-label">anos de dados</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Smooth Scrolling Container -->
+    <div id="smooth-wrapper">
+        <div id="smooth-content">
+
+            <!-- Hero Section -->
+            <section id="hero" class="hero-section">
+                <div class="hero-background">
+                    <div class="animated-forest">
+                        <!-- SVG animado da floresta será gerado via GSAP -->
+                    </div>
+                    <div class="floating-particles"></div>
+                </div>
+                
+                <div class="hero-content">
+                    <div class="hero-text">
+                        <h1 class="hero-title">
+                            <span class="title-line">🌳 EcoGuardians</span>
+                            <span class="title-line">Protegendo a</span>
+                            <span class="title-line highlight">Amazônia</span>
+                        </h1>
+                        <p class="hero-description">
+                            Sistema avançado de monitoramento ambiental com <strong>50 anos de dados históricos</strong> 
+                            e inteligência artificial para predições em tempo real.
+                        </p>
+                        <div class="hero-stats">
+                            <div class="stat-card">
+                                <span class="stat-value">758.470</span>
+                                <span class="stat-unit">km² desmatados</span>
+                            </div>
+                            <div class="stat-card">
+                                <span class="stat-value">+1.3°C</span>
+                                <span class="stat-unit">aquecimento</span>
+                            </div>
+                            <div class="stat-card">
+                                <span class="stat-value">7</span>
+                                <span class="stat-unit">modelos de IA</span>
+                            </div>
+                        </div>
+                        <div class="hero-actions">
+                            <button class="btn btn-primary" data-scroll-to="dashboard">
+                                📊 Ver Dashboard
+                            </button>
+                            <button class="btn btn-secondary" data-scroll-to="timeline">
+                                📈 Timeline 50 Anos
+                            </button>
+                        </div>
+                    </div>
+                    <div class="hero-visual">
+                        <div class="data-visualization">
+                            <canvas id="hero-chart"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Scroll Indicator -->
+                <div class="scroll-indicator">
+                    <div class="scroll-mouse">
+                        <div class="scroll-wheel"></div>
+                    </div>
+                    <span>Role para explorar</span>
+                </div>
+            </section>
+
+            <!-- Navigation -->
+            <nav id="navbar" class="navbar">
+                <div class="nav-container">
+                    <div class="nav-logo">
+                        🌳 EcoGuardians
+                    </div>
+                    <ul class="nav-menu">
+                        <li><a href="#hero" class="nav-link">Início</a></li>
+                        <li><a href="#dashboard" class="nav-link">Dashboard</a></li>
+                        <li><a href="#timeline" class="nav-link">Timeline</a></li>
+                        <li><a href="#gallery" class="nav-link">Galeria</a></li>
+                        <li><a href="#predictions" class="nav-link">Predições</a></li>
+                        <li><a href="#about" class="nav-link">Sobre</a></li>
+                    </ul>
+                    <div class="nav-toggle">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+            </nav>
+
+            <!-- Dashboard Section -->
+            <section id="dashboard" class="dashboard-section">
+                <div class="container">
+                    <div class="section-header">
+                        <h2 class="section-title">📊 Dashboard Interativo</h2>
+                        <p class="section-description">
+                            Explore dados em tempo real e análises avançadas da Amazônia
+                        </p>
+                    </div>
+
+                    <!-- Key Metrics -->
+                    <div class="metrics-grid">
+                        <div class="metric-card" data-metric="deforestation">
+                            <div class="metric-icon">🌳</div>
+                            <div class="metric-content">
+                                <h3 class="metric-title">Desmatamento</h3>
+                                <div class="metric-value">758,470</div>
+                                <div class="metric-unit">km² em 50 anos</div>
+                                <div class="metric-trend down">-23% últimos 10 anos</div>
+                            </div>
+                            <div class="metric-chart">
+                                <canvas id="deforestation-chart"></canvas>
+                            </div>
+                        </div>
+
+                        <div class="metric-card" data-metric="fires">
+                            <div class="metric-icon">🔥</div>
+                            <div class="metric-content">
+                                <h3 class="metric-title">Queimadas</h3>
+                                <div class="metric-value">2,211,979</div>
+                                <div class="metric-unit">focos detectados</div>
+                                <div class="metric-trend up">+15% últimos 5 anos</div>
+                            </div>
+                            <div class="metric-chart">
+                                <canvas id="fires-chart"></canvas>
+                            </div>
+                        </div>
+
+                        <div class="metric-card" data-metric="temperature">
+                            <div class="metric-icon">🌡️</div>
+                            <div class="metric-content">
+                                <h3 class="metric-title">Temperatura</h3>
+                                <div class="metric-value">+1.3</div>
+                                <div class="metric-unit">°C em 50 anos</div>
+                                <div class="metric-trend up">Acima da média global</div>
+                            </div>
+                            <div class="metric-chart">
+                                <canvas id="temperature-chart"></canvas>
+                            </div>
+                        </div>
+
+                        <div class="metric-card" data-metric="biodiversity">
+                            <div class="metric-icon">🦋</div>
+                            <div class="metric-content">
+                                <h3 class="metric-title">Biodiversidade</h3>
+                                <div class="metric-value">66,924</div>
+                                <div class="metric-unit">espécies estimadas</div>
+                                <div class="metric-trend down">-33,076 perdidas</div>
+                            </div>
+                            <div class="metric-chart">
+                                <canvas id="biodiversity-chart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Interactive Map -->
+                    <div class="dashboard-map">
+                        <div class="map-header">
+                            <h3>🗺️ Mapa Interativo da Amazônia</h3>
+                            <div class="map-controls">
+                                <button class="map-filter active" data-layer="amazonShape">🌳 Floresta</button>
+                                <button class="map-filter" data-layer="deforestation">⚠️ Desmatamento</button>
+                                <button class="map-filter" data-layer="indigenous">🏞️ Indígenas</button>
+                                <button class="map-filter" data-layer="protected">🛡️ Conservação</button>
+                                <button class="map-filter" data-layer="rivers">🌊 Rios</button>
+                                <button class="map-filter" data-layer="cities">🏙️ Cidades</button>
+                                <button class="map-filter" data-layer="all">🌍 Completa</button>
+                            </div>
+                            <div class="map-info">
+                                <h4 class="map-title">🌳 Floresta Amazônica</h4>
+                                <p class="map-description">Formato real da maior floresta tropical do mundo com 5.5 milhões km²</p>
+                            </div>
+                        </div>
+                        <div id="interactive-map"></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Timeline Section -->
+            <section id="timeline" class="timeline-section">
+                <div class="container">
+                    <div class="section-header">
+                        <h2 class="section-title">📈 Timeline de 50 Anos</h2>
+                        <p class="section-description">
+                            Explore a evolução histórica da Amazônia de 1975 a 2025
+                        </p>
+                    </div>
+
+                    <div class="timeline-controls">
+                        <div class="year-slider">
+                            <input type="range" id="year-range" min="1975" max="2025" value="2025" step="1">
+                            <div class="year-display">
+                                <span id="current-year">2025</span>
+                            </div>
+                        </div>
+                        <div class="timeline-buttons">
+                            <button class="btn btn-sm" id="play-timeline">▶️ Play</button>
+                            <button class="btn btn-sm" id="pause-timeline">⏸️ Pause</button>
+                            <button class="btn btn-sm" id="reset-timeline">🔄 Reset</button>
+                        </div>
+                    </div>
+
+                    <div class="timeline-visualization">
+                        <div id="timeline-chart"></div>
+                    </div>
+
+                    <!-- Decade Analysis -->
+                    <div class="decades-analysis">
+                        <h3>📊 Análise por Décadas</h3>
+                        <div class="decades-grid">
+                            <div class="decade-card" data-decade="1970s">
+                                <div class="decade-header">
+                                    <h4>1970s</h4>
+                                    <span class="decade-label">Início da Expansão</span>
+                                </div>
+                                <div class="decade-stats">
+                                    <div class="decade-stat">
+                                        <span class="value">16,600</span>
+                                        <span class="unit">km²/ano</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="decade-card" data-decade="1980s">
+                                <div class="decade-header">
+                                    <h4>1980s</h4>
+                                    <span class="decade-label critical">Pior Período</span>
+                                </div>
+                                <div class="decade-stats">
+                                    <div class="decade-stat">
+                                        <span class="value">21,331</span>
+                                        <span class="unit">km²/ano</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="decade-card" data-decade="2010s">
+                                <div class="decade-header">
+                                    <h4>2010s</h4>
+                                    <span class="decade-label success">Grande Melhoria</span>
+                                </div>
+                                <div class="decade-stats">
+                                    <div class="decade-stat">
+                                        <span class="value">6,724</span>
+                                        <span class="unit">km²/ano</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="decade-card" data-decade="2020s">
+                                <div class="decade-header">
+                                    <h4>2020s</h4>
+                                    <span class="decade-label warning">Tendência de Alta</span>
+                                </div>
+                                <div class="decade-stats">
+                                    <div class="decade-stat">
+                                        <span class="value">9,330</span>
+                                        <span class="unit">km²/ano</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Gallery Section -->
+            <section id="gallery" class="gallery-section">
+                <div class="container">
+                    <div class="section-header">
+                        <h2 class="section-title">📸 Galeria de Impacto</h2>
+                        <p class="section-description">
+                            128 imagens que contam a história dos desastres ambientais
+                        </p>
+                    </div>
+
+                    <div class="gallery-filters">
+                        <button class="filter-btn active" data-filter="all">Todas (128)</button>
+                        <button class="filter-btn" data-filter="deforestation">Desmatamento</button>
+                        <button class="filter-btn" data-filter="fires">Queimadas</button>
+                        <button class="filter-btn" data-filter="floods">Inundações</button>
+                        <button class="filter-btn" data-filter="drought">Secas</button>
+                        <button class="filter-btn" data-filter="pollution">Poluição</button>
+                    </div>
+
+                    <div class="gallery-grid" id="gallery-grid">
+                        <!-- As imagens serão carregadas dinamicamente -->
+                    </div>
+
+                    <!-- Image Modal -->
+                    <div id="image-modal" class="image-modal">
+                        <div class="modal-content">
+                            <span class="modal-close">&times;</span>
+                            <img id="modal-image" src="" alt="">
+                            <div class="image-info">
+                                <h3 id="image-title"></h3>
+                                <p id="image-description"></p>
+                                <div class="image-meta">
+                                    <span id="image-date"></span>
+                                    <span id="image-location"></span>
+                                    <span id="image-category"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Predictions Section -->
+            <section id="predictions" class="predictions-section">
+                <div class="container">
+                    <div class="section-header">
+                        <h2 class="section-title">🔮 Predições com IA</h2>
+                        <p class="section-description">
+                            Modelos de machine learning treinados com 50 anos de dados
+                        </p>
+                    </div>
+
+                    <div class="predictions-grid">
+                        <div class="prediction-card">
+                            <div class="prediction-header">
+                                <h3>🌳 Predição de Desmatamento</h3>
+                                <div class="model-accuracy">R² = 0.580</div>
+                            </div>
+                            <div class="prediction-chart">
+                                <canvas id="deforestation-prediction"></canvas>
+                            </div>
+                            <div class="prediction-controls">
+                                <label>Temperatura (°C):</label>
+                                <input type="range" id="temp-slider" min="25" max="30" value="27" step="0.1">
+                                <span id="temp-value">27.0</span>
+                            </div>
+                        </div>
+
+                        <div class="prediction-card">
+                            <div class="prediction-header">
+                                <h3>🔥 Predição de Queimadas</h3>
+                                <div class="model-accuracy">R² = 0.490</div>
+                            </div>
+                            <div class="prediction-chart">
+                                <canvas id="fires-prediction"></canvas>
+                            </div>
+                            <div class="prediction-controls">
+                                <label>Precipitação (mm):</label>
+                                <input type="range" id="precip-slider" min="1500" max="3000" value="2200" step="50">
+                                <span id="precip-value">2200</span>
+                            </div>
+                        </div>
+
+                        <div class="prediction-card">
+                            <div class="prediction-header">
+                                <h3>🦋 Predição de Biodiversidade</h3>
+                                <div class="model-accuracy">R² = 0.954</div>
+                            </div>
+                            <div class="prediction-chart">
+                                <canvas id="biodiversity-prediction"></canvas>
+                            </div>
+                            <div class="prediction-results">
+                                <div class="prediction-result">
+                                    <span class="result-label">Espécies em 2030:</span>
+                                    <span class="result-value" id="species-2030">62,341</span>
+                                </div>
+                                <div class="prediction-result">
+                                    <span class="result-label">Perda estimada:</span>
+                                    <span class="result-value warning" id="species-loss">-4,583</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Scenario Analysis -->
+                    <div class="scenario-analysis">
+                        <h3>📊 Análise de Cenários 2030</h3>
+                        <div class="scenarios-grid">
+                            <div class="scenario-card optimistic">
+                                <h4>🌟 Cenário Otimista</h4>
+                                <ul>
+                                    <li>Desmatamento: -50%</li>
+                                    <li>Queimadas: -40%</li>
+                                    <li>Áreas protegidas: +30%</li>
+                                </ul>
+                            </div>
+                            <div class="scenario-card realistic">
+                                <h4>⚖️ Cenário Realista</h4>
+                                <ul>
+                                    <li>Desmatamento: -20%</li>
+                                    <li>Queimadas: estável</li>
+                                    <li>Áreas protegidas: +15%</li>
+                                </ul>
+                            </div>
+                            <div class="scenario-card pessimistic">
+                                <h4>⚠️ Cenário Pessimista</h4>
+                                <ul>
+                                    <li>Desmatamento: +25%</li>
+                                    <li>Queimadas: +35%</li>
+                                    <li>Áreas protegidas: +5%</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- About Section -->
+            <section id="about" class="about-section">
+                <div class="container">
+                    <div class="about-content">
+                        <div class="about-text">
+                            <h2 class="section-title">🏆 NASA Space Apps Challenge 2025</h2>
+                            <p class="about-description">
+                                O <strong>EcoGuardians</strong> é um sistema revolucionário de monitoramento ambiental 
+                                desenvolvido para o <strong>NASA Space Apps Challenge 2025</strong>. 
+                            </p>
+                            <p>
+                                Nosso diferencial é a compilação e análise de <strong>50 anos de dados históricos</strong> 
+                                da Amazônia (1975-2025), integrados com modelos de inteligência artificial de última geração.
+                            </p>
+                            
+                            <div class="features-grid">
+                                <div class="feature-item">
+                                    <div class="feature-icon">🛰️</div>
+                                    <h4>Dados NASA</h4>
+                                    <p>EONET, FIRMS, EPIC em tempo real</p>
+                                </div>
+                                <div class="feature-item">
+                                    <div class="feature-icon">📊</div>
+                                    <h4>50 Anos</h4>
+                                    <p>Série histórica completa 1975-2025</p>
+                                </div>
+                                <div class="feature-item">
+                                    <div class="feature-icon">🤖</div>
+                                    <h4>IA Avançada</h4>
+                                    <p>7 modelos de machine learning</p>
+                                </div>
+                                <div class="feature-item">
+                                    <div class="feature-icon">📸</div>
+                                    <h4>128 Fotos</h4>
+                                    <p>Galeria de impacto ambiental</p>
+                                </div>
+                            </div>
+
+                            <div class="team-info">
+                                <h3>👥 Nossa Missão</h3>
+                                <p>
+                                    Democratizar o acesso a dados ambientais e criar ferramentas que auxiliem 
+                                    na proteção da maior floresta tropical do mundo.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="about-visual">
+                            <div class="data-impact">
+                                <div class="impact-stat">
+                                    <div class="impact-number">758,470</div>
+                                    <div class="impact-label">km² analisados</div>
+                                </div>
+                                <div class="impact-stat">
+                                    <div class="impact-number">2,211,979</div>
+                                    <div class="impact-label">eventos detectados</div>
+                                </div>
+                                <div class="impact-stat">
+                                    <div class="impact-number">7</div>
+                                    <div class="impact-label">modelos de IA</div>
+                                </div>
+                                <div class="impact-stat">
+                                    <div class="impact-number">50</div>
+                                    <div class="impact-label">anos de dados</div>
+                                </div>
+                            </div>
+
+                            <div class="tech-stack">
+                                <h4>⚙️ Tecnologias</h4>
+                                <div class="tech-badges">
+                                    <span class="tech-badge">Python</span>
+                                    <span class="tech-badge">TensorFlow</span>
+                                    <span class="tech-badge">GSAP Premium</span>
+                                    <span class="tech-badge">Plotly</span>
+                                    <span class="tech-badge">AWS</span>
+                                    <span class="tech-badge">Cloudflare</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Footer -->
+            <footer class="footer">
+                <div class="container">
+                    <div class="footer-content">
+                        <div class="footer-brand">
+                            <h3>🌳 EcoGuardians</h3>
+                            <p>Protegendo a Amazônia com tecnologia e dados</p>
+                        </div>
+                        <div class="footer-links">
+                            <div class="footer-section">
+                                <h4>🚀 Projeto</h4>
+                                <ul>
+                                    <li><a href="#dashboard">Dashboard</a></li>
+                                    <li><a href="#timeline">Timeline 50 Anos</a></li>
+                                    <li><a href="#gallery">Galeria</a></li>
+                                    <li><a href="#predictions">Predições IA</a></li>
+                                </ul>
+                            </div>
+                            <div class="footer-section">
+                                <h4>📊 Dados</h4>
+                                <ul>
+                                    <li><a href="/api/data/historical">API Histórica</a></li>
+                                    <li><a href="/api/predictions">API Predições</a></li>
+                                    <li><a href="/docs">Documentação</a></li>
+                                    <li><a href="/download">Download Dataset</a></li>
+                                </ul>
+                            </div>
+                            <div class="footer-section">
+                                <h4>🛰️ NASA APIs</h4>
+                                <ul>
+                                    <li><a href="https://eonet.gsfc.nasa.gov/" target="_blank">EONET</a></li>
+                                    <li><a href="https://firms.modaps.eosdis.nasa.gov/" target="_blank">FIRMS</a></li>
+                                    <li><a href="https://epic.gsfc.nasa.gov/" target="_blank">EPIC</a></li>
+                                    <li><a href="https://donki.gsfc.nasa.gov/" target="_blank">DONKI</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="footer-bottom">
+                        <p>&copy; 2025 EcoGuardians | NASA Space Apps Challenge 2025</p>
+                        <p>Desenvolvido com 💚 para proteger a Amazônia</p>
+                    </div>
+                </div>
+            </footer>
+
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="/assets/js/image-config.js"></script>
+    <script src="/assets/js/cinematic-intro.js"></script>
+    <script src="/assets/js/app-integration.js"></script>
+    <script src="/assets/js/local-test.js"></script>
+    <script src="/assets/js/verificar-plugins.js"></script>
+    <script src="/assets/js/data-loader.js"></script>
+    <script src="/assets/js/charts.js"></script>
+    <script src="/assets/js/maps.js"></script>
+    <script src="/assets/js/gallery.js"></script>
+    <script src="/assets/js/predictions.js"></script>
+    <script src="/assets/js/animations.js"></script>
+    <script src="/assets/js/main.js"></script>
+
+    <!-- Analytics -->
+    <script>
+        // Google Analytics ou similar
+        // gtag('config', 'GA_MEASUREMENT_ID');
+    </script>
+
+    <!-- Service Worker para PWA -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js')
+                    .then(registration => console.log('SW registered'))
+                    .catch(registrationError => console.log('SW registration failed'));
+            });
+        }
+    </script>
+</body>
+</html>

@@ -37,6 +37,7 @@
     <link rel="stylesheet" href="/assets/css/footer.css">
     <link rel="stylesheet" href="/assets/css/epic.css">
     <link rel="stylesheet" href="/assets/css/donki.css">
+    <link rel="stylesheet" href="/assets/css/firms.css">
 
     <!-- Plotly.js -->
     <script src="https://cdn.plot.ly/plotly-2.26.0.min.js"></script>
@@ -220,6 +221,7 @@
                         <li><a href="#timeline" class="nav-link">Timeline</a></li>
                         <li><a href="#gallery" class="nav-link">Galeria</a></li>
                         <li><a href="#predictions" class="nav-link">Predições</a></li>
+                        <li><a href="#fire-monitor" class="nav-link">🔥 Queimadas</a></li>
                         <li><a href="#about" class="nav-link">Sobre</a></li>
                     </ul>
                     <div class="nav-toggle">
@@ -637,6 +639,117 @@
                 </div>
             </section>
 
+            <!-- 🔥 FIRMS Fire Monitor Section -->
+            <section id="fire-monitor" class="firms-section">
+                <div class="container">
+                    <div class="section-header">
+                        <h2 class="section-title">🔥 Focos de Queimadas</h2>
+                        <p class="section-description">
+                            Monitoramento em tempo real de focos de incêndio detectados por satélites da NASA
+                        </p>
+                    </div>
+
+                    <!-- Controls -->
+                    <div class="firms-controls">
+                        <div class="firms-control-group">
+                            <label>📡 Satélite</label>
+                            <select id="firms-sensor">
+                                <option value="VIIRS_NOAA20_NRT">VIIRS NOAA-20 (NRT)</option>
+                                <option value="VIIRS_NOAA21_NRT">VIIRS NOAA-21 (NRT)</option>
+                                <option value="VIIRS_SNPP_NRT">VIIRS Suomi-NPP (NRT)</option>
+                                <option value="MODIS_NRT">MODIS Terra/Aqua (NRT)</option>
+                            </select>
+                        </div>
+                        <div class="firms-control-group">
+                            <label>📅 Período</label>
+                            <select id="firms-days">
+                                <option value="1">Últimas 24 horas</option>
+                                <option value="2">Últimas 48 horas</option>
+                                <option value="7">Últimos 7 dias</option>
+                            </select>
+                        </div>
+                        <button class="firms-btn" id="firms-refresh">🔄 Atualizar</button>
+                        <button class="firms-btn firms-btn-secondary" id="firms-focus-amazon">🌳 Focar Amazônia</button>
+                    </div>
+
+                    <!-- Map Container -->
+                    <div class="firms-map-container">
+                        <div id="firms-map"></div>
+                        <div class="firms-loading" id="firms-loading">
+                            <div class="firms-loading-spinner"></div>
+                            <span class="firms-loading-text">Carregando focos de queimadas...</span>
+                        </div>
+                    </div>
+
+                    <!-- Legend -->
+                    <div class="firms-legend">
+                        <div class="firms-legend-title">🔥 Intensidade do Fogo (FRP - Fire Radiative Power)</div>
+                        <div class="firms-legend-item">
+                            <span class="firms-legend-color" style="background: #ffff00;"></span>
+                            <span>Baixa (&lt;5 MW)</span>
+                        </div>
+                        <div class="firms-legend-item">
+                            <span class="firms-legend-color" style="background: #ffd700;"></span>
+                            <span>Moderada (5-10 MW)</span>
+                        </div>
+                        <div class="firms-legend-item">
+                            <span class="firms-legend-color" style="background: #ffa500;"></span>
+                            <span>Média (10-20 MW)</span>
+                        </div>
+                        <div class="firms-legend-item">
+                            <span class="firms-legend-color" style="background: #ff8c00;"></span>
+                            <span>Alta (20-50 MW)</span>
+                        </div>
+                        <div class="firms-legend-item">
+                            <span class="firms-legend-color" style="background: #ff4500;"></span>
+                            <span>Muito Alta (50-100 MW)</span>
+                        </div>
+                        <div class="firms-legend-item">
+                            <span class="firms-legend-color" style="background: #ff0000;"></span>
+                            <span>Extrema (&gt;100 MW)</span>
+                        </div>
+                    </div>
+
+                    <!-- Statistics -->
+                    <div class="firms-stats">
+                        <div class="firms-stat-card">
+                            <div class="firms-stat-icon">🔥</div>
+                            <div class="firms-stat-value" id="firms-total-fires">0</div>
+                            <div class="firms-stat-label">Total de Focos</div>
+                        </div>
+                        <div class="firms-stat-card">
+                            <div class="firms-stat-icon">🌳</div>
+                            <div class="firms-stat-value" id="firms-amazon-fires">0</div>
+                            <div class="firms-stat-label">Amazônia Legal</div>
+                        </div>
+                        <div class="firms-stat-card">
+                            <div class="firms-stat-icon">⚡</div>
+                            <div class="firms-stat-value" id="firms-avg-frp">0 MW</div>
+                            <div class="firms-stat-label">Potência Média</div>
+                        </div>
+                        <div class="firms-stat-card">
+                            <div class="firms-stat-icon">✅</div>
+                            <div class="firms-stat-value" id="firms-high-confidence">0</div>
+                            <div class="firms-stat-label">Alta Confiança</div>
+                        </div>
+                    </div>
+
+                    <!-- Info Panel -->
+                    <div class="firms-info">
+                        <div class="firms-info-title">ℹ️ Sobre os Dados</div>
+                        <p class="firms-info-text">
+                            Os dados de queimadas são obtidos em tempo quase real do sistema FIRMS (Fire Information for Resource Management System) da NASA.
+                            Os satélites VIIRS e MODIS detectam anomalias térmicas na superfície terrestre, identificando focos de incêndio ativos.
+                            A potência radiativa do fogo (FRP) indica a intensidade da queimada em megawatts.
+                        </p>
+                        <p class="firms-info-source">
+                            Fonte: <a href="https://firms.modaps.eosdis.nasa.gov/" target="_blank">NASA FIRMS</a> |
+                            Última atualização: <span id="firms-last-updated">--</span>
+                        </p>
+                    </div>
+                </div>
+            </section>
+
             <!-- Predictions Section -->
             <section id="predictions" class="predictions-section">
                 <div class="container">
@@ -879,6 +992,7 @@
     <script src="/assets/js/donki.js"></script>
     <script src="/assets/js/footer-nav.js"></script>
     <script src="/assets/js/predictions.js"></script>
+    <script src="/assets/js/firms.js"></script>
     <script src="/assets/js/animations.js"></script>
     <script src="/assets/js/main.js"></script>
 

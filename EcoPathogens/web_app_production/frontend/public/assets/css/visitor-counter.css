@@ -1,0 +1,39 @@
+/* Visitor Counter Styles */
+.visitor-counter-container {
+    margin-top: 15px;
+    padding-top: 10px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.visitor-label {
+    margin-right: 8px;
+}
+
+.visitor-count {
+    font-weight: 700;
+    color: #fff;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 2px 8px;
+    border-radius: 4px;
+    min-width: 20px;
+    text-align: center;
+    display: inline-block;
+    transition: all 0.3s ease;
+}
+
+.visitor-count.loading {
+    opacity: 0.5;
+}
+
+.visitor-count.loaded {
+    opacity: 1;
+    background: rgba(var(--primary-rgb, 37, 99, 235), 0.2);
+    /* Fallback to blue if var not defined */
+    color: #60a5fa;
+}

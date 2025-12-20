@@ -39,6 +39,7 @@
     <link rel="stylesheet" href="/assets/css/donki.css">
     <link rel="stylesheet" href="/assets/css/firms.css">
     <link rel="stylesheet" href="/assets/css/eonet.css">
+    <link rel="stylesheet" href="/assets/css/visitor-counter.css">
 
     <!-- Plotly.js -->
     <script src="https://cdn.plot.ly/plotly-2.26.0.min.js"></script>
@@ -1097,6 +1098,12 @@
                     <div class="footer-bottom">
                         <p>&copy; 2025 EcoGuardians | UNION DESENVOLVIMENTO DE SOFTWARES</p>
                         <p>Desenvolvido com 💚 para proteger a Amazônia</p>
+
+                        <!-- Visitor Counter -->
+                        <div class="visitor-counter-container">
+                            <span class="visitor-label">Visitantes:</span>
+                            <span id="visitor-count-display" class="visitor-count loading">...</span>
+                        </div>
                     </div>
                 </div>
             </footer>
@@ -1122,6 +1129,13 @@
     <script src="/assets/js/eonet.js"></script>
     <script src="/assets/js/animations.js"></script>
     <script src="/assets/js/main.js"></script>
+
+    <!-- Firebase SDKs (Compat version for existing code structure) -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+
+    <!-- Visitor Counter Script -->
+    <script src="/assets/js/visitor-counter.js"></script>
 
     <!-- Analytics -->
     <script>

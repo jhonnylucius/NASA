@@ -15,7 +15,7 @@ class GalleryManager {
 
     init() {
         console.log('📸 GalleryManager inicializado');
-        
+
         if (!this.galleryGrid) {
             console.warn('Elemento da galeria não encontrado');
             return;
@@ -29,19 +29,19 @@ class GalleryManager {
 
     setupFilters() {
         const filterButtons = document.querySelectorAll('.filter-btn');
-        
+
         filterButtons.forEach(button => {
             button.addEventListener('click', (e) => {
                 // Remover classe active de todos os botões
                 filterButtons.forEach(btn => btn.classList.remove('active'));
-                
+
                 // Adicionar classe active ao botão clicado
                 e.target.classList.add('active');
-                
+
                 // Aplicar filtro
                 const filter = e.target.getAttribute('data-filter');
                 this.applyFilter(filter);
-                
+
                 console.log(`🎯 Filtro aplicado: ${filter}`);
             });
         });
@@ -89,76 +89,88 @@ class GalleryManager {
     loadImages() {
         // Gerar dados das imagens
         this.images = this.generateImageData();
-        
+
         // Renderizar primeira página
         this.renderImages();
-        
+
         console.log(`📊 ${this.images.length} imagens carregadas`);
     }
 
     generateImageData() {
-        const categories = {
-            deforestation: {
-                name: 'Desmatamento',
-                count: 45,
-                color: '#dc3545'
-            },
-            fires: {
-                name: 'Queimadas',
-                count: 32,
-                color: '#fd7e14'
-            },
-            floods: {
-                name: 'Inundações',
-                count: 18,
-                color: '#0dcaf0'
-            },
-            drought: {
-                name: 'Secas',
-                count: 21,
-                color: '#ffc107'
-            },
-            pollution: {
-                name: 'Poluição',
-                count: 12,
-                color: '#6f42c1'
-            }
-        };
+        // Lista completa de imagens reais (145 fotos)
+        const realImages = [
+            'DESMATAMENTOAWS.jpg', 'DESMATAMENTOAWS1.jpg', 'DESMATAMENTOAWS2.jpg', 'DESMATAMENTOAWS3.jpg',
+            'DESMATAMENTOAWS4.jpg', 'DESMATAMENTOAWS5.jpg', 'DESMATAMENTOAWS6.jpg', 'DESMATAMENTOAWS7.jpg',
+            'DESMATAMENTOAWS8.jpg', 'DESMATAMENTOAWS9.jpg', 'DESMATAMENTOAWS10.jpg', 'DESMATAMENTOAWS11.jpg',
+            'QUEIMADAS.jpg', 'QUEIMADAS1.jpg', 'QUEIMADAS2.jpg', 'QUEIMADAS3.jpg', 'QUEIMADAS4.jpg',
+            'QUEIMADAS5.jpg', 'QUEIMADAS6.jpg', 'QUEIMADAS7.jpg', 'QUEIMADAS8.jpg', 'QUEIMADAS9.jpg', 'EMCHAMAS.jpg',
+            'ENCHENTES.jpg', 'ENCHENTES1.jpg', 'ENCHENTES2.jpg', 'ENCHENTES3.jpg', 'ENCHENTES4.jpg',
+            'ENCHENTES5.jpg', 'ENCHENTES6.jpg', 'ENCHENTES7.jpg', 'ENCHENTES8.jpg', 'ENCHENTES9.jpg',
+            'EPIDEMIAS.jpg', 'EPIDEMIAS1.jpg', 'EPIDEMIAS2.jpg', 'EPIDEMIAS3.jpg', 'EPIDEMIAS4.jpg',
+            'EPIDEMIAS5.jpg', 'EPIDEMIAS6.jpg', 'EPIDEMIAS7.jpg', 'EPIDEMIAS8.jpg', 'EPIDEMIASAGRICOLA.jpg',
+            'VIRUS.jpg', 'VIRUS1.jpg', 'VIRUS2.jpg', 'VIRUS3.jpg', 'VIRUS4.jpg', 'VIRUS5.jpg',
+            'FURACAO-TORNADO.jpg', 'FURACAO.jpg', 'FURACAO1.jpg', 'TORNADO.jpg', 'TORNADO1.jpg',
+            'TORNADO2.jpg', 'TORNADO3.jpg', 'TORNADO4.jpg', 'TORNADO5.jpg', 'TORNADO6.jpg', 'TORNADO7.jpg',
+            'VULCAO.jpg', 'VULCAO1.jpg', 'VULCAO2.jpg', 'VULCAO3.jpg', 'VULCAO4.jpg',
+            'CLIMA.jpg', 'CLIMA2.jpg', 'CLIMA2SECA.jpg', 'CLIMA3.jpg', 'CLIMA4.jpg', 'CLIMA5.jpg', 'CLIMA6.jpg', 'CLIMA8.jpg',
+            'SECA.jpg', 'SECA1.jpg', 'SECA2.jpg', 'SECA3.jpg',
+            'INDIGINAS.jpg', 'INDIGINAS1.jpg', 'INDIGINAS2.jpg', 'INDIGINAS3.jpg', 'INDIGINAS4.jpg',
+            'INDIGINAS5.jpg', 'INDIGINAS6.jpg', 'INDIGINAS7.jpg', 'INDIGINAS8.jpg', 'INDIGINAS9.jpg',
+            'GARIMPOILEGAL.jpg', 'GARIMPOILEGAL1.jpg', 'GARIMPOILEGAL2.jpg', 'GARIMPOILEGAL3.jpg',
+            'GARIMPOILEGAL4.jpg', 'GARIMPOILEGAL5.jpg',
+            'DOENTE.jpg', 'SOFRIMENTO.jpg', 'SOFRIMENTO1.jpg', 'SOFRIMENTO2.jpg', 'SOFRIMENTO3.jpg',
+            'SOFRIMENTO4.jpg', 'SOFRIMENTO5.jpg',
+            'TERREMOTO.jpg', 'TERREMOTO1.jpg', 'TERREMOTO2.jpg',
+            'LAVOURAPERDIDA.jpg', 'LAVOURAPERDIDA1.jpg',
+            'SATELITE.jpg', 'SATELITE1.jpg', 'SATELITE-EM-MALHA.jpg', 'SATELITE-EM-MALHA1.jpg',
+            'SATELITE-EM-MALHA2.jpg', 'SATELITE-EM-MALHA3.jpg',
+            'SOL.jpg', 'SOL1.jpg', 'SOL2.jpg',
+            'ANALISE DE DADOS.jpg', 'ANALISE DE DADOS1.jpg', 'ANALISE DE DADOS2.jpg', 'ANALISE DE DADOS3.jpg',
+            'BRASILFLORESTA.jpg', 'POLITICOS.jpg', 'CULPADOS.jpg',
+            'A TERRA VAI SOBRIVIVER.jpg', 'A TERRA VAI SOBRIVIVER1.jpg',
+            'PLANETA.jpg', 'PLANETA1.jpg', 'PLANETA2.jpg', 'PLANETA3.jpg',
+            'DERRETENDO.jpg', 'DERRETIMENTOCALOTASPOLARES.jpg', '5DERRETIMENTOCALOTASPOLARES14.jpg',
+            'DERRETIMENTOCALOTASPOLARES1.jpg', 'DERRETIMENTOCALOTASPOLARES2.jpg', 'DERRETIMENTOCALOTASPOLARES3.jpg',
+            'DERRETIMENTOCALOTASPOLARES4.jpg', 'DERRETIMENTOCALOTASPOLARES5.jpg', 'DERRETIMENTOCALOTASPOLARES6.jpg',
+            'DERRETIMENTOCALOTASPOLARES7.jpg', 'DERRETIMENTOCALOTASPOLARES8.jpg', 'DERRETIMENTOCALOTASPOLARES9.jpg',
+            'DERRETIMENTOCALOTASPOLARES10.jpg', 'DERRETIMENTOCALOTASPOLARES11.jpg', 'DERRETIMENTOCALOTASPOLARES12.jpg',
+            'DERRETIMENTOCALOTASPOLARES13.jpg', 'DERRETIMENTOCALOTASPOLARES14.jpg', 'DERRETIMENTOCALOTASPOLARES15.jpg'
+        ];
 
         const locations = [
             'Acre', 'Amazonas', 'Amapá', 'Maranhão', 'Mato Grosso',
             'Pará', 'Rondônia', 'Roraima', 'Tocantins'
         ];
 
-        const images = [];
-        let imageId = 1;
+        const images = realImages.map((filename, index) => {
+            const name = filename.toUpperCase().replace('.JPG', '');
+            let category = 'deforestation';
 
-        // Gerar imagens por categoria
-        Object.entries(categories).forEach(([categoryKey, categoryData]) => {
-            for (let i = 0; i < categoryData.count; i++) {
-                const year = 1975 + Math.floor(Math.random() * 50);
-                const location = locations[Math.floor(Math.random() * locations.length)];
-                
-                images.push({
-                    id: imageId,
-                    src: this.generatePlaceholderImage(categoryKey, imageId),
-                    title: `${categoryData.name} #${imageId}`,
-                    description: this.generateDescription(categoryKey, location, year),
-                    category: categoryKey,
-                    year: year,
-                    location: location,
-                    coordinates: this.getRandomCoordinates(),
-                    severity: Math.random() > 0.7 ? 'high' : Math.random() > 0.4 ? 'medium' : 'low',
-                    source: 'NASA/MODIS',
-                    date: this.generateRandomDate(year)
-                });
-                
-                imageId++;
-            }
+            // Categorizar por nome
+            if (name.includes('QUEIMADA') || name.includes('CHAMAS') || name.includes('VULCAO')) category = 'fires';
+            else if (name.includes('ENCHENTE') || name.includes('TORNADO') || name.includes('FURACAO') || name.includes('TERREMOTO')) category = 'floods';
+            else if (name.includes('SECA') || name.includes('CLIMA')) category = 'drought';
+            else if (name.includes('EPIDEMIA') || name.includes('VIRUS') || name.includes('DOENTE') || name.includes('SOFRIMENTO') || name.includes('GARIMPO')) category = 'pollution';
+
+            const year = 1975 + Math.floor(Math.random() * 50);
+            const location = locations[Math.floor(Math.random() * locations.length)];
+
+            return {
+                id: index + 1,
+                src: `/assets/images/${filename}`,
+                title: filename.replace('.jpg', '').replace(/\d+/g, ' #').trim() || `Imagem #${index + 1}`,
+                description: this.generateDescription(category, location, year),
+                category: category,
+                year: year,
+                location: location,
+                coordinates: this.getRandomCoordinates(),
+                severity: Math.random() > 0.7 ? 'high' : Math.random() > 0.4 ? 'medium' : 'low',
+                source: 'NASA/MODIS',
+                date: this.generateRandomDate(year)
+            };
         });
 
-        // Embaralhar array
-        return images.sort(() => Math.random() - 0.5);
+        return images;
     }
 
     generatePlaceholderImage(category, id) {
@@ -173,7 +185,7 @@ class GalleryManager {
 
         const colorPair = colors[category] || '#808080,#A0A0A0';
         const [color1, color2] = colorPair.split(',');
-        
+
         // Criar URL de imagem placeholder usando um serviço online ou dados SVG
         return `data:image/svg+xml,${encodeURIComponent(`
             <svg width="400" height="300" xmlns="http://www.w3.org/2000/svg">
@@ -327,7 +339,7 @@ class GalleryManager {
 
     setupLazyLoading() {
         const lazyImages = this.galleryGrid.querySelectorAll('.lazy');
-        
+
         if ('IntersectionObserver' in window) {
             const imageObserver = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
@@ -362,7 +374,7 @@ class GalleryManager {
         sentinel.id = 'scroll-sentinel';
         sentinel.style.height = '1px';
         this.galleryGrid.parentElement.appendChild(sentinel);
-        
+
         observer.observe(sentinel);
     }
 
@@ -373,7 +385,7 @@ class GalleryManager {
         }
 
         const totalPages = Math.ceil(filteredImages.length / this.itemsPerPage);
-        
+
         if (this.currentPage < totalPages) {
             this.currentPage++;
             this.renderImages();
@@ -391,7 +403,7 @@ class GalleryManager {
 
     animateFilterTransition() {
         const items = this.galleryGrid.querySelectorAll('.gallery-item');
-        
+
         // Fade out
         items.forEach((item, index) => {
             item.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
@@ -447,7 +459,7 @@ class GalleryManager {
 
         // Animar saída
         this.modal.style.opacity = '0';
-        
+
         setTimeout(() => {
             this.modal.style.display = 'none';
             document.body.style.overflow = 'auto';
@@ -470,7 +482,7 @@ class GalleryManager {
 
     // Método para busca por texto
     searchImages(query) {
-        const filteredImages = this.images.filter(image => 
+        const filteredImages = this.images.filter(image =>
             image.title.toLowerCase().includes(query.toLowerCase()) ||
             image.description.toLowerCase().includes(query.toLowerCase()) ||
             image.location.toLowerCase().includes(query.toLowerCase())
@@ -481,7 +493,7 @@ class GalleryManager {
 
     renderFilteredImages(images) {
         this.galleryGrid.innerHTML = '';
-        
+
         images.forEach(image => {
             const imageElement = this.createImageElement(image);
             this.galleryGrid.appendChild(imageElement);
@@ -503,13 +515,13 @@ class GalleryManager {
         this.images.forEach(image => {
             // Categorias
             stats.categories[image.category] = (stats.categories[image.category] || 0) + 1;
-            
+
             // Anos
             stats.years[image.year] = (stats.years[image.year] || 0) + 1;
-            
+
             // Localizações
             stats.locations[image.location] = (stats.locations[image.location] || 0) + 1;
-            
+
             // Severidade
             stats.severity[image.severity]++;
         });

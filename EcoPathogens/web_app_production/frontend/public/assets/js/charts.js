@@ -710,13 +710,74 @@ class ChartsManager {
     }
 
     updatePredictions(type, value) {
+        // Atualizar display do valor
         const valueDisplay = document.getElementById(`${type === 'temperature' ? 'temp' : 'precip'}-value`);
         if (valueDisplay) {
             valueDisplay.textContent = type === 'temperature' ? value.toFixed(1) : value;
         }
 
         // Recalcular predições baseado no novo valor
-        // Implementar lógica específica para cada tipo de predição
+        if (type === 'temperature') {
+            // Temperatura afeta desmatamento
+            const chart = this.charts.get('deforestation-prediction');
+            if (chart) {
+                const tempFactor = (value - 25) / 5; // Normalizar diferença de temperatura
+                const futureYears = [2026, 2027, 2028, 2029, 2030];
+                const basePredictions = [42000, 43500, 44200, 44800, 45000];
+
+                // Quanto maior a temperatura, maior o desmatamento
+                const predictions = basePredictions.map(p => p * (1 + tempFactor * 0.3));
+                const upperBound = predictions.map(p => p * 1.2);
+                const lowerBound = predictions.map(p => p * 0.8);
+
+                Plotly.restyle(chart.element, {
+                    y: [null, predictions, upperBound, lowerBound]
+                }, [1, 2, 3]);
+            }
+        } else if (type === 'precipitation') {
+            // Precipitação afeta queimadas
+            const chart = this.charts.get('fires-prediction');
+            if (chart) {
+                const precipFactor = (2200 - value) / 700; // Normalizar diferença de precipitação
+                const futureYears = [2026, 2027, 2028, 2029, 2030];
+                const basePredictions = [52000, 54000, 55500, 56800, 58000];
+
+                // Quanto menor a precipitação, mais queimadas
+                const predictions = basePredictions.map(p => p * (1 + precipFactor * 0.4));
+                const upperBound = predictions.map(p => p * 1.25);
+                const lowerBound = predictions.map(p => p * 0.75);
+
+                Plotly.restyle(chart.element, {
+                    y: [null, predictions, upperBound, lowerBound]
+                }, [1, 2, 3]);
+
+                // Atualizar biodiversidade também (queimadas afetam biodiversidade)
+                this.updateBiodiversity(value);
+            }
+        }
+    }
+
+    updateBiodiversity(precipValue) {
+        const chart = this.charts.get('biodiversity-prediction');
+        if (!chart) return;
+
+        const precipFactor = (precipValue - 2200) / 700;
+        const baseSpecies2030 = 62341;
+
+        // Maior precipitação = melhor biodiversidade
+        const adjustedSpecies = Math.round(baseSpecies2030 * (1 + precipFactor * 0.15));
+        const loss = adjustedSpecies - 66924; // Espécies atuais estimadas
+
+        // Atualizar displays
+        const species2030El = document.getElementById('species-2030');
+        const speciesLossEl = document.getElementById('species-loss');
+
+        if (species2030El) {
+            species2030El.textContent = adjustedSpecies.toLocaleString('pt-BR');
+        }
+        if (speciesLossEl) {
+            speciesLossEl.textContent = loss.toLocaleString('pt-BR');
+        }
     }
 
     linearRegression(x, y) {

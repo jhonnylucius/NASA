@@ -34,6 +34,8 @@
     <link rel="stylesheet" href="/assets/css/animations.css">
     <link rel="stylesheet" href="/assets/css/responsive.css">
     <link rel="stylesheet" href="/assets/css/gallery.css">
+    <link rel="stylesheet" href="/assets/css/footer.css">
+    <link rel="stylesheet" href="/assets/css/epic.css">
 
     <!-- Plotly.js -->
     <script src="https://cdn.plot.ly/plotly-2.26.0.min.js"></script>
@@ -446,6 +448,148 @@
                 </div>
             </section>
 
+            <!-- Earth Live Section - NASA EPIC -->
+            <section id="earth-live" class="earth-section">
+                <div class="container">
+                    <h2 class="section-title">🌍 Terra ao Vivo</h2>
+                    <p class="section-description">
+                        Imagens da Terra capturadas do espaço profundo pela câmera EPIC da NASA
+                    </p>
+
+                    <div class="earth-viewer">
+                        <!-- Visualizador da Terra -->
+                        <div class="earth-image-container">
+                            <img id="epic-image" src="" alt="Terra vista do espaço">
+                            <div class="amazon-highlight" title="Região Amazônica"></div>
+                            <div class="loading-spinner"></div>
+                        </div>
+
+                        <!-- Controles e Informações -->
+                        <div class="earth-sidebar">
+                            <!-- Controles -->
+                            <div class="earth-controls">
+                                <div class="date-slider">
+                                    <label>📅 Navegar por Data:</label>
+                                    <input type="range" id="epic-date-slider" min="0" max="10" value="0" step="1">
+                                    <span id="epic-current-date">Carregando...</span>
+                                </div>
+
+                                <!-- Estados da Amazônia Legal -->
+                                <div class="amazon-states">
+                                    <label>🌳 Amazônia Legal:</label>
+                                    <div class="states-grid">
+                                        <button class="state-btn" data-state="AC" title="Acre">AC</button>
+                                        <button class="state-btn" data-state="AP" title="Amapá">AP</button>
+                                        <button class="state-btn" data-state="AM" title="Amazonas">AM</button>
+                                        <button class="state-btn" data-state="MT" title="Mato Grosso">MT</button>
+                                        <button class="state-btn" data-state="MA" title="Maranhão">MA</button>
+                                        <button class="state-btn" data-state="PA" title="Pará">PA</button>
+                                        <button class="state-btn" data-state="RO" title="Rondônia">RO</button>
+                                        <button class="state-btn" data-state="RR" title="Roraima">RR</button>
+                                        <button class="state-btn" data-state="TO" title="Tocantins">TO</button>
+                                    </div>
+                                </div>
+
+                                <!-- Outros Estados do Brasil -->
+                                <div class="other-states">
+                                    <label>🇧🇷 Outros Estados:</label>
+                                    <div class="regions-container">
+                                        <!-- Nordeste -->
+                                        <div class="region-group">
+                                            <span class="region-label">Nordeste</span>
+                                            <div class="states-grid-compact">
+                                                <button class="state-btn state-nordeste" data-state="PI"
+                                                    title="Piauí">PI</button>
+                                                <button class="state-btn state-nordeste" data-state="CE"
+                                                    title="Ceará">CE</button>
+                                                <button class="state-btn state-nordeste" data-state="RN"
+                                                    title="Rio Grande do Norte">RN</button>
+                                                <button class="state-btn state-nordeste" data-state="PB"
+                                                    title="Paraíba">PB</button>
+                                                <button class="state-btn state-nordeste" data-state="PE"
+                                                    title="Pernambuco">PE</button>
+                                                <button class="state-btn state-nordeste" data-state="AL"
+                                                    title="Alagoas">AL</button>
+                                                <button class="state-btn state-nordeste" data-state="SE"
+                                                    title="Sergipe">SE</button>
+                                                <button class="state-btn state-nordeste" data-state="BA"
+                                                    title="Bahia">BA</button>
+                                            </div>
+                                        </div>
+
+                                        <!-- Centro-Oeste -->
+                                        <div class="region-group">
+                                            <span class="region-label">Centro-Oeste</span>
+                                            <div class="states-grid-compact">
+                                                <button class="state-btn state-centro" data-state="MS"
+                                                    title="Mato Grosso do Sul">MS</button>
+                                                <button class="state-btn state-centro" data-state="GO"
+                                                    title="Goiás">GO</button>
+                                                <button class="state-btn state-centro" data-state="DF"
+                                                    title="Distrito Federal">DF</button>
+                                            </div>
+                                        </div>
+
+                                        <!-- Sudeste -->
+                                        <div class="region-group">
+                                            <span class="region-label">Sudeste</span>
+                                            <div class="states-grid-compact">
+                                                <button class="state-btn state-sudeste" data-state="SP"
+                                                    title="São Paulo">SP</button>
+                                                <button class="state-btn state-sudeste" data-state="RJ"
+                                                    title="Rio de Janeiro">RJ</button>
+                                                <button class="state-btn state-sudeste" data-state="MG"
+                                                    title="Minas Gerais">MG</button>
+                                                <button class="state-btn state-sudeste" data-state="ES"
+                                                    title="Espírito Santo">ES</button>
+                                            </div>
+                                        </div>
+
+                                        <!-- Sul -->
+                                        <div class="region-group">
+                                            <span class="region-label">Sul</span>
+                                            <div class="states-grid-compact">
+                                                <button class="state-btn state-sul" data-state="PR"
+                                                    title="Paraná">PR</button>
+                                                <button class="state-btn state-sul" data-state="SC"
+                                                    title="Santa Catarina">SC</button>
+                                                <button class="state-btn state-sul" data-state="RS"
+                                                    title="Rio Grande do Sul">RS</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="earth-actions">
+                                    <button id="epic-zoom-amazon">🌳 Amazônia</button>
+                                    <button id="epic-refresh">🔄 Atualizar</button>
+                                </div>
+                            </div>
+
+                            <!-- Painel de Informações -->
+                            <div class="earth-info">
+                                <h4>📊 Informações da Imagem</h4>
+                                <div class="info-item">
+                                    <span class="label">📅 Data:</span>
+                                    <span id="epic-info-date">--</span>
+                                </div>
+                                <div class="info-item">
+                                    <span class="label">📍 Centro:</span>
+                                    <span id="epic-info-coords">--</span>
+                                </div>
+                                <div class="info-item">
+                                    <span class="label">🛰️ Distância:</span>
+                                    <span id="epic-info-distance">~1.5M km</span>
+                                </div>
+                                <div class="info-item">
+                                    <span class="label">📡 Fonte:</span>
+                                    <span>NASA DSCOVR</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
             <!-- Predictions Section -->
             <section id="predictions" class="predictions-section">
                 <div class="container">
@@ -463,7 +607,7 @@
                                 <div class="model-accuracy">R² = 0.580</div>
                             </div>
                             <div class="prediction-chart">
-                                <canvas id="deforestation-prediction"></canvas>
+                                <div id="deforestation-prediction"></div>
                             </div>
                             <div class="prediction-controls">
                                 <label>Temperatura (°C):</label>
@@ -478,7 +622,7 @@
                                 <div class="model-accuracy">R² = 0.490</div>
                             </div>
                             <div class="prediction-chart">
-                                <canvas id="fires-prediction"></canvas>
+                                <div id="fires-prediction"></div>
                             </div>
                             <div class="prediction-controls">
                                 <label>Precipitação (mm):</label>
@@ -493,7 +637,7 @@
                                 <div class="model-accuracy">R² = 0.954</div>
                             </div>
                             <div class="prediction-chart">
-                                <canvas id="biodiversity-prediction"></canvas>
+                                <div id="biodiversity-prediction"></div>
                             </div>
                             <div class="prediction-results">
                                 <div class="prediction-result">
@@ -684,6 +828,7 @@
     <script src="/assets/js/charts.js"></script>
     <script src="/assets/js/maps.js"></script>
     <script src="/assets/js/gallery.js"></script>
+    <script src="/assets/js/epic.js"></script>
     <script src="/assets/js/predictions.js"></script>
     <script src="/assets/js/animations.js"></script>
     <script src="/assets/js/main.js"></script>

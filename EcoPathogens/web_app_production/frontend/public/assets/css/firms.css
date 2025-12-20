@@ -1,0 +1,394 @@
+/* 🔥 NASA FIRMS Fire Monitor Section Styles */
+
+/* ========================================
+   FIRMS Section Container
+======================================== */
+.firms-section {
+    padding: 80px 0;
+    background: linear-gradient(135deg,
+            #1a0505 0%,
+            #2d1010 25%,
+            #1a0808 50%,
+            #0d0404 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.firms-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background:
+        radial-gradient(ellipse at 20% 80%, rgba(255, 69, 0, 0.1) 0%, transparent 50%),
+        radial-gradient(ellipse at 80% 20%, rgba(255, 140, 0, 0.08) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+.firms-section .section-title {
+    color: #ff6b35;
+    text-shadow: 0 0 20px rgba(255, 107, 53, 0.4);
+}
+
+.firms-section .section-description {
+    color: #ffccaa;
+}
+
+/* ========================================
+   FIRMS Controls
+======================================== */
+.firms-controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 30px;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.4);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 107, 53, 0.2);
+}
+
+.firms-control-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.firms-control-group label {
+    font-size: 12px;
+    color: #ff8c5a;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.firms-control-group select {
+    padding: 10px 15px;
+    background: rgba(255, 107, 53, 0.1);
+    border: 1px solid rgba(255, 107, 53, 0.3);
+    border-radius: 8px;
+    color: #ffffff;
+    font-size: 14px;
+    cursor: pointer;
+    min-width: 180px;
+    transition: all 0.3s ease;
+}
+
+.firms-control-group select:hover {
+    border-color: rgba(255, 107, 53, 0.6);
+    background: rgba(255, 107, 53, 0.2);
+}
+
+.firms-control-group select:focus {
+    outline: none;
+    border-color: #ff6b35;
+    box-shadow: 0 0 10px rgba(255, 107, 53, 0.3);
+}
+
+.firms-control-group select option {
+    background: #1a0505;
+    color: #ffffff;
+}
+
+.firms-btn {
+    padding: 12px 24px;
+    background: linear-gradient(135deg, #ff6b35, #ff4500);
+    border: none;
+    border-radius: 8px;
+    color: #ffffff;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.firms-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 20px rgba(255, 69, 0, 0.4);
+}
+
+.firms-btn:active {
+    transform: translateY(0);
+}
+
+.firms-btn-secondary {
+    background: rgba(255, 107, 53, 0.2);
+    border: 1px solid rgba(255, 107, 53, 0.4);
+}
+
+.firms-btn-secondary:hover {
+    background: rgba(255, 107, 53, 0.3);
+}
+
+/* ========================================
+   FIRMS Map Container
+======================================== */
+.firms-map-container {
+    position: relative;
+    height: 500px;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 2px solid rgba(255, 107, 53, 0.3);
+    box-shadow:
+        0 10px 40px rgba(0, 0, 0, 0.5),
+        inset 0 0 60px rgba(255, 69, 0, 0.05);
+}
+
+#firms-map {
+    width: 100%;
+    height: 100%;
+    background: #0d0404;
+}
+
+/* Loading overlay */
+.firms-loading {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(26, 5, 5, 0.9);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    gap: 15px;
+}
+
+.firms-loading-spinner {
+    width: 50px;
+    height: 50px;
+    border: 3px solid rgba(255, 107, 53, 0.2);
+    border-top-color: #ff6b35;
+    border-radius: 50%;
+    animation: firms-spin 1s linear infinite;
+}
+
+@keyframes firms-spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.firms-loading-text {
+    color: #ff8c5a;
+    font-size: 14px;
+}
+
+/* ========================================
+   FIRMS Statistics
+======================================== */
+.firms-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.firms-stat-card {
+    background: linear-gradient(135deg,
+            rgba(255, 107, 53, 0.15) 0%,
+            rgba(255, 69, 0, 0.05) 100%);
+    border: 1px solid rgba(255, 107, 53, 0.25);
+    border-radius: 12px;
+    padding: 24px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.firms-stat-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(255, 107, 53, 0.5);
+    box-shadow: 0 10px 30px rgba(255, 69, 0, 0.2);
+}
+
+.firms-stat-icon {
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+.firms-stat-value {
+    font-size: 36px;
+    font-weight: 700;
+    color: #ff6b35;
+    text-shadow: 0 0 10px rgba(255, 107, 53, 0.3);
+    margin-bottom: 5px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.firms-stat-label {
+    font-size: 13px;
+    color: #ffccaa;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* ========================================
+   Fire Intensity Legend
+======================================== */
+.firms-legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+    margin-top: 20px;
+    padding: 15px;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 8px;
+}
+
+.firms-legend-title {
+    width: 100%;
+    text-align: center;
+    color: #ff8c5a;
+    font-weight: 600;
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+.firms-legend-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    color: #ffccaa;
+}
+
+.firms-legend-color {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+/* ========================================
+   Info Panel
+======================================== */
+.firms-info {
+    margin-top: 20px;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.4);
+    border-radius: 12px;
+    border-left: 4px solid #ff6b35;
+}
+
+.firms-info-title {
+    color: #ff8c5a;
+    font-weight: 600;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.firms-info-text {
+    color: #ccb0a0;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+.firms-info-source {
+    margin-top: 10px;
+    font-size: 11px;
+    color: #997766;
+}
+
+.firms-info-source a {
+    color: #ff8c5a;
+    text-decoration: none;
+}
+
+.firms-info-source a:hover {
+    text-decoration: underline;
+}
+
+/* ========================================
+   Last Updated
+======================================== */
+.firms-last-updated {
+    text-align: right;
+    color: #997766;
+    font-size: 12px;
+    margin-top: 10px;
+}
+
+/* ========================================
+   Responsive
+======================================== */
+@media (max-width: 768px) {
+    .firms-section {
+        padding: 60px 0;
+    }
+
+    .firms-controls {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .firms-control-group select {
+        width: 100%;
+        min-width: auto;
+    }
+
+    .firms-map-container {
+        height: 400px;
+    }
+
+    .firms-stats {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .firms-stat-value {
+        font-size: 28px;
+    }
+}
+
+@media (max-width: 480px) {
+    .firms-stats {
+        grid-template-columns: 1fr;
+    }
+
+    .firms-map-container {
+        height: 350px;
+    }
+}
+
+/* ========================================
+   Fire Marker Animations
+======================================== */
+@keyframes fire-pulse {
+
+    0%,
+    100% {
+        opacity: 0.8;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.1);
+    }
+}
+
+/* Dark mode Leaflet popups */
+.leaflet-popup-content-wrapper {
+    background: linear-gradient(135deg, #1a0808, #2d1010);
+    color: #ffffff;
+    border: 1px solid rgba(255, 107, 53, 0.3);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+}
+
+.leaflet-popup-tip {
+    background: #1a0808;
+}
+
+.leaflet-popup-close-button {
+    color: #ff8c5a !important;
+}

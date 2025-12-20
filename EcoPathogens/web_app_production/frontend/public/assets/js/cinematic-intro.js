@@ -310,7 +310,7 @@ class CinematicIntro {
                     <div class="intro-title">
                         <h1>🌍 EcoGuardians</h1>
                         <p>50 Anos de História Ambiental da Amazônia</p>
-                        <span class="nasa-badge">NASA Space Apps Challenge 2025</span>
+                        <span class="nasa-badge">UNION DESENVOLVIMENTO DE SOFTWARES</span>
                     </div>
                     <div class="intro-progress">
                         <div class="progress-bar">

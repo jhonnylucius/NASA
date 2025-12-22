@@ -97,29 +97,45 @@ class EPICViewer {
             if (this.images.length === 0) {
                 throw new Error('Nenhuma imagem disponível');
             }
+
+            // Encontrar melhor imagem para o Brasil
+            const bestIndex = this.findBestImageForBrazil();
+            this.currentIndex = bestIndex;
+
+            // Atualizar slider
+            this.setupControls();
+
+            // Exibir a imagem correta
+            this.displayImage(this.currentIndex);
+
         } catch (error) {
             console.error('❌ Erro ao buscar imagens:', error);
-            // Fallback: tentar data específica recente
-            await this.fetchFallbackImages();
+            this.showError();
         }
     }
 
-    async fetchFallbackImages() {
-        try {
-            // Tentar último mês
-            const date = new Date();
-            date.setDate(date.getDate() - 30);
-            const dateStr = date.toISOString().split('T')[0];
+    findBestImageForBrazil() {
+        if (!this.images || this.images.length === 0) return 0;
 
-            const response = await fetch(`${this.apiBase}/natural/date/${dateStr}`);
-            if (response.ok) {
-                this.images = await response.json();
-                console.log(`✅ Fallback: ${this.images.length} imagens de ${dateStr}`);
+        const brazilLon = -55.0; // Longitude central aproximada do Brasil
+        let bestIndex = 0;
+        let minDiff = Infinity;
+
+        this.images.forEach((img, index) => {
+            if (img.centroid_coordinates && typeof img.centroid_coordinates.lon === 'number') {
+                // Calcular diferença considerando a rotação da Terra (ciclo de 360 graus)
+                let diff = Math.abs(img.centroid_coordinates.lon - brazilLon);
+                if (diff > 180) diff = 360 - diff;
+
+                if (diff < minDiff) {
+                    minDiff = diff;
+                    bestIndex = index;
+                }
             }
-        } catch (error) {
-            console.error('❌ Fallback falhou:', error);
-            throw new Error('Não foi possível carregar imagens EPIC');
-        }
+        });
+
+        console.log(`📍 Melhor imagem para Brasil: Index ${bestIndex} (Lon: ${this.images[bestIndex].centroid_coordinates.lon})`);
+        return bestIndex;
     }
 
     setupControls() {
@@ -127,7 +143,7 @@ class EPICViewer {
 
         // Configurar slider
         this.dateSlider.max = this.images.length - 1;
-        this.dateSlider.value = 0;
+        this.dateSlider.value = this.currentIndex;
 
         this.dateSlider.addEventListener('input', (e) => {
             this.currentIndex = parseInt(e.target.value);

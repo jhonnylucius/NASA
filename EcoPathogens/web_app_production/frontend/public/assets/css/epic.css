@@ -183,6 +183,183 @@
     margin-bottom: 30px;
 }
 
+/* 🎨 Feature 1: Toggle Natural/Enhanced */
+.image-type-toggle {
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.toggle-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+}
+
+.toggle-container input {
+    display: none;
+}
+
+.toggle-slider {
+    width: 50px;
+    height: 26px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 13px;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.toggle-slider::before {
+    content: '';
+    position: absolute;
+    width: 22px;
+    height: 22px;
+    background: #48bb78;
+    border-radius: 50%;
+    top: 2px;
+    left: 2px;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(72, 187, 120, 0.4);
+}
+
+.toggle-container input:checked+.toggle-slider {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+}
+
+.toggle-container input:checked+.toggle-slider::before {
+    left: 26px;
+    background: white;
+}
+
+.toggle-enhanced {
+    opacity: 0.5;
+    transition: opacity 0.3s;
+}
+
+.toggle-container input:checked~.toggle-enhanced {
+    opacity: 1;
+}
+
+/* 🎞️ Feature 2: Timelapse */
+.timelapse-controls {
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.timelapse-controls label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: 500;
+    opacity: 0.9;
+}
+
+.timelapse-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.play-btn {
+    flex: 1;
+    padding: 12px 20px;
+    background: linear-gradient(135deg, #48bb78, #38a169);
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.play-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(72, 187, 120, 0.4);
+}
+
+.play-btn.playing {
+    background: linear-gradient(135deg, #f6ad55, #ed8936);
+    animation: pulse-btn 1s ease infinite;
+}
+
+@keyframes pulse-btn {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.02);
+    }
+}
+
+.speed-select {
+    padding: 12px 15px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    color: white;
+    font-size: 0.95rem;
+    cursor: pointer;
+}
+
+.speed-select option {
+    background: #1a2332;
+    color: white;
+}
+
+/* 📅 Feature 3: Date Picker */
+.date-picker-container {
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.date-picker-container label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: 500;
+    opacity: 0.9;
+}
+
+.date-picker-input {
+    width: 100%;
+    padding: 12px 15px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.date-picker-input:hover {
+    border-color: rgba(72, 187, 120, 0.5);
+}
+
+.date-picker-input:focus {
+    outline: none;
+    border-color: #48bb78;
+    box-shadow: 0 0 15px rgba(72, 187, 120, 0.3);
+}
+
+/* 🌙 Feature 4: Dados Astronômicos */
+.astro-data {
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.astro-data h5 {
+    font-size: 1rem;
+    margin-bottom: 12px;
+    color: #667eea;
+    font-weight: 600;
+}
+
 .date-slider {
     margin-bottom: 25px;
 }
@@ -253,6 +430,71 @@
     background: rgba(72, 187, 120, 0.3);
     transform: translateY(-2px);
     box-shadow: 0 4px 15px rgba(72, 187, 120, 0.3);
+}
+
+/* 🔥 Feature 5: Fire Overlay */
+.fire-toggle-btn {
+    background: rgba(255, 69, 0, 0.2) !important;
+    border-color: rgba(255, 69, 0, 0.5) !important;
+}
+
+.fire-toggle-btn:hover {
+    background: rgba(255, 69, 0, 0.4) !important;
+}
+
+.fire-toggle-btn.active {
+    background: linear-gradient(135deg, #ff4500, #ff6b00) !important;
+    border-color: #ff4500 !important;
+    box-shadow: 0 0 20px rgba(255, 69, 0, 0.5);
+    animation: fire-pulse 1.5s ease infinite;
+}
+
+@keyframes fire-pulse {
+
+    0%,
+    100% {
+        box-shadow: 0 0 10px rgba(255, 69, 0, 0.5);
+    }
+
+    50% {
+        box-shadow: 0 0 25px rgba(255, 69, 0, 0.8);
+    }
+}
+
+.fire-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 5;
+    display: none;
+}
+
+.fire-overlay.active {
+    display: block;
+}
+
+.fire-dot {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    animation: fire-flicker 0.8s ease-in-out infinite alternate;
+}
+
+@keyframes fire-flicker {
+    0% {
+        opacity: 0.7;
+        transform: translate(-50%, -50%) scale(0.9);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1.1);
+    }
 }
 
 /* Estados da Amazônia */

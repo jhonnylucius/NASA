@@ -466,6 +466,7 @@
                         <div class="earth-image-container">
                             <img id="epic-image" src="" alt="Terra vista do espaço">
                             <div class="amazon-highlight" title="Região Amazônica"></div>
+                            <div id="fire-overlay" class="fire-overlay"></div>
                             <div class="loading-spinner"></div>
                         </div>
 
@@ -473,8 +474,38 @@
                         <div class="earth-sidebar">
                             <!-- Controles -->
                             <div class="earth-controls">
+                                <!-- 🎨 Feature 1: Toggle Natural/Enhanced -->
+                                <div class="image-type-toggle">
+                                    <label class="toggle-container">
+                                        <span id="epic-type-label">🌍 Natural</span>
+                                        <input type="checkbox" id="epic-type-toggle">
+                                        <span class="toggle-slider"></span>
+                                        <span class="toggle-enhanced">🎨 Enhanced</span>
+                                    </label>
+                                </div>
+
+                                <!-- 🎞️ Feature 2: Timelapse -->
+                                <div class="timelapse-controls">
+                                    <label>🎞️ Timelapse:</label>
+                                    <div class="timelapse-buttons">
+                                        <button id="epic-play-btn" class="play-btn">▶️ Play</button>
+                                        <select id="epic-speed-select" class="speed-select">
+                                            <option value="2000">0.5x</option>
+                                            <option value="1000" selected>1x</option>
+                                            <option value="500">2x</option>
+                                            <option value="250">4x</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <!-- 📅 Feature 3: Date Picker -->
+                                <div class="date-picker-container">
+                                    <label>📅 Escolher Data:</label>
+                                    <input type="date" id="epic-date-picker" class="date-picker-input">
+                                </div>
+
                                 <div class="date-slider">
-                                    <label>📅 Navegar por Data:</label>
+                                    <label>🔄 Imagens do Dia:</label>
                                     <input type="range" id="epic-date-slider" min="0" max="10" value="0" step="1">
                                     <span id="epic-current-date">Carregando...</span>
                                 </div>
@@ -565,6 +596,7 @@
                                     </div>
                                 </div>
                                 <div class="earth-actions">
+                                    <button id="epic-fire-toggle" class="fire-toggle-btn">🔥 Incêndios</button>
                                     <button id="epic-zoom-amazon">🌳 Amazônia</button>
                                     <button id="epic-refresh">🔄 Atualizar</button>
                                 </div>
@@ -582,9 +614,27 @@
                                     <span id="epic-info-coords">--</span>
                                 </div>
                                 <div class="info-item">
-                                    <span class="label">🛰️ Distância:</span>
+                                    <span class="label">🛰️ DSCOVR:</span>
                                     <span id="epic-info-distance">~1.5M km</span>
                                 </div>
+
+                                <!-- 🌙 Feature 4: Dados Astronômicos -->
+                                <div class="astro-data">
+                                    <h5>🌙 Dados Astronômicos</h5>
+                                    <div class="info-item">
+                                        <span class="label">☀️ Sol:</span>
+                                        <span id="epic-sun-position">--</span>
+                                    </div>
+                                    <div class="info-item">
+                                        <span class="label">🌙 Lua:</span>
+                                        <span id="epic-moon-position">--</span>
+                                    </div>
+                                    <div class="info-item">
+                                        <span class="label">🛰️ Satélite:</span>
+                                        <span id="epic-sat-position">--</span>
+                                    </div>
+                                </div>
+
                                 <div class="info-item">
                                     <span class="label">📡 Fonte:</span>
                                     <span>NASA DSCOVR</span>

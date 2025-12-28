@@ -1,5 +1,6 @@
-// 🌍 NASA EPIC Viewer - Terra ao Vivo
+// 🌍 NASA EPIC Viewer - Terra ao Vivo ENHANCED 🎂
 // Visualizador de imagens da Terra do espaço profundo
+// Versão 2.0 - Com 6 novas features!
 
 class EPICViewer {
     constructor() {
@@ -9,6 +10,27 @@ class EPICViewer {
         this.currentIndex = 0;
         this.isLoading = false;
         this.currentState = null;
+
+        // 🎨 Feature 1: Enhanced Color Toggle
+        this.imageType = 'natural'; // 'natural' ou 'enhanced'
+
+        // 🎞️ Feature 2: Timelapse
+        this.isPlaying = false;
+        this.playInterval = null;
+        this.playSpeed = 1000; // ms entre frames
+
+        // 📅 Feature 3: Datas Históricas
+        this.availableDates = [];
+        this.selectedDate = null;
+
+        // 🌙 Feature 4: Posição Lua/Sol
+        this.showAstroData = true;
+
+        // 🔥 Feature 5: Integração FIRMS (preparado)
+        this.firmsData = [];
+
+        // 📊 Feature 6: Metadados expandidos
+        this.showDetailedMetadata = true;
 
         // Coordenadas aproximadas dos estados brasileiros
         this.stateCoordinates = {
@@ -82,17 +104,23 @@ class EPICViewer {
         }
     }
 
-    async fetchLatestImages() {
+    async fetchLatestImages(date = null) {
         try {
-            console.log('📡 Buscando imagens da NASA EPIC...');
-            const response = await fetch(`${this.apiBase}/natural`);
+            console.log(`📡 Buscando imagens ${this.imageType}...`);
+
+            let url = `${this.apiBase}/${this.imageType}`;
+            if (date) {
+                url += `/date/${date}`;
+            }
+
+            const response = await fetch(url);
 
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);
             }
 
             this.images = await response.json();
-            console.log(`✅ ${this.images.length} imagens carregadas`);
+            console.log(`✅ ${this.images.length} imagens ${this.imageType} carregadas`);
 
             if (this.images.length === 0) {
                 throw new Error('Nenhuma imagem disponível');
@@ -102,8 +130,11 @@ class EPICViewer {
             const bestIndex = this.findBestImageForBrazil();
             this.currentIndex = bestIndex;
 
-            // Atualizar slider
-            this.setupControls();
+            // Atualizar slider (sem re-registrar event listeners)
+            if (this.dateSlider) {
+                this.dateSlider.max = this.images.length - 1;
+                this.dateSlider.value = this.currentIndex;
+            }
 
             // Exibir a imagem correta
             this.displayImage(this.currentIndex);
@@ -112,6 +143,119 @@ class EPICViewer {
             console.error('❌ Erro ao buscar imagens:', error);
             this.showError();
         }
+    }
+
+    // 📅 Feature 3: Buscar todas as datas disponíveis
+    async fetchAvailableDates() {
+        try {
+            console.log('📅 Buscando datas disponíveis...');
+            const response = await fetch(`${this.apiBase}/${this.imageType}/all`);
+
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+
+            const data = await response.json();
+            this.availableDates = data.map(item => item.date);
+            console.log(`✅ ${this.availableDates.length} datas disponíveis`);
+
+            return this.availableDates;
+        } catch (error) {
+            console.error('❌ Erro ao buscar datas:', error);
+            return [];
+        }
+    }
+
+    // 🎨 Feature 1: Toggle Enhanced/Natural
+    async toggleImageType() {
+        this.imageType = this.imageType === 'natural' ? 'enhanced' : 'natural';
+        console.log(`🎨 Alterando para: ${this.imageType}`);
+
+        this.showLoading(true);
+        await this.fetchLatestImages(this.selectedDate);
+        this.showLoading(false);
+
+        // Atualizar UI do toggle
+        this.updateImageTypeUI();
+    }
+
+    updateImageTypeUI() {
+        const toggle = document.getElementById('epic-type-toggle');
+        const label = document.getElementById('epic-type-label');
+
+        if (toggle) {
+            toggle.checked = this.imageType === 'enhanced';
+        }
+        if (label) {
+            label.textContent = this.imageType === 'enhanced' ? '🎨 Enhanced' : '🌍 Natural';
+        }
+    }
+
+    // 🎞️ Feature 2: Timelapse
+    startTimelapse() {
+        if (this.isPlaying) return;
+
+        this.isPlaying = true;
+        console.log('▶️ Timelapse iniciado');
+
+        this.playInterval = setInterval(() => {
+            this.currentIndex = (this.currentIndex + 1) % this.images.length;
+            this.displayImage(this.currentIndex);
+
+            if (this.dateSlider) {
+                this.dateSlider.value = this.currentIndex;
+            }
+        }, this.playSpeed);
+
+        this.updatePlayButtonUI();
+    }
+
+    stopTimelapse() {
+        if (!this.isPlaying) return;
+
+        this.isPlaying = false;
+        console.log('⏸️ Timelapse pausado');
+
+        if (this.playInterval) {
+            clearInterval(this.playInterval);
+            this.playInterval = null;
+        }
+
+        this.updatePlayButtonUI();
+    }
+
+    toggleTimelapse() {
+        if (this.isPlaying) {
+            this.stopTimelapse();
+        } else {
+            this.startTimelapse();
+        }
+    }
+
+    setPlaySpeed(speed) {
+        this.playSpeed = speed;
+        if (this.isPlaying) {
+            this.stopTimelapse();
+            this.startTimelapse();
+        }
+    }
+
+    updatePlayButtonUI() {
+        const playBtn = document.getElementById('epic-play-btn');
+        if (playBtn) {
+            playBtn.innerHTML = this.isPlaying ? '⏸️ Pausar' : '▶️ Play';
+            playBtn.classList.toggle('playing', this.isPlaying);
+        }
+    }
+
+    // 📅 Feature 3: Selecionar data histórica
+    async selectDate(date) {
+        this.selectedDate = date;
+        console.log(`📅 Selecionando data: ${date}`);
+
+        this.showLoading(true);
+        await this.fetchLatestImages(date);
+        this.showLoading(false);
     }
 
     findBestImageForBrazil() {
@@ -180,7 +324,45 @@ class EPICViewer {
             refreshButton.addEventListener('click', () => this.refresh());
         }
 
-        console.log('🎮 Controles configurados');
+        // 🎨 Feature 1: Toggle Enhanced/Natural
+        const typeToggle = document.getElementById('epic-type-toggle');
+        if (typeToggle) {
+            typeToggle.addEventListener('change', () => this.toggleImageType());
+        }
+
+        // 🎞️ Feature 2: Timelapse controls
+        const playBtn = document.getElementById('epic-play-btn');
+        if (playBtn) {
+            playBtn.addEventListener('click', () => this.toggleTimelapse());
+        }
+
+        const speedSelect = document.getElementById('epic-speed-select');
+        if (speedSelect) {
+            speedSelect.addEventListener('change', (e) => {
+                this.setPlaySpeed(parseInt(e.target.value));
+            });
+        }
+
+        // 📅 Feature 3: Date picker
+        const datePicker = document.getElementById('epic-date-picker');
+        if (datePicker) {
+            // Definir data máxima como hoje
+            const today = new Date().toISOString().split('T')[0];
+            datePicker.max = today;
+            datePicker.min = '2015-06-13'; // Primeira imagem EPIC
+
+            datePicker.addEventListener('change', (e) => {
+                this.selectDate(e.target.value);
+            });
+        }
+
+        // 🔥 Feature 5: Toggle Fire Overlay
+        const fireToggle = document.getElementById('epic-fire-toggle');
+        if (fireToggle) {
+            fireToggle.addEventListener('click', () => this.toggleFireOverlay());
+        }
+
+        console.log('🎮 Controles configurados (Enhanced!)');
     }
 
     displayImage(index) {
@@ -192,10 +374,10 @@ class EPICViewer {
         const month = dateParts[1];
         const day = dateParts[2];
 
-        // Construir URL da imagem
-        const imageUrl = `${this.archiveBase}/natural/${year}/${month}/${day}/png/${image.image}.png`;
+        // Construir URL da imagem usando imageType
+        const imageUrl = `${this.archiveBase}/${this.imageType}/${year}/${month}/${day}/png/${image.image}.png`;
 
-        console.log(`📸 Carregando imagem: ${image.image}`);
+        console.log(`📸 Carregando imagem ${this.imageType}: ${image.image}`);
 
         // Mostrar loading enquanto carrega
         this.showLoading(true);
@@ -205,6 +387,7 @@ class EPICViewer {
         img.onload = () => {
             this.imageElement.src = imageUrl;
             this.updateInfo(image);
+            this.updateAstroInfo(image);
             this.showLoading(false);
         };
         img.onerror = () => {
@@ -249,6 +432,55 @@ class EPICViewer {
             const z = image.dscovr_j2000_position.z;
             const distance = Math.sqrt(x * x + y * y + z * z);
             distanceElement.textContent = `${distance.toFixed(0)} km`;
+        }
+    }
+
+    // 🌙 Feature 4: Atualizar informações astronômicas
+    updateAstroInfo(image) {
+        const sunElement = document.getElementById('epic-sun-position');
+        const moonElement = document.getElementById('epic-moon-position');
+        const satElement = document.getElementById('epic-sat-position');
+
+        // Posição do Sol
+        if (sunElement && image.sun_j2000_position) {
+            const sun = image.sun_j2000_position;
+            const sunDist = Math.sqrt(sun.x * sun.x + sun.y * sun.y + sun.z * sun.z);
+            sunElement.textContent = `${(sunDist / 1000000).toFixed(2)} milhões km`;
+        }
+
+        // Posição da Lua
+        if (moonElement && image.lunar_j2000_position) {
+            const moon = image.lunar_j2000_position;
+            const moonDist = Math.sqrt(moon.x * moon.x + moon.y * moon.y + moon.z * moon.z);
+            moonElement.textContent = `${moonDist.toFixed(0)} km`;
+        }
+
+        // Posição do Satélite DSCOVR
+        if (satElement && image.dscovr_j2000_position) {
+            const sat = image.dscovr_j2000_position;
+            const satDist = Math.sqrt(sat.x * sat.x + sat.y * sat.y + sat.z * sat.z);
+            satElement.textContent = `${satDist.toFixed(0)} km`;
+        }
+
+        // Atualizar indicadores visuais de Lua/Sol
+        this.updateAstroVisualization(image);
+    }
+
+    updateAstroVisualization(image) {
+        const sunIndicator = document.querySelector('.sun-indicator');
+        const moonIndicator = document.querySelector('.moon-indicator');
+
+        if (sunIndicator && image.sun_j2000_position) {
+            // Calcular ângulo do sol baseado na posição
+            const sun = image.sun_j2000_position;
+            const angle = Math.atan2(sun.y, sun.x) * (180 / Math.PI);
+            sunIndicator.style.transform = `rotate(${angle}deg)`;
+        }
+
+        if (moonIndicator && image.lunar_j2000_position) {
+            const moon = image.lunar_j2000_position;
+            const angle = Math.atan2(moon.y, moon.x) * (180 / Math.PI);
+            moonIndicator.style.transform = `rotate(${angle}deg)`;
         }
     }
 
@@ -319,6 +551,193 @@ class EPICViewer {
             this.imageElement.alt = 'Erro ao carregar imagem da Terra';
         }
         console.error('❌ Falha ao carregar visualizador EPIC');
+    }
+
+    // 🔥 Feature 5: Integração FIRMS
+    async fetchFireData() {
+        try {
+            console.log('🔥 Buscando dados de incêndios...');
+
+            const apiBase = 'https://firms.modaps.eosdis.nasa.gov/api/area/csv';
+            const mapKey = '02a6b6ad3f23a3af3fe8d8ba432a8c9b';
+            const brazilBounds = '-74,-34,-34,6';
+            const days = 1;
+
+            const url = `${apiBase}/${mapKey}/VIIRS_NOAA20_NRT/${brazilBounds}/${days}`;
+
+            const response = await fetch(url);
+
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+
+            const csvText = await response.text();
+            this.firmsData = this.parseFireCSV(csvText);
+
+            console.log(`✅ ${this.firmsData.length} focos de incêndio encontrados`);
+
+            return this.firmsData;
+        } catch (error) {
+            console.error('❌ Erro ao buscar dados FIRMS:', error);
+            return [];
+        }
+    }
+
+    parseFireCSV(csvText) {
+        const lines = csvText.trim().split('\n');
+        if (lines.length < 2) return [];
+
+        const headers = lines[0].split(',');
+        const data = [];
+
+        for (let i = 1; i < lines.length; i++) {
+            const values = lines[i].split(',');
+            const row = {};
+
+            headers.forEach((header, index) => {
+                row[header.trim()] = values[index]?.trim();
+            });
+
+            if (row.latitude && row.longitude) {
+                row.lat = parseFloat(row.latitude);
+                row.lon = parseFloat(row.longitude);
+                row.frp = parseFloat(row.frp) || 0;
+                data.push(row);
+            }
+        }
+
+        return data;
+    }
+
+    async toggleFireOverlay() {
+        const overlay = document.getElementById('fire-overlay');
+        const btn = document.getElementById('epic-fire-toggle');
+        const epicImage = document.getElementById('epic-image');
+
+        if (!overlay) return;
+
+        if (overlay.classList.contains('active')) {
+            // Desativar overlay
+            overlay.classList.remove('active');
+            overlay.innerHTML = '';
+            if (btn) btn.classList.remove('active');
+
+            // Restaurar rotação
+            if (epicImage) {
+                epicImage.style.animation = 'gentle-rotate 120s linear infinite';
+                epicImage.style.transform = '';
+            }
+
+            console.log('🔥 Overlay de incêndios desativado');
+        } else {
+            // Ativar overlay
+            overlay.classList.add('active');
+            if (btn) btn.classList.add('active');
+
+            // Selecionar a melhor imagem do Brasil automaticamente
+            const bestIndex = this.findBestImageForBrazil();
+            console.log(`🔥 Selecionando melhor imagem: ${bestIndex}`);
+
+            this.currentIndex = bestIndex;
+            if (this.dateSlider) {
+                this.dateSlider.value = bestIndex;
+            }
+            this.displayImage(bestIndex);
+
+            // Parar rotação após um pequeno delay para garantir que a imagem carregou
+            setTimeout(() => {
+                if (epicImage) {
+                    epicImage.style.animation = 'none';
+                    epicImage.style.transform = 'rotate(0deg)';
+                    console.log('🔥 Rotação parada');
+                }
+            }, 500);
+
+            // Buscar dados se ainda não tem
+            if (this.firmsData.length === 0) {
+                await this.fetchFireData();
+            }
+
+            this.renderFireOverlay();
+            console.log('🔥 Overlay ativado');
+        }
+    }
+
+    renderFireOverlay() {
+        const overlay = document.getElementById('fire-overlay');
+        if (!overlay || this.firmsData.length === 0) return;
+
+        overlay.innerHTML = '';
+
+        // Pegar imagem atual para coordenadas
+        const currentImage = this.images[this.currentIndex];
+        if (!currentImage) return;
+
+        const centerLon = currentImage.centroid_coordinates?.lon || -55;
+        const centerLat = currentImage.centroid_coordinates?.lat || -10;
+
+        // Renderizar pontos de fogo
+        this.firmsData.forEach(fire => {
+            // Converter lat/lon para posição no círculo da Terra
+            const position = this.geoToImagePosition(fire.lat, fire.lon, centerLat, centerLon);
+
+            if (position) {
+                const dot = document.createElement('div');
+                dot.className = 'fire-dot';
+                dot.style.left = position.x + '%';
+                dot.style.top = position.y + '%';
+
+                // Cor baseada na intensidade
+                const color = this.getFireColor(fire.frp);
+                dot.style.background = color;
+                dot.style.boxShadow = `0 0 ${4 + fire.frp / 20}px ${color}`;
+
+                // Tooltip
+                dot.title = `🔥 FRP: ${fire.frp.toFixed(1)} MW\n📍 ${fire.lat.toFixed(2)}°, ${fire.lon.toFixed(2)}°`;
+
+                overlay.appendChild(dot);
+            }
+        });
+
+        console.log(`🔥 ${overlay.children.length} pontos de fogo renderizados`);
+    }
+
+    geoToImagePosition(lat, lon, centerLat, centerLon) {
+        // Converter coordenadas geográficas para posição no círculo da imagem
+        // A imagem EPIC mostra aproximadamente 180° de longitude e latitude
+
+        const deltaLon = lon - centerLon;
+        const deltaLat = lat - centerLat;
+
+        // Se está muito longe do centro, não é visível
+        if (Math.abs(deltaLon) > 90 || Math.abs(deltaLat) > 90) {
+            return null;
+        }
+
+        // Escalar para posição 0-100%
+        // Ajustado: mover pontos mais para noroeste (esquerda e cima)
+        const scale = 0.50; // Fator de escala ajustado
+        const offsetX = -5;  // Mover para esquerda (oeste)
+        const offsetY = -8;  // Mover para cima (norte)
+
+        const x = 50 + (deltaLon * scale) + offsetX;
+        const y = 50 - (deltaLat * scale) + offsetY;
+
+        // Verificar se está dentro do círculo da Terra
+        const distFromCenter = Math.sqrt(Math.pow(x - 50, 2) + Math.pow(y - 50, 2));
+        if (distFromCenter > 48) {
+            return null; // Fora do disco da Terra
+        }
+
+        return { x, y };
+    }
+
+    getFireColor(frp) {
+        if (frp > 100) return '#ff0000';
+        if (frp > 50) return '#ff4500';
+        if (frp > 20) return '#ff8c00';
+        if (frp > 10) return '#ffa500';
+        return '#ffd700';
     }
 }
 

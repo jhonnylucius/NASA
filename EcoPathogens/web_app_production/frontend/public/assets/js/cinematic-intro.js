@@ -209,7 +209,7 @@ class CinematicIntro {
         // Adiciona as 125 imagens de desastres
         disasterImages.forEach((imageName, index) => {
             images.push({
-                src: `/assets/images/${imageName}`,
+                src: `assets/images/${imageName}`,
                 type: 'disaster',
                 name: imageName.replace('.jpg', ''),
                 category: this.getCategoryFromName(imageName),
@@ -220,21 +220,21 @@ class CinematicIntro {
         // Adiciona as 3 imagens especiais em triângulo (para queimar)
         const triangleImages = [
             {
-                src: `/assets/images/EMCHAMAS.jpg`,
+                src: `assets/images/EMCHAMAS.jpg`,
                 type: 'triangle',
                 name: 'EMCHAMAS',
                 position: 'top', // Centro-topo do triângulo
                 fallback: 'https://images.unsplash.com/photo-1574482620007-57f80dc0de84?w=500&h=400&fit=crop&q=80'
             },
             {
-                src: `/assets/images/DERRETENDO.jpg`,
+                src: `assets/images/DERRETENDO.jpg`,
                 type: 'triangle',
                 name: 'DERRETENDO',
                 position: 'bottom-left', // Esquerda-baixo do triângulo
                 fallback: 'https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=500&h=400&fit=crop&q=80'
             },
             {
-                src: `/assets/images/DOENTE.jpg`,
+                src: `assets/images/DOENTE.jpg`,
                 type: 'triangle',
                 name: 'DOENTE',
                 position: 'bottom-right', // Direita-baixo do triângulo

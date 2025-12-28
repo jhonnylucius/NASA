@@ -185,7 +185,7 @@ class DataLoader {
             const category = categories[Math.floor(Math.random() * categories.length)];
             images.push({
                 id: i,
-                src: `/assets/images/disasters/disaster_${i.toString().padStart(3, '0')}.jpg`,
+                src: `assets/images/disasters/disaster_${i.toString().padStart(3, '0')}.jpg`,
                 title: `Impacto Ambiental #${i}`,
                 description: `Registro de ${category} na região amazônica`,
                 category: category,

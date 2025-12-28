@@ -157,7 +157,7 @@ class GalleryManager {
 
             return {
                 id: index + 1,
-                src: `/assets/images/${filename}`,
+                src: `assets/images/${filename}`,
                 title: filename.replace('.jpg', '').replace(/\d+/g, ' #').trim() || `Imagem #${index + 1}`,
                 description: this.generateDescription(category, location, year),
                 category: category,

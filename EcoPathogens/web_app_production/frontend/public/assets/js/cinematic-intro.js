@@ -308,7 +308,17 @@ class CinematicIntro {
             <div class="intro-overlay">
                 <div class="intro-content">
                     <div class="intro-title">
-                        <h1>🌍 EcoGuardians</h1>
+                        <div class="title-row">
+                            <div class="intro-logo">
+                                <svg width="60" height="60" viewBox="0 0 120 120">
+                                    <circle cx="60" cy="60" r="55" stroke="#39FF14" stroke-width="3" fill="none"/>
+                                    <ellipse cx="60" cy="60" rx="40" ry="25" fill="#000" stroke="#39FF14" stroke-width="2"/>
+                                    <circle cx="60" cy="60" r="12" fill="#39FF14"/>
+                                    <path d="M60 35 Q75 50 60 65 Q45 50 60 35" fill="#39FF14"/>
+                                </svg>
+                            </div>
+                            <h1>ECOGUARDIANS</h1>
+                        </div>
                         <p>50 Anos de História Ambiental da Amazônia</p>
                         <span class="nasa-badge">UNION DESENVOLVIMENTO DE SOFTWARES</span>
                     </div>
@@ -379,15 +389,36 @@ class CinematicIntro {
                 pointer-events: none;
             }
 
+            .title-row {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 1rem;
+            }
+
+            .intro-logo svg {
+                filter: drop-shadow(0 0 10px #39FF14) drop-shadow(0 0 20px #39FF14);
+            }
+
             .intro-title h1 {
-                font-size: 4rem;
+                font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
+                font-size: 4.5rem;
                 font-weight: 900;
                 margin: 0;
-                color: #39FF14;
+                color: #000000;
+                -webkit-text-stroke: 2px #39FF14;
                 text-shadow: 
-                    4px 4px 0px #000000,
-                    0 0 20px rgba(57, 255, 20, 0.6);
-                letter-spacing: 1px;
+                    /* Efeito 3D - sombras deslocadas */
+                    1px 1px 0 #2E8B57,
+                    2px 2px 0 #2E8B57,
+                    3px 3px 0 #228B22,
+                    4px 4px 0 #1a6b1a,
+                    /* Brilho neon */
+                    0 0 10px #39FF14,
+                    0 0 20px #39FF14,
+                    0 0 40px #39FF14,
+                    0 0 80px #39FF14;
+                letter-spacing: 3px;
                 text-transform: uppercase;
                 white-space: nowrap;
             }

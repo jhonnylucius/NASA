@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const streetLayer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { attribution: '&copy; OSM' });
 
     // Default Layer
-    darkLayer.addTo(map);
+    satelliteLayer.addTo(map);
 
     // Layer Control (Top Right)
     const baseMaps = {

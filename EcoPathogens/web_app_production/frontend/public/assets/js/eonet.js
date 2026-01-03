@@ -152,12 +152,10 @@ class EONETManager {
                 throw new Error(`HTTP error! status: ${response.status}`);
             }
 
-            // The Java Backend returns a list of EnvironmentalSnapshots, not the original NASA structure directly
+            // NASA EONET API returns {events: [...]} structure
             const data = await response.json();
-            // Adapt the backend response to the frontend expectations if needed, 
-            // or better, let's keep the frontend expectation but just map the data
-            // For now, let's assume the backend returns the raw list
-            this.events = data;
+            // Extract events array from response
+            this.events = data.events || [];
 
 
             console.log(`✅ ${this.events.length} eventos carregados`);

@@ -4,7 +4,11 @@
 class FIRMSManager {
     constructor() {
         // API Configuration
-        this.apiBase = 'https://firms.modaps.eosdis.nasa.gov/api/area/csv';
+        // API Configuration
+        // this.apiBase = 'https://firms.modaps.eosdis.nasa.gov/api/area/csv';
+        this.apiBase = 'http://83.147.37.100:8081/api/nasa/firms'; // VPS Java Proxy
+
+
         this.mapKey = '02a6b6ad3f23a3af3fe8d8ba432a8c9b';
 
         // Amazon Legal bounding box: west,south,east,north

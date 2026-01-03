@@ -1,0 +1,130 @@
+/* Truth Portal Theme - v3.0 */
+
+/* === Glassmorphism Cards === */
+.glass-card {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.glass-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+}
+
+/* === Custom Scrollbar === */
+#audit-list-container {
+    scrollbar-width: thin;
+    scrollbar-color: #888 #f1f1f1;
+}
+#audit-list-container::-webkit-scrollbar {
+    width: 8px;
+}
+#audit-list-container::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+#audit-list-container::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 10px;
+}
+#audit-list-container::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+/* === Filter Button States === */
+.filter-btn {
+    transition: all 0.2s ease;
+}
+.filter-btn:hover {
+    transform: scale(1.05);
+}
+.filter-btn.active {
+    font-weight: 600;
+}
+
+/* === Audit Item Animations === */
+.audit-item {
+    animation: fadeInUp 0.4s ease forwards;
+    opacity: 0;
+}
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Stagger delay for items */
+.audit-item:nth-child(1) { animation-delay: 0.05s; }
+.audit-item:nth-child(2) { animation-delay: 0.1s; }
+.audit-item:nth-child(3) { animation-delay: 0.15s; }
+.audit-item:nth-child(4) { animation-delay: 0.2s; }
+.audit-item:nth-child(5) { animation-delay: 0.25s; }
+.audit-item:nth-child(6) { animation-delay: 0.3s; }
+.audit-item:nth-child(n+7) { animation-delay: 0.35s; }
+
+
+/* === Responsive Adjustments === */
+@media (max-width: 1024px) {
+    .audit-grid {
+        grid-template-columns: 1fr !important;
+        height: auto !important;
+    }
+    #truth-map {
+        height: 400px !important;
+    }
+    .audit-list-panel {
+        max-height: 350px;
+    }
+    .filter-bar {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 768px) {
+    #hero h1 {
+        font-size: 2rem !important;
+    }
+    .glass-card h3 {
+        font-size: 1.8rem !important;
+    }
+    .section-header h2 {
+        font-size: 1.6rem !important;
+    }
+    /* Stack metrics 2x2 */
+    div[style*="grid-template-columns: repeat(4, 1fr)"] {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+}
+
+/* === MarkerCluster Override (Dark Theme) === */
+.marker-cluster-small {
+    background-color: rgba(181, 226, 140, 0.7);
+}
+.marker-cluster-small div {
+    background-color: rgba(110, 204, 57, 0.8);
+}
+.marker-cluster-medium {
+    background-color: rgba(241, 211, 87, 0.7);
+}
+.marker-cluster-medium div {
+    background-color: rgba(240, 194, 12, 0.8);
+}
+.marker-cluster-large {
+    background-color: rgba(253, 156, 115, 0.7);
+}
+.marker-cluster-large div {
+    background-color: rgba(241, 128, 23, 0.8);
+}
+.marker-cluster {
+    border-radius: 50%;
+    font-weight: bold;
+    color: white;
+    text-shadow: 1px 1px 2px black;
+}

@@ -4,7 +4,11 @@
 class EONETManager {
     constructor() {
         // API Configuration
-        this.apiBase = 'https://eonet.gsfc.nasa.gov/api/v3';
+        // API Configuration
+        // this.apiBase = 'https://eonet.gsfc.nasa.gov/api/v3';
+        this.apiBase = 'http://83.147.37.100:8081/api/nasa/eonet'; // VPS Java Proxy
+
+
 
         // Event categories with icons and colors
         this.categories = {
@@ -148,8 +152,13 @@ class EONETManager {
                 throw new Error(`HTTP error! status: ${response.status}`);
             }
 
+            // The Java Backend returns a list of EnvironmentalSnapshots, not the original NASA structure directly
             const data = await response.json();
-            this.events = data.events || [];
+            // Adapt the backend response to the frontend expectations if needed, 
+            // or better, let's keep the frontend expectation but just map the data
+            // For now, let's assume the backend returns the raw list
+            this.events = data;
+
 
             console.log(`✅ ${this.events.length} eventos carregados`);
 

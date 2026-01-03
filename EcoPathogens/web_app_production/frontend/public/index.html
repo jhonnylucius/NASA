@@ -147,6 +147,9 @@
         </div>
     </div>
 
+    <!-- Impact Stats Script -->
+    <script src="assets/js/impact-stats.js"></script>
+
     <!-- Smooth Scrolling Container -->
     <div id="smooth-wrapper">
         <div id="smooth-content">
@@ -323,6 +326,66 @@
                             </div>
                         </div>
                         <div id="interactive-map"></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Human Impact Section (New) -->
+            <section id="human-impact" class="impact-section"
+                style="background: #1a1a1a; padding: 60px 0; color: #fff;">
+                <div class="container">
+                    <div class="section-header">
+                        <h2 class="section-title" style="color: #ff6b6b;">🆘 Custo Humano e Social</h2>
+                        <p class="section-description">
+                            Além dos dados climáticos, monitoramos o impacto direto na vida das pessoas.
+                            Estes números representam vidas reais afetadas pelos eventos extremos validados.
+                        </p>
+                    </div>
+
+                    <div class="impact-grid"
+                        style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-top: 40px;">
+
+                        <!-- Deaths -->
+                        <div class="impact-card"
+                            style="background: #2d2d2d; padding: 25px; border-radius: 12px; border-left: 4px solid #ff4444; text-align: center;">
+                            <div class="impact-icon" style="font-size: 2.5rem; margin-bottom: 10px;">⚰️</div>
+                            <div class="impact-value" id="impact-deaths"
+                                style="font-size: 2.5rem; font-weight: 700; color: #fff;">0</div>
+                            <div class="impact-label" style="color: #bbb; font-weight: 500;">Vidas Perdidas</div>
+                        </div>
+
+                        <!-- Injured -->
+                        <div class="impact-card"
+                            style="background: #2d2d2d; padding: 25px; border-radius: 12px; border-left: 4px solid #ffbb33; text-align: center;">
+                            <div class="impact-icon" style="font-size: 2.5rem; margin-bottom: 10px;">🤕</div>
+                            <div class="impact-value" id="impact-injured"
+                                style="font-size: 2.5rem; font-weight: 700; color: #fff;">0</div>
+                            <div class="impact-label" style="color: #bbb; font-weight: 500;">Feridos</div>
+                        </div>
+
+                        <!-- Displaced (Desalojados + Desabrigados) -->
+                        <div class="impact-card"
+                            style="background: #2d2d2d; padding: 25px; border-radius: 12px; border-left: 4px solid #33b5e5; text-align: center;">
+                            <div class="impact-icon" style="font-size: 2.5rem; margin-bottom: 10px;">🏚️</div>
+                            <div class="impact-value" id="impact-displaced"
+                                style="font-size: 2.5rem; font-weight: 700; color: #fff;">0</div>
+                            <div class="impact-label" style="color: #bbb; font-weight: 500;">Desalojados/Desabrigados
+                            </div>
+                        </div>
+
+                        <!-- Total Affected -->
+                        <div class="impact-card"
+                            style="background: #2d2d2d; padding: 25px; border-radius: 12px; border-left: 4px solid #00C851; text-align: center;">
+                            <div class="impact-icon" style="font-size: 2.5rem; margin-bottom: 10px;">👥</div>
+                            <div class="impact-value" id="impact-total"
+                                style="font-size: 2.5rem; font-weight: 700; color: #fff;">0</div>
+                            <div class="impact-label" style="color: #bbb; font-weight: 500;">Total de Afetados</div>
+                        </div>
+
+                    </div>
+
+                    <div style="margin-top: 20px; text-align: center; color: #888; font-size: 0.9rem;">
+                        * Dados auditados via Atlas Digital e Validação Cruzada NASA/Xavier.
                     </div>
                 </div>
             </section>

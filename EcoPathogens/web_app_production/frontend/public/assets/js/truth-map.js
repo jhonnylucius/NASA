@@ -65,7 +65,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Use production API subdomain (Cloudflare proxied with HTTPS)
     const API_BASE = window.location.hostname === 'localhost'
         ? 'http://localhost:8080'
-        : 'https://api.ecoguardians.com.br';
+        : 'https://api.ecoguardians.com.br:8443';
 
     fetch(`${API_BASE}/api/truth`)
         .then(response => response.json())

@@ -5,8 +5,8 @@ class EONETManager {
     constructor() {
         // API Configuration
         // API Configuration
-        // this.apiBase = 'https://eonet.gsfc.nasa.gov/api/v3';
-        this.apiBase = 'http://83.147.37.100:8081/api/nasa/eonet'; // VPS Java Proxy
+        this.apiBase = 'https://eonet.gsfc.nasa.gov/api/v3';
+        // this.apiBase = 'http://83.147.37.100:8081/api/nasa/eonet'; // VPS Java Proxy
 
 
 

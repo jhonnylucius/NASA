@@ -62,11 +62,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const darkGreenIcon = L.divIcon({ className: 'custom-icon', html: '<div style="background-color: #006400; width: 16px; height: 16px; border-radius: 50%; box-shadow: 0 0 12px #006400; border: 1px solid white;"></div>' });
 
     // --- DATA FETCHING ---
-    // Auto-detect environment: localhost for dev, production IP for deployed site
-    const API_BASE = window.location.hostname === 'localhost' 
-        ? 'http://localhost:8081' 
-        : 'http://83.147.37.100:8081';
-    
+    // Use production API subdomain (Cloudflare proxied with HTTPS)
+    const API_BASE = window.location.hostname === 'localhost'
+        ? 'http://localhost:8080'
+        : 'https://api.ecoguardians.com.br';
+
     fetch(`${API_BASE}/api/truth`)
         .then(response => response.json())
         .then(data => {

@@ -1,0 +1,16 @@
+C:\projtos pessoais\NASA\EcoPathogens\web_app_production\backend\src\main\java\com\ecoguardians\model\HumanDamage.java
+C:\projtos pessoais\NASA\EcoPathogens\web_app_production\backend\src\main\java\com\ecoguardians\config\WebConfig.java
+C:\projtos pessoais\NASA\EcoPathogens\web_app_production\backend\src\main\java\com\ecoguardians\EcoGuardiansApplication.java
+C:\projtos pessoais\NASA\EcoPathogens\web_app_production\backend\src\main\java\com\ecoguardians\service\HistoricalDataSeeder.java
+C:\projtos pessoais\NASA\EcoPathogens\web_app_production\backend\src\main\java\com\ecoguardians\controller\TruthController.java
+C:\projtos pessoais\NASA\EcoPathogens\web_app_production\backend\src\main\java\com\ecoguardians\filter\SecurityHeadersFilter.java
+C:\projtos pessoais\NASA\EcoPathogens\web_app_production\backend\src\main\java\com\ecoguardians\controller\NasaProxyController.java
+C:\projtos pessoais\NASA\EcoPathogens\web_app_production\backend\src\main\java\com\ecoguardians\controller\ImpactController.java
+C:\projtos pessoais\NASA\EcoPathogens\web_app_production\backend\src\main\java\com\ecoguardians\filter\RateLimitFilter.java
+C:\projtos pessoais\NASA\EcoPathogens\web_app_production\backend\src\main\java\com\ecoguardians\model\ImpactDTO.java
+C:\projtos pessoais\NASA\EcoPathogens\web_app_production\backend\src\main\java\com\ecoguardians\repository\HumanDamageRepository.java
+C:\projtos pessoais\NASA\EcoPathogens\web_app_production\backend\src\main\java\com\ecoguardians\service\NasaDataService.java
+C:\projtos pessoais\NASA\EcoPathogens\web_app_production\backend\src\main\java\com\ecoguardians\model\EnvironmentalSnapshot.java
+C:\projtos pessoais\NASA\EcoPathogens\web_app_production\backend\src\main\java\com\ecoguardians\model\TruthVerdict.java
+C:\projtos pessoais\NASA\EcoPathogens\web_app_production\backend\src\main\java\com\ecoguardians\repository\EnvironmentalSnapshotRepository.java
+C:\projtos pessoais\NASA\EcoPathogens\web_app_production\backend\src\main\java\com\ecoguardians\repository\TruthVerdictRepository.java

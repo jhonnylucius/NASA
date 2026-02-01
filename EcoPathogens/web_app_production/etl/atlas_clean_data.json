@@ -1,0 +1,2593 @@
+[
+    {
+        "type": "aggregate_occurrence",
+        "disaster_type": "Inundação",
+        "state": "GO",
+        "mesoregions": 5,
+        "municipalities": 21,
+        "occurrences": 26,
+        "raw_source": "GO,5,21,26,54"
+    },
+    {
+        "type": "aggregate_occurrence",
+        "disaster_type": "Inundação",
+        "state": "MS",
+        "mesoregions": 3,
+        "municipalities": 69,
+        "occurrences": 93,
+        "raw_source": "MS,3,69,93,54"
+    },
+    {
+        "type": "aggregate_occurrence",
+        "disaster_type": "Inundação",
+        "state": "MT",
+        "mesoregions": 6,
+        "municipalities": 73,
+        "occurrences": 180,
+        "raw_source": "MT,6,73,180,54"
+    },
+    {
+        "type": "aggregate_occurrence",
+        "disaster_type": "Inundação",
+        "state": "AC",
+        "mesoregions": 2,
+        "municipalities": 7,
+        "occurrences": 14,
+        "raw_source": "AC,2,7,14,54"
+    },
+    {
+        "type": "aggregate_occurrence",
+        "disaster_type": "Inundação",
+        "state": "AP",
+        "mesoregions": 2,
+        "municipalities": 7,
+        "occurrences": 11,
+        "raw_source": "AP,2,7,11,54"
+    },
+    {
+        "type": "aggregate_occurrence",
+        "disaster_type": "Inundação",
+        "state": "AM",
+        "mesoregions": 5,
+        "municipalities": 59,
+        "occurrences": 214,
+        "raw_source": "AM,5,59,214,54"
+    },
+    {
+        "type": "aggregate_occurrence",
+        "disaster_type": "Inundação",
+        "state": "PA",
+        "mesoregions": 4,
+        "municipalities": 74,
+        "occurrences": 255,
+        "raw_source": "PA,4,74,255,54"
+    },
+    {
+        "type": "aggregate_occurrence",
+        "disaster_type": "Inundação",
+        "state": "RO",
+        "mesoregions": 3,
+        "municipalities": 9,
+        "occurrences": 10,
+        "raw_source": "RO,3,9,10,54"
+    },
+    {
+        "type": "aggregate_occurrence",
+        "disaster_type": "Inundação",
+        "state": "RR",
+        "mesoregions": 1,
+        "municipalities": 18,
+        "occurrences": 25,
+        "raw_source": "RR,1,18,25,54"
+    },
+    {
+        "type": "aggregate_occurrence",
+        "disaster_type": "Inundação",
+        "state": "TO",
+        "mesoregions": 2,
+        "municipalities": 24,
+        "occurrences": 31,
+        "raw_source": "TO,2,24,31,54"
+    },
+    {
+        "type": "aggregate_occurrence",
+        "disaster_type": "Inundação",
+        "state": "AL",
+        "mesoregions": 3,
+        "municipalities": 18,
+        "occurrences": 22,
+        "raw_source": "AL,3,18,22,54"
+    },
+    {
+        "type": "aggregate_occurrence",
+        "disaster_type": "Inundação",
+        "state": "BA",
+        "mesoregions": 7,
+        "municipalities": 95,
+        "occurrences": 118,
+        "raw_source": "BA,7,95,118,54"
+    },
+    {
+        "type": "aggregate_occurrence",
+        "disaster_type": "Inundação",
+        "state": "CE",
+        "mesoregions": 7,
+        "municipalities": 144,
+        "occurrences": 273,
+        "raw_source": "CE,7,144,273,54"
+    },
+    {
+        "type": "aggregate_occurrence",
+        "disaster_type": "Inundação",
+        "state": "MA",
+        "mesoregions": 5,
+        "municipalities": 115,
+        "occurrences": 180,
+        "raw_source": "MA,5,115,180,54"
+    },
+    {
+        "type": "aggregate_occurrence",
+        "disaster_type": "Inundação",
+        "state": "PB",
+        "mesoregions": 4,
+        "municipalities": 112,
+        "occurrences": 136,
+        "raw_source": "PB,4,112,136,54"
+    },
+    {
+        "type": "aggregate_occurrence",
+        "disaster_type": "Inundação",
+        "state": "PE",
+        "mesoregions": 5,
+        "municipalities": 44,
+        "occurrences": 59,
+        "raw_source": "PE,5,44,59,54"
+    },
+    {
+        "type": "aggregate_occurrence",
+        "disaster_type": "Inundação",
+        "state": "PI",
+        "mesoregions": 4,
+        "municipalities": 106,
+        "occurrences": 181,
+        "raw_source": "PI,4,106,181,54"
+    },
+    {
+        "type": "aggregate_occurrence",
+        "disaster_type": "Inundação",
+        "state": "RN",
+        "mesoregions": 4,
+        "municipalities": 117,
+        "occurrences": 206,
+        "raw_source": "RN,4,117,206,54"
+    },
+    {
+        "type": "aggregate_occurrence",
+        "disaster_type": "Inundação",
+        "state": "SE",
+        "mesoregions": 3,
+        "municipalities": 17,
+        "occurrences": 21,
+        "raw_source": "SE,3,17,21,54"
+    },
+    {
+        "type": "aggregate_occurrence",
+        "disaster_type": "Inundação",
+        "state": "ES",
+        "mesoregions": 4,
+        "municipalities": 56,
+        "occurrences": 138,
+        "raw_source": "ES,4,56,138,54"
+    },
+    {
+        "type": "aggregate_occurrence",
+        "disaster_type": "Inundação",
+        "state": "MG",
+        "mesoregions": 12,
+        "municipalities": 521,
+        "occurrences": 1,
+        "raw_source": "MG,12,521,1.050,54"
+    },
+    {
+        "type": "aggregate_occurrence",
+        "disaster_type": "Inundação",
+        "state": "RJ",
+        "mesoregions": 6,
+        "municipalities": 61,
+        "occurrences": 190,
+        "raw_source": "RJ,6,61,190,54"
+    },
+    {
+        "type": "aggregate_occurrence",
+        "disaster_type": "Inundação",
+        "state": "SP",
+        "mesoregions": 15,
+        "municipalities": 142,
+        "occurrences": 237,
+        "raw_source": "SP,15,142,237,54"
+    },
+    {
+        "type": "aggregate_occurrence",
+        "disaster_type": "Inundação",
+        "state": "PR",
+        "mesoregions": 11,
+        "municipalities": 102,
+        "occurrences": 158,
+        "raw_source": "PR,11,102,158,54"
+    },
+    {
+        "type": "aggregate_occurrence",
+        "disaster_type": "Inundação",
+        "state": "RS",
+        "mesoregions": 7,
+        "municipalities": 210,
+        "occurrences": 413,
+        "raw_source": "RS,7,210,413,54"
+    },
+    {
+        "type": "aggregate_occurrence",
+        "disaster_type": "Inundação",
+        "state": "SC",
+        "mesoregions": 6,
+        "municipalities": 198,
+        "occurrences": 450,
+        "raw_source": "SC,6,198,450,54"
+    },
+    {
+        "type": "aggregate_occurrence",
+        "disaster_type": "Vendaval/Ciclone",
+        "state": "GO",
+        "mesoregions": 4,
+        "municipalities": 8,
+        "occurrences": 8,
+        "raw_source": "GO,4,8,8,69"
+    },
+    {
+        "type": "aggregate_occurrence",
+        "disaster_type": "Vendaval/Ciclone",
+        "state": "MS",
+        "mesoregions": 4,
+        "municipalities": 10,
+        "occurrences": 11,
+        "raw_source": "MS,4,10,11,69"
+    },
+    {
+        "type": "aggregate_occurrence",
+        "disaster_type": "Vendaval/Ciclone",
+        "state": "MT",
+        "mesoregions": 3,
+        "municipalities": 9,
+        "occurrences": 10,
+        "raw_source": "MT,3,9,10,69"
+    },
+    {
+        "type": "aggregate_occurrence",
+        "disaster_type": "Vendaval/Ciclone",
+        "state": "AC",
+        "mesoregions": 1,
+        "municipalities": 1,
+        "occurrences": 1,
+        "raw_source": "AC,1,1,1,69"
+    },
+    {
+        "type": "aggregate_occurrence",
+        "disaster_type": "Vendaval/Ciclone",
+        "state": "AP",
+        "mesoregions": 1,
+        "municipalities": 2,
+        "occurrences": 2,
+        "raw_source": "AP,1,2,2,69"
+    },
+    {
+        "type": "aggregate_occurrence",
+        "disaster_type": "Vendaval/Ciclone",
+        "state": "AM",
+        "mesoregions": 3,
+        "municipalities": 12,
+        "occurrences": 13,
+        "raw_source": "AM,3,12,13,69"
+    },
+    {
+        "type": "aggregate_occurrence",
+        "disaster_type": "Vendaval/Ciclone",
+        "state": "PA",
+        "mesoregions": 5,
+        "municipalities": 8,
+        "occurrences": 11,
+        "raw_source": "PA,5,8,11,69"
+    },
+    {
+        "type": "aggregate_occurrence",
+        "disaster_type": "Vendaval/Ciclone",
+        "state": "RO",
+        "mesoregions": 2,
+        "municipalities": 4,
+        "occurrences": 4,
+        "raw_source": "RO,2,4,4,69"
+    },
+    {
+        "type": "aggregate_occurrence",
+        "disaster_type": "Vendaval/Ciclone",
+        "state": "RR",
+        "mesoregions": 2,
+        "municipalities": 2,
+        "occurrences": 2,
+        "raw_source": "RR,2,2,2,69"
+    },
+    {
+        "type": "aggregate_occurrence",
+        "disaster_type": "Vendaval/Ciclone",
+        "state": "TO",
+        "mesoregions": 2,
+        "municipalities": 3,
+        "occurrences": 3,
+        "raw_source": "TO,2,3,3,69"
+    },
+    {
+        "type": "aggregate_occurrence",
+        "disaster_type": "Vendaval/Ciclone",
+        "state": "AL",
+        "mesoregions": 0,
+        "municipalities": 0,
+        "occurrences": 0,
+        "raw_source": "AL,0,0,0,69"
+    },
+    {
+        "type": "aggregate_occurrence",
+        "disaster_type": "Vendaval/Ciclone",
+        "state": "BA",
+        "mesoregions": 3,
+        "municipalities": 11,
+        "occurrences": 11,
+        "raw_source": "BA,3,11,11,69"
+    },
+    {
+        "type": "aggregate_occurrence",
+        "disaster_type": "Vendaval/Ciclone",
+        "state": "CE",
+        "mesoregions": 1,
+        "municipalities": 1,
+        "occurrences": 1,
+        "raw_source": "CE,1,1,1,69"
+    },
+    {
+        "type": "aggregate_occurrence",
+        "disaster_type": "Vendaval/Ciclone",
+        "state": "MA",
+        "mesoregions": 2,
+        "municipalities": 3,
+        "occurrences": 3,
+        "raw_source": "MA,2,3,3,69"
+    },
+    {
+        "type": "aggregate_occurrence",
+        "disaster_type": "Vendaval/Ciclone",
+        "state": "PB",
+        "mesoregions": 1,
+        "municipalities": 1,
+        "occurrences": 1,
+        "raw_source": "PB,1,1,1,69"
+    },
+    {
+        "type": "aggregate_occurrence",
+        "disaster_type": "Vendaval/Ciclone",
+        "state": "PE",
+        "mesoregions": 4,
+        "municipalities": 9,
+        "occurrences": 10,
+        "raw_source": "PE,4,9,10,69"
+    },
+    {
+        "type": "aggregate_occurrence",
+        "disaster_type": "Vendaval/Ciclone",
+        "state": "PI",
+        "mesoregions": 2,
+        "municipalities": 4,
+        "occurrences": 5,
+        "raw_source": "PI,2,4,5,69"
+    },
+    {
+        "type": "aggregate_occurrence",
+        "disaster_type": "Vendaval/Ciclone",
+        "state": "RN",
+        "mesoregions": 1,
+        "municipalities": 1,
+        "occurrences": 1,
+        "raw_source": "RN,1,1,1,69"
+    },
+    {
+        "type": "aggregate_occurrence",
+        "disaster_type": "Vendaval/Ciclone",
+        "state": "SE",
+        "mesoregions": 2,
+        "municipalities": 3,
+        "occurrences": 3,
+        "raw_source": "SE,2,3,3,69"
+    },
+    {
+        "type": "aggregate_occurrence",
+        "disaster_type": "Vendaval/Ciclone",
+        "state": "ES",
+        "mesoregions": 4,
+        "municipalities": 32,
+        "occurrences": 40,
+        "raw_source": "ES,4,32,40,69"
+    },
+    {
+        "type": "aggregate_occurrence",
+        "disaster_type": "Vendaval/Ciclone",
+        "state": "MG",
+        "mesoregions": 12,
+        "municipalities": 199,
+        "occurrences": 297,
+        "raw_source": "MG,12,199,297,69"
+    },
+    {
+        "type": "aggregate_occurrence",
+        "disaster_type": "Vendaval/Ciclone",
+        "state": "RJ",
+        "mesoregions": 6,
+        "municipalities": 20,
+        "occurrences": 42,
+        "raw_source": "RJ,6,20,42,69"
+    },
+    {
+        "type": "aggregate_occurrence",
+        "disaster_type": "Vendaval/Ciclone",
+        "state": "SP",
+        "mesoregions": 15,
+        "municipalities": 108,
+        "occurrences": 145,
+        "raw_source": "SP,15,108,145,69"
+    },
+    {
+        "type": "aggregate_occurrence",
+        "disaster_type": "Vendaval/Ciclone",
+        "state": "PR",
+        "mesoregions": 10,
+        "municipalities": 262,
+        "occurrences": 716,
+        "raw_source": "PR,10,262,716,69"
+    },
+    {
+        "type": "aggregate_occurrence",
+        "disaster_type": "Vendaval/Ciclone",
+        "state": "RS",
+        "mesoregions": 7,
+        "municipalities": 363,
+        "occurrences": 758,
+        "raw_source": "RS,7,363,758,69"
+    },
+    {
+        "type": "aggregate_occurrence",
+        "disaster_type": "Vendaval/Ciclone",
+        "state": "SC",
+        "mesoregions": 6,
+        "municipalities": 247,
+        "occurrences": 659,
+        "raw_source": "SC,6,247,659,69"
+    },
+    {
+        "type": "human_damage",
+        "disaster_type": "Vendaval/Ciclone",
+        "year": 2011,
+        "region": "Sudeste",
+        "state": "SP",
+        "deaths": 1,
+        "injured": 0,
+        "displaced": 0,
+        "raw_source": "2011,Sudeste,SP,1,0,0,3,72"
+    },
+    {
+        "type": "human_damage",
+        "disaster_type": "Vendaval/Ciclone",
+        "year": 2012,
+        "region": "Sudeste",
+        "state": "SP",
+        "deaths": 1,
+        "injured": 0,
+        "displaced": 0,
+        "raw_source": "2012,Sudeste,SP,1,0,0,1,72"
+    },
+    {
+        "type": "human_damage",
+        "disaster_type": "Vendaval/Ciclone",
+        "year": 2012,
+        "region": "Sudeste",
+        "state": "SP",
+        "deaths": 1,
+        "injured": 0,
+        "displaced": 0,
+        "raw_source": "2012,Sudeste,SP,1,0,0,1,72"
+    },
+    {
+        "type": "human_damage",
+        "disaster_type": "Vendaval/Ciclone",
+        "year": 2011,
+        "region": "Sudeste",
+        "state": "SP",
+        "deaths": 1,
+        "injured": 0,
+        "displaced": 0,
+        "raw_source": "2011,Sudeste,SP,1,0,0,1,72"
+    },
+    {
+        "type": "human_damage",
+        "disaster_type": "Vendaval/Ciclone",
+        "year": 2012,
+        "region": "Sudeste",
+        "state": "SP",
+        "deaths": 1,
+        "injured": 0,
+        "displaced": 0,
+        "raw_source": "2012,Sudeste,SP,1,0,0,1,72"
+    },
+    {
+        "type": "human_damage",
+        "disaster_type": "Vendaval/Ciclone",
+        "year": 2011,
+        "region": "Sudeste",
+        "state": "SP",
+        "deaths": 1,
+        "injured": 0,
+        "displaced": 0,
+        "raw_source": "2011,Sudeste,SP,1,0,0,1,72"
+    },
+    {
+        "type": "human_damage",
+        "disaster_type": "Vendaval/Ciclone",
+        "year": 2012,
+        "region": "Sudeste",
+        "state": "SP",
+        "deaths": 1,
+        "injured": 0,
+        "displaced": 0,
+        "raw_source": "2012,Sudeste,SP,1,0,0,1,72"
+    },
+    {
+        "type": "human_damage",
+        "disaster_type": "Vendaval/Ciclone",
+        "year": 2003,
+        "region": "Sul",
+        "state": "PR",
+        "deaths": 1,
+        "injured": 0,
+        "displaced": 420,
+        "raw_source": "2003,Sul,PR,1,0,420,0,72"
+    },
+    {
+        "type": "human_damage",
+        "disaster_type": "Vendaval/Ciclone",
+        "year": 2008,
+        "region": "Sudeste",
+        "state": "ES",
+        "deaths": 1,
+        "injured": 12,
+        "displaced": 171,
+        "raw_source": "2008,Sudeste,ES,1,12,171,0,72"
+    },
+    {
+        "type": "human_damage",
+        "disaster_type": "Vendaval/Ciclone",
+        "year": 2007,
+        "region": "Sudeste",
+        "state": "ES",
+        "deaths": 1,
+        "injured": 1,
+        "displaced": 0,
+        "raw_source": "2007,Sudeste,ES,1,1,0,0,72"
+    },
+    {
+        "type": "human_damage",
+        "disaster_type": "Vendaval/Ciclone",
+        "year": 2003,
+        "region": "Sudeste",
+        "state": "SP",
+        "deaths": 1,
+        "injured": 0,
+        "displaced": 3,
+        "raw_source": "2003,Sudeste,SP,1,0,3,0,72"
+    },
+    {
+        "type": "human_damage",
+        "disaster_type": "Vendaval/Ciclone",
+        "year": 2010,
+        "region": "Sudeste",
+        "state": "MG",
+        "deaths": 1,
+        "injured": 0,
+        "displaced": 1,
+        "raw_source": "2010,Sudeste,MG,1,0,1,0,72"
+    },
+    {
+        "type": "human_damage",
+        "disaster_type": "Vendaval/Ciclone",
+        "year": 2010,
+        "region": "Sudeste",
+        "state": "MG",
+        "deaths": 1,
+        "injured": 0,
+        "displaced": 0,
+        "raw_source": "2010,Sudeste,MG,1,0,0,0,72"
+    },
+    {
+        "type": "human_damage",
+        "disaster_type": "Vendaval/Ciclone",
+        "year": 2012,
+        "region": "Sudeste",
+        "state": "MG",
+        "deaths": 1,
+        "injured": 0,
+        "displaced": 0,
+        "raw_source": "2012,Sudeste,MG,1,0,0,0,72"
+    },
+    {
+        "type": "human_damage",
+        "disaster_type": "Vendaval/Ciclone",
+        "year": 2012,
+        "region": "Sudeste",
+        "state": "MG",
+        "deaths": 1,
+        "injured": 0,
+        "displaced": 0,
+        "raw_source": "2012,Sudeste,MG,1,0,0,0,72"
+    },
+    {
+        "type": "human_damage",
+        "disaster_type": "Vendaval/Ciclone",
+        "year": 2012,
+        "region": "Sudeste",
+        "state": "MG",
+        "deaths": 1,
+        "injured": 0,
+        "displaced": 0,
+        "raw_source": "2012,Sudeste,MG,1,0,0,0,72"
+    },
+    {
+        "type": "human_damage",
+        "disaster_type": "Vendaval/Ciclone",
+        "year": 2012,
+        "region": "Sudeste",
+        "state": "MG",
+        "deaths": 1,
+        "injured": 0,
+        "displaced": 0,
+        "raw_source": "2012,Sudeste,MG,1,0,0,0,72"
+    },
+    {
+        "type": "human_damage",
+        "disaster_type": "Vendaval/Ciclone",
+        "year": 2010,
+        "region": "Sudeste",
+        "state": "SP",
+        "deaths": 1,
+        "injured": 0,
+        "displaced": 0,
+        "raw_source": "2010,Sudeste,SP,1,0,0,0,72"
+    },
+    {
+        "type": "human_damage",
+        "disaster_type": "Vendaval/Ciclone",
+        "year": 2012,
+        "region": "Norte",
+        "state": "PA",
+        "deaths": 4,
+        "injured": 0,
+        "displaced": 0,
+        "raw_source": "2012,Norte,PA,4,0,0,5,72"
+    },
+    {
+        "type": "human_damage",
+        "disaster_type": "Vendaval/Ciclone",
+        "year": 1992,
+        "region": "Sudeste",
+        "state": "SP",
+        "deaths": 3,
+        "injured": 0,
+        "displaced": 0,
+        "raw_source": "1992,Sudeste,SP,3,0,0,0,72"
+    },
+    {
+        "type": "human_damage",
+        "disaster_type": "Vendaval/Ciclone",
+        "year": 1992,
+        "region": "Sudeste",
+        "state": "SP",
+        "deaths": 3,
+        "injured": 0,
+        "displaced": 0,
+        "raw_source": "1992,Sudeste,SP,3,0,0,0,72"
+    },
+    {
+        "type": "human_damage",
+        "disaster_type": "Vendaval/Ciclone",
+        "year": 2011,
+        "region": "Sudeste",
+        "state": "SP",
+        "deaths": 2,
+        "injured": 1,
+        "displaced": 0,
+        "raw_source": "2011,Sudeste,SP,2,1,0,199.200,72"
+    },
+    {
+        "type": "human_damage",
+        "disaster_type": "Vendaval/Ciclone",
+        "year": 2005,
+        "region": "Sul",
+        "state": "PR",
+        "deaths": 2,
+        "injured": 0,
+        "displaced": 1,
+        "raw_source": "2005,Sul,PR,2,0,1.077,1.077,72"
+    },
+    {
+        "type": "human_damage",
+        "disaster_type": "Vendaval/Ciclone",
+        "year": 2010,
+        "region": "Norte",
+        "state": "AM",
+        "deaths": 2,
+        "injured": 0,
+        "displaced": 482,
+        "raw_source": "2010,Norte,AM,2,0,482,585,72"
+    },
+    {
+        "type": "human_damage",
+        "disaster_type": "Vendaval/Ciclone",
+        "year": 2008,
+        "region": "Sul",
+        "state": "PR",
+        "deaths": 2,
+        "injured": 1,
+        "displaced": 62,
+        "raw_source": "2008,Sul,PR,2,1,62,98,72"
+    },
+    {
+        "type": "human_damage",
+        "disaster_type": "Vendaval/Ciclone",
+        "year": 1991,
+        "region": "Sul",
+        "state": "SC",
+        "deaths": 2,
+        "injured": 0,
+        "displaced": 75,
+        "raw_source": "1991,Sul,SC,2,0,75,0,72"
+    },
+    {
+        "type": "human_damage",
+        "disaster_type": "Vendaval/Ciclone",
+        "year": 1998,
+        "region": "Sul",
+        "state": "SC",
+        "deaths": 2,
+        "injured": 0,
+        "displaced": 0,
+        "raw_source": "1998,Sul,SC,2,0,0,0,72"
+    },
+    {
+        "type": "human_damage",
+        "disaster_type": "Vendaval/Ciclone",
+        "year": 2010,
+        "region": "Sudeste",
+        "state": "SP",
+        "deaths": 2,
+        "injured": 0,
+        "displaced": 0,
+        "raw_source": "2010,Sudeste,SP,2,0,0,0,72"
+    },
+    {
+        "type": "human_damage",
+        "disaster_type": "Vendaval/Ciclone",
+        "year": 2003,
+        "region": "Sul",
+        "state": "PR",
+        "deaths": 1,
+        "injured": 2,
+        "displaced": 0,
+        "raw_source": "2003,Sul,PR,1,2,0,400.000,72"
+    },
+    {
+        "type": "human_damage",
+        "disaster_type": "Vendaval/Ciclone",
+        "year": 2009,
+        "region": "Sul",
+        "state": "RS",
+        "deaths": 1,
+        "injured": 1,
+        "displaced": 1,
+        "raw_source": "2009,Sul,RS,1,1,1.100,55.473,72"
+    },
+    {
+        "type": "human_damage",
+        "disaster_type": "Vendaval/Ciclone",
+        "year": 2010,
+        "region": "Centro-Oeste",
+        "state": "MS",
+        "deaths": 1,
+        "injured": 22,
+        "displaced": 1,
+        "raw_source": "2010,Centro-Oeste,MS,1,22,1.000,40.000,72"
+    },
+    {
+        "type": "human_damage",
+        "disaster_type": "Vendaval/Ciclone",
+        "year": 2005,
+        "region": "Norte",
+        "state": "AM",
+        "deaths": 1,
+        "injured": 73,
+        "displaced": 115,
+        "raw_source": "2005,Norte,AM,1,73,115,30.226,72"
+    },
+    {
+        "type": "human_damage",
+        "disaster_type": "Vendaval/Ciclone",
+        "year": 2009,
+        "region": "Sul",
+        "state": "RS",
+        "deaths": 1,
+        "injured": 46,
+        "displaced": 600,
+        "raw_source": "2009,Sul,RS,1,46,600,8.793,72"
+    },
+    {
+        "type": "human_damage",
+        "disaster_type": "Vendaval/Ciclone",
+        "year": 2011,
+        "region": "Norte",
+        "state": "AM",
+        "deaths": 1,
+        "injured": 15,
+        "displaced": 2,
+        "raw_source": "2011,Norte,AM,1,15,2.367,5.444,72"
+    },
+    {
+        "type": "human_damage",
+        "disaster_type": "Vendaval/Ciclone",
+        "year": 2005,
+        "region": "Sul",
+        "state": "SC",
+        "deaths": 1,
+        "injured": 0,
+        "displaced": 4,
+        "raw_source": "2005,Sul,SC,1,0,4,3.180,72"
+    },
+    {
+        "type": "human_damage",
+        "disaster_type": "Vendaval/Ciclone",
+        "year": 2003,
+        "region": "Sul",
+        "state": "RS",
+        "deaths": 1,
+        "injured": 35,
+        "displaced": 1,
+        "raw_source": "2003,Sul,RS,1,35,1.368,1.510,72"
+    },
+    {
+        "type": "human_damage",
+        "disaster_type": "Vendaval/Ciclone",
+        "year": 2008,
+        "region": "Sul",
+        "state": "RS",
+        "deaths": 1,
+        "injured": 5,
+        "displaced": 30,
+        "raw_source": "2008,Sul,RS,1,5,30,1.480,72"
+    },
+    {
+        "type": "human_damage",
+        "disaster_type": "Vendaval/Ciclone",
+        "year": 2009,
+        "region": "Sul",
+        "state": "PR",
+        "deaths": 1,
+        "injured": 0,
+        "displaced": 1,
+        "raw_source": "2009,Sul,PR,1,0,1.168,1.168,72"
+    },
+    {
+        "type": "human_damage",
+        "disaster_type": "Vendaval/Ciclone",
+        "year": 2011,
+        "region": "Sul",
+        "state": "SC",
+        "deaths": 1,
+        "injured": 0,
+        "displaced": 561,
+        "raw_source": "2011,Sul,SC,1,0,561,1.130,72"
+    },
+    {
+        "type": "human_damage",
+        "disaster_type": "Vendaval/Ciclone",
+        "year": 2007,
+        "region": "Sudeste",
+        "state": "MG",
+        "deaths": 1,
+        "injured": 20,
+        "displaced": 210,
+        "raw_source": "2007,Sudeste,MG,1,20,210,1.000,72"
+    },
+    {
+        "type": "human_damage",
+        "disaster_type": "Vendaval/Ciclone",
+        "year": 2004,
+        "region": "Sul",
+        "state": "PR",
+        "deaths": 1,
+        "injured": 1,
+        "displaced": 0,
+        "raw_source": "2004,Sul,PR,1,1,0,406,72"
+    },
+    {
+        "type": "human_damage",
+        "disaster_type": "Vendaval/Ciclone",
+        "year": 2005,
+        "region": "Sul",
+        "state": "PR",
+        "deaths": 1,
+        "injured": 0,
+        "displaced": 0,
+        "raw_source": "2005,Sul,PR,1,0,0,300,72"
+    },
+    {
+        "type": "human_damage",
+        "disaster_type": "Vendaval/Ciclone",
+        "year": 2008,
+        "region": "Sul",
+        "state": "PR",
+        "deaths": 1,
+        "injured": 0,
+        "displaced": 27,
+        "raw_source": "2008,Sul,PR,1,0,27,212,72"
+    },
+    {
+        "type": "human_damage",
+        "disaster_type": "Vendaval/Ciclone",
+        "year": 2010,
+        "region": "Norte",
+        "state": "AM",
+        "deaths": 1,
+        "injured": 4,
+        "displaced": 0,
+        "raw_source": "2010,Norte,AM,1,4,0,169,72"
+    },
+    {
+        "type": "human_damage",
+        "disaster_type": "Vendaval/Ciclone",
+        "year": 2012,
+        "region": "Sudeste",
+        "state": "MG",
+        "deaths": 1,
+        "injured": 0,
+        "displaced": 25,
+        "raw_source": "2012,Sudeste,MG,1,0,25,26,72"
+    },
+    {
+        "type": "human_damage",
+        "disaster_type": "Vendaval/Ciclone",
+        "year": 2002,
+        "region": "Sul",
+        "state": "SC",
+        "deaths": 1,
+        "injured": 13,
+        "displaced": 0,
+        "raw_source": "2002,Sul,SC,1,13,0,24,72"
+    },
+    {
+        "type": "human_damage",
+        "disaster_type": "Vendaval/Ciclone",
+        "year": 2008,
+        "region": "Sudeste",
+        "state": "RJ",
+        "deaths": 1,
+        "injured": 0,
+        "displaced": 22,
+        "raw_source": "2008,Sudeste,RJ,1,0,22,22,72"
+    },
+    {
+        "type": "human_damage",
+        "disaster_type": "Vendaval/Ciclone",
+        "year": 1996,
+        "region": "Nordeste",
+        "state": "PI",
+        "deaths": 1,
+        "injured": 30,
+        "displaced": 0,
+        "raw_source": "1996,Nordeste,PI,1,30,0,20,72"
+    },
+    {
+        "type": "human_damage",
+        "disaster_type": "Vendaval/Ciclone",
+        "year": 2006,
+        "region": "Sudeste",
+        "state": "MG",
+        "deaths": 1,
+        "injured": 0,
+        "displaced": 9,
+        "raw_source": "2006,Sudeste,MG,1,0,9,15,72"
+    },
+    {
+        "type": "human_damage",
+        "disaster_type": "Vendaval/Ciclone",
+        "year": 2003,
+        "region": "Sul",
+        "state": "SC",
+        "deaths": 1,
+        "injured": 0,
+        "displaced": 12,
+        "raw_source": "2003,Sul,SC,1,0,12,13,72"
+    },
+    {
+        "type": "human_damage",
+        "disaster_type": "Vendaval/Ciclone",
+        "year": 2012,
+        "region": "Sudeste",
+        "state": "SP",
+        "deaths": 1,
+        "injured": 0,
+        "displaced": 0,
+        "raw_source": "2012,Sudeste,SP,1,0,0,4,72"
+    },
+    {
+        "type": "human_damage",
+        "disaster_type": "Vendaval/Ciclone",
+        "year": 2012,
+        "region": "Sudeste",
+        "state": "SP",
+        "deaths": 1,
+        "injured": 0,
+        "displaced": 0,
+        "raw_source": "2012,Sudeste,SP,1,0,0,4,72"
+    },
+    {
+        "type": "aggregate_occurrence",
+        "disaster_type": "Granizo",
+        "state": "GO",
+        "mesoregions": 0,
+        "municipalities": 0,
+        "occurrences": 0,
+        "raw_source": "GO,0,0,0,77"
+    },
+    {
+        "type": "aggregate_occurrence",
+        "disaster_type": "Granizo",
+        "state": "MS",
+        "mesoregions": 2,
+        "municipalities": 6,
+        "occurrences": 6,
+        "raw_source": "MS,2,6,6,77"
+    },
+    {
+        "type": "aggregate_occurrence",
+        "disaster_type": "Granizo",
+        "state": "MT",
+        "mesoregions": 1,
+        "municipalities": 2,
+        "occurrences": 2,
+        "raw_source": "MT,1,2,2,77"
+    },
+    {
+        "type": "aggregate_occurrence",
+        "disaster_type": "Granizo",
+        "state": "AC",
+        "mesoregions": 0,
+        "municipalities": 0,
+        "occurrences": 0,
+        "raw_source": "AC,0,0,0,77"
+    },
+    {
+        "type": "aggregate_occurrence",
+        "disaster_type": "Granizo",
+        "state": "AP",
+        "mesoregions": 0,
+        "municipalities": 0,
+        "occurrences": 0,
+        "raw_source": "AP,0,0,0,77"
+    },
+    {
+        "type": "aggregate_occurrence",
+        "disaster_type": "Granizo",
+        "state": "AM",
+        "mesoregions": 0,
+        "municipalities": 0,
+        "occurrences": 0,
+        "raw_source": "AM,0,0,0,77"
+    },
+    {
+        "type": "aggregate_occurrence",
+        "disaster_type": "Granizo",
+        "state": "PA",
+        "mesoregions": 1,
+        "municipalities": 1,
+        "occurrences": 1,
+        "raw_source": "PA,1,1,1,77"
+    },
+    {
+        "type": "aggregate_occurrence",
+        "disaster_type": "Granizo",
+        "state": "RO",
+        "mesoregions": 0,
+        "municipalities": 0,
+        "occurrences": 0,
+        "raw_source": "RO,0,0,0,77"
+    },
+    {
+        "type": "aggregate_occurrence",
+        "disaster_type": "Granizo",
+        "state": "RR",
+        "mesoregions": 0,
+        "municipalities": 0,
+        "occurrences": 0,
+        "raw_source": "RR,0,0,0,77"
+    },
+    {
+        "type": "aggregate_occurrence",
+        "disaster_type": "Granizo",
+        "state": "TO",
+        "mesoregions": 1,
+        "municipalities": 1,
+        "occurrences": 1,
+        "raw_source": "TO,1,1,1,77"
+    },
+    {
+        "type": "aggregate_occurrence",
+        "disaster_type": "Granizo",
+        "state": "AL",
+        "mesoregions": 0,
+        "municipalities": 0,
+        "occurrences": 0,
+        "raw_source": "AL,0,0,0,77"
+    },
+    {
+        "type": "aggregate_occurrence",
+        "disaster_type": "Granizo",
+        "state": "BA",
+        "mesoregions": 3,
+        "municipalities": 3,
+        "occurrences": 3,
+        "raw_source": "BA,3,3,3,77"
+    },
+    {
+        "type": "aggregate_occurrence",
+        "disaster_type": "Granizo",
+        "state": "CE",
+        "mesoregions": 0,
+        "municipalities": 0,
+        "occurrences": 0,
+        "raw_source": "CE,0,0,0,77"
+    },
+    {
+        "type": "aggregate_occurrence",
+        "disaster_type": "Granizo",
+        "state": "MA",
+        "mesoregions": 1,
+        "municipalities": 2,
+        "occurrences": 2,
+        "raw_source": "MA,1,2,2,77"
+    },
+    {
+        "type": "aggregate_occurrence",
+        "disaster_type": "Granizo",
+        "state": "PB",
+        "mesoregions": 0,
+        "municipalities": 0,
+        "occurrences": 0,
+        "raw_source": "PB,0,0,0,77"
+    },
+    {
+        "type": "aggregate_occurrence",
+        "disaster_type": "Granizo",
+        "state": "PE",
+        "mesoregions": 1,
+        "municipalities": 3,
+        "occurrences": 3,
+        "raw_source": "PE,1,3,3,77"
+    },
+    {
+        "type": "aggregate_occurrence",
+        "disaster_type": "Granizo",
+        "state": "PI",
+        "mesoregions": 1,
+        "municipalities": 1,
+        "occurrences": 1,
+        "raw_source": "PI,1,1,1,77"
+    },
+    {
+        "type": "aggregate_occurrence",
+        "disaster_type": "Granizo",
+        "state": "RN",
+        "mesoregions": 0,
+        "municipalities": 0,
+        "occurrences": 0,
+        "raw_source": "RN,0,0,0,77"
+    },
+    {
+        "type": "aggregate_occurrence",
+        "disaster_type": "Granizo",
+        "state": "SE",
+        "mesoregions": 2,
+        "municipalities": 2,
+        "occurrences": 2,
+        "raw_source": "SE,2,2,2,77"
+    },
+    {
+        "type": "aggregate_occurrence",
+        "disaster_type": "Granizo",
+        "state": "ES",
+        "mesoregions": 4,
+        "municipalities": 27,
+        "occurrences": 37,
+        "raw_source": "ES,4,27,37,77"
+    },
+    {
+        "type": "aggregate_occurrence",
+        "disaster_type": "Granizo",
+        "state": "MG",
+        "mesoregions": 10,
+        "municipalities": 87,
+        "occurrences": 97,
+        "raw_source": "MG,10,87,97,77"
+    },
+    {
+        "type": "aggregate_occurrence",
+        "disaster_type": "Granizo",
+        "state": "RJ",
+        "mesoregions": 5,
+        "municipalities": 13,
+        "occurrences": 14,
+        "raw_source": "RJ,5,13,14,77"
+    },
+    {
+        "type": "aggregate_occurrence",
+        "disaster_type": "Granizo",
+        "state": "SP",
+        "mesoregions": 8,
+        "municipalities": 19,
+        "occurrences": 23,
+        "raw_source": "SP,8,19,23,77"
+    },
+    {
+        "type": "aggregate_occurrence",
+        "disaster_type": "Granizo",
+        "state": "PR",
+        "mesoregions": 10,
+        "municipalities": 226,
+        "occurrences": 442,
+        "raw_source": "PR,10,226,442,77"
+    },
+    {
+        "type": "aggregate_occurrence",
+        "disaster_type": "Granizo",
+        "state": "RS",
+        "mesoregions": 7,
+        "municipalities": 285,
+        "occurrences": 468,
+        "raw_source": "RS,7,285,468,77"
+    },
+    {
+        "type": "aggregate_occurrence",
+        "disaster_type": "Granizo",
+        "state": "SC",
+        "mesoregions": 6,
+        "municipalities": 219,
+        "occurrences": 536,
+        "raw_source": "SC,6,219,536,77"
+    },
+    {
+        "type": "human_damage",
+        "disaster_type": "Granizo",
+        "year": 1997,
+        "region": "Sul",
+        "state": "PR",
+        "deaths": 4,
+        "injured": 92,
+        "displaced": 123,
+        "raw_source": "1997,Sul,PR,4,92,123,0,79"
+    },
+    {
+        "type": "human_damage",
+        "disaster_type": "Granizo",
+        "year": 1995,
+        "region": "Sudeste",
+        "state": "ES",
+        "deaths": 3,
+        "injured": 86,
+        "displaced": 3,
+        "raw_source": "1995,Sudeste,ES,3,86,3.905,142,79"
+    },
+    {
+        "type": "human_damage",
+        "disaster_type": "Granizo",
+        "year": 2001,
+        "region": "Sul",
+        "state": "SC",
+        "deaths": 1,
+        "injured": 30,
+        "displaced": 100,
+        "raw_source": "2001,Sul,SC,1,30,100,5.000,79"
+    },
+    {
+        "type": "human_damage",
+        "disaster_type": "Granizo",
+        "year": 2002,
+        "region": "Sul",
+        "state": "RS",
+        "deaths": 1,
+        "injured": 50,
+        "displaced": 0,
+        "raw_source": "2002,Sul,RS,1,50,0,4.200,79"
+    },
+    {
+        "type": "human_damage",
+        "disaster_type": "Granizo",
+        "year": 2003,
+        "region": "Sul",
+        "state": "RS",
+        "deaths": 1,
+        "injured": 35,
+        "displaced": 6,
+        "raw_source": "2003,Sul,RS,1,35,6.768,1.510,79"
+    },
+    {
+        "type": "human_damage",
+        "disaster_type": "Granizo",
+        "year": 1997,
+        "region": "Sul",
+        "state": "PR",
+        "deaths": 1,
+        "injured": 9,
+        "displaced": 0,
+        "raw_source": "1997,Sul,PR,1,9,0,1.022,79"
+    },
+    {
+        "type": "human_damage",
+        "disaster_type": "Granizo",
+        "year": 2007,
+        "region": "Sul",
+        "state": "RS",
+        "deaths": 1,
+        "injured": 0,
+        "displaced": 150,
+        "raw_source": "2007,Sul,RS,1,0,150,804,79"
+    },
+    {
+        "type": "human_damage",
+        "disaster_type": "Granizo",
+        "year": 2004,
+        "region": "Sul",
+        "state": "SC",
+        "deaths": 1,
+        "injured": 8,
+        "displaced": 35,
+        "raw_source": "2004,Sul,SC,1,8,35,129,79"
+    },
+    {
+        "type": "human_damage",
+        "disaster_type": "Granizo",
+        "year": 1995,
+        "region": "Sul",
+        "state": "PR",
+        "deaths": 1,
+        "injured": 280,
+        "displaced": 4,
+        "raw_source": "1995,Sul,PR,1,280,4.000,0,79"
+    },
+    {
+        "type": "human_damage",
+        "disaster_type": "Granizo",
+        "year": 1996,
+        "region": "Sul",
+        "state": "PR",
+        "deaths": 1,
+        "injured": 0,
+        "displaced": 0,
+        "raw_source": "1996,Sul,PR,1,0,0,0,79"
+    },
+    {
+        "type": "aggregate_occurrence",
+        "disaster_type": "Movimento de Massa",
+        "state": "AC",
+        "mesoregions": 1,
+        "municipalities": 1,
+        "occurrences": 1,
+        "raw_source": "AC,1,1,1,85"
+    },
+    {
+        "type": "aggregate_occurrence",
+        "disaster_type": "Movimento de Massa",
+        "state": "AP",
+        "mesoregions": 1,
+        "municipalities": 1,
+        "occurrences": 2,
+        "raw_source": "AP,1,1,2,85"
+    },
+    {
+        "type": "aggregate_occurrence",
+        "disaster_type": "Movimento de Massa",
+        "state": "AM",
+        "mesoregions": 1,
+        "municipalities": 1,
+        "occurrences": 1,
+        "raw_source": "AM,1,1,1,85"
+    },
+    {
+        "type": "aggregate_occurrence",
+        "disaster_type": "Movimento de Massa",
+        "state": "PA",
+        "mesoregions": 2,
+        "municipalities": 3,
+        "occurrences": 3,
+        "raw_source": "PA,2,3,3,85"
+    },
+    {
+        "type": "aggregate_occurrence",
+        "disaster_type": "Movimento de Massa",
+        "state": "RO",
+        "mesoregions": 0,
+        "municipalities": 0,
+        "occurrences": 0,
+        "raw_source": "RO,0,0,0,85"
+    },
+    {
+        "type": "aggregate_occurrence",
+        "disaster_type": "Movimento de Massa",
+        "state": "RR",
+        "mesoregions": 0,
+        "municipalities": 0,
+        "occurrences": 0,
+        "raw_source": "RR,0,0,0,85"
+    },
+    {
+        "type": "aggregate_occurrence",
+        "disaster_type": "Movimento de Massa",
+        "state": "TO",
+        "mesoregions": 0,
+        "municipalities": 0,
+        "occurrences": 0,
+        "raw_source": "TO,0,0,0,85"
+    },
+    {
+        "type": "aggregate_occurrence",
+        "disaster_type": "Movimento de Massa",
+        "state": "AL",
+        "mesoregions": 0,
+        "municipalities": 0,
+        "occurrences": 0,
+        "raw_source": "AL,0,0,0,85"
+    },
+    {
+        "type": "aggregate_occurrence",
+        "disaster_type": "Movimento de Massa",
+        "state": "BA",
+        "mesoregions": 3,
+        "municipalities": 5,
+        "occurrences": 8,
+        "raw_source": "BA,3,5,8,85"
+    },
+    {
+        "type": "aggregate_occurrence",
+        "disaster_type": "Movimento de Massa",
+        "state": "CE",
+        "mesoregions": 1,
+        "municipalities": 1,
+        "occurrences": 1,
+        "raw_source": "CE,1,1,1,85"
+    },
+    {
+        "type": "aggregate_occurrence",
+        "disaster_type": "Movimento de Massa",
+        "state": "MA",
+        "mesoregions": 2,
+        "municipalities": 2,
+        "occurrences": 2,
+        "raw_source": "MA,2,2,2,85"
+    },
+    {
+        "type": "aggregate_occurrence",
+        "disaster_type": "Movimento de Massa",
+        "state": "PB",
+        "mesoregions": 0,
+        "municipalities": 0,
+        "occurrences": 0,
+        "raw_source": "PB,0,0,0,85"
+    },
+    {
+        "type": "aggregate_occurrence",
+        "disaster_type": "Movimento de Massa",
+        "state": "PE",
+        "mesoregions": 3,
+        "municipalities": 13,
+        "occurrences": 26,
+        "raw_source": "PE,3,13,26,85"
+    },
+    {
+        "type": "aggregate_occurrence",
+        "disaster_type": "Movimento de Massa",
+        "state": "PI",
+        "mesoregions": 1,
+        "municipalities": 1,
+        "occurrences": 1,
+        "raw_source": "PI,1,1,1,85"
+    },
+    {
+        "type": "aggregate_occurrence",
+        "disaster_type": "Movimento de Massa",
+        "state": "RN",
+        "mesoregions": 0,
+        "municipalities": 0,
+        "occurrences": 0,
+        "raw_source": "RN,0,0,0,85"
+    },
+    {
+        "type": "aggregate_occurrence",
+        "disaster_type": "Movimento de Massa",
+        "state": "SE",
+        "mesoregions": 0,
+        "municipalities": 0,
+        "occurrences": 0,
+        "raw_source": "SE,0,0,0,85"
+    },
+    {
+        "type": "aggregate_occurrence",
+        "disaster_type": "Movimento de Massa",
+        "state": "ES",
+        "mesoregions": 4,
+        "municipalities": 21,
+        "occurrences": 32,
+        "raw_source": "ES,4,21,32,85"
+    },
+    {
+        "type": "aggregate_occurrence",
+        "disaster_type": "Movimento de Massa",
+        "state": "MG",
+        "mesoregions": 10,
+        "municipalities": 140,
+        "occurrences": 208,
+        "raw_source": "MG,10,140,208,85"
+    },
+    {
+        "type": "aggregate_occurrence",
+        "disaster_type": "Movimento de Massa",
+        "state": "RJ",
+        "mesoregions": 6,
+        "municipalities": 51,
+        "occurrences": 153,
+        "raw_source": "RJ,6,51,153,85"
+    },
+    {
+        "type": "aggregate_occurrence",
+        "disaster_type": "Movimento de Massa",
+        "state": "SP",
+        "mesoregions": 11,
+        "municipalities": 93,
+        "occurrences": 165,
+        "raw_source": "SP,11,93,165,85"
+    },
+    {
+        "type": "aggregate_occurrence",
+        "disaster_type": "Movimento de Massa",
+        "state": "MT",
+        "mesoregions": 0,
+        "municipalities": 0,
+        "occurrences": 0,
+        "raw_source": "MT,0,0,0,85"
+    },
+    {
+        "type": "aggregate_occurrence",
+        "disaster_type": "Movimento de Massa",
+        "state": "MS",
+        "mesoregions": 1,
+        "municipalities": 1,
+        "occurrences": 1,
+        "raw_source": "MS,1,1,1,85"
+    },
+    {
+        "type": "aggregate_occurrence",
+        "disaster_type": "Movimento de Massa",
+        "state": "PR",
+        "mesoregions": 6,
+        "municipalities": 19,
+        "occurrences": 53,
+        "raw_source": "PR,6,19,53,85"
+    },
+    {
+        "type": "aggregate_occurrence",
+        "disaster_type": "Movimento de Massa",
+        "state": "RS",
+        "mesoregions": 2,
+        "municipalities": 6,
+        "occurrences": 6,
+        "raw_source": "RS,2,6,6,85"
+    },
+    {
+        "type": "aggregate_occurrence",
+        "disaster_type": "Movimento de Massa",
+        "state": "SC",
+        "mesoregions": 5,
+        "municipalities": 29,
+        "occurrences": 36,
+        "raw_source": "SC,5,29,36,85"
+    },
+    {
+        "type": "seasonality",
+        "disaster_type": "Movimento de Massa",
+        "month": "Janeiro",
+        "north": 0,
+        "northeast": 1,
+        "center_west": 0,
+        "southeast": 215,
+        "south": 14,
+        "raw_source": "Janeiro,0,1,0,215,14,230,85"
+    },
+    {
+        "type": "seasonality",
+        "disaster_type": "Movimento de Massa",
+        "month": "Fevereiro",
+        "north": 1,
+        "northeast": 4,
+        "center_west": 0,
+        "southeast": 95,
+        "south": 25,
+        "raw_source": "Fevereiro,1,4,0,95,25,125,85"
+    },
+    {
+        "type": "seasonality",
+        "disaster_type": "Movimento de Massa",
+        "month": "Março",
+        "north": 0,
+        "northeast": 1,
+        "center_west": 0,
+        "southeast": 42,
+        "south": 5,
+        "raw_source": "Março,0,1,0,42,5,48,85"
+    },
+    {
+        "type": "seasonality",
+        "disaster_type": "Movimento de Massa",
+        "month": "Abril",
+        "north": 1,
+        "northeast": 6,
+        "center_west": 0,
+        "southeast": 22,
+        "south": 7,
+        "raw_source": "Abril,1,6,0,22,7,36,85"
+    },
+    {
+        "type": "seasonality",
+        "disaster_type": "Movimento de Massa",
+        "month": "Maio",
+        "north": 2,
+        "northeast": 7,
+        "center_west": 0,
+        "southeast": 3,
+        "south": 1,
+        "raw_source": "Maio,2,7,0,3,1,13,85"
+    },
+    {
+        "type": "seasonality",
+        "disaster_type": "Movimento de Massa",
+        "month": "Junho",
+        "north": 0,
+        "northeast": 7,
+        "center_west": 0,
+        "southeast": 3,
+        "south": 5,
+        "raw_source": "Junho,0,7,0,3,5,15,85"
+    },
+    {
+        "type": "seasonality",
+        "disaster_type": "Movimento de Massa",
+        "month": "Julho",
+        "north": 0,
+        "northeast": 2,
+        "center_west": 0,
+        "southeast": 4,
+        "south": 11,
+        "raw_source": "Julho,0,2,0,4,11,17,85"
+    },
+    {
+        "type": "seasonality",
+        "disaster_type": "Movimento de Massa",
+        "month": "Agosto",
+        "north": 0,
+        "northeast": 3,
+        "center_west": 0,
+        "southeast": 5,
+        "south": 7,
+        "raw_source": "Agosto,0,3,0,5,7,15,85"
+    },
+    {
+        "type": "seasonality",
+        "disaster_type": "Movimento de Massa",
+        "month": "Setembro",
+        "north": 2,
+        "northeast": 1,
+        "center_west": 0,
+        "southeast": 2,
+        "south": 7,
+        "raw_source": "Setembro,2,1,0,2,7,12,85"
+    },
+    {
+        "type": "seasonality",
+        "disaster_type": "Movimento de Massa",
+        "month": "Outubro",
+        "north": 0,
+        "northeast": 3,
+        "center_west": 0,
+        "southeast": 11,
+        "south": 8,
+        "raw_source": "Outubro,0,3,0,11,8,22,85"
+    },
+    {
+        "type": "seasonality",
+        "disaster_type": "Movimento de Massa",
+        "month": "Novembro",
+        "north": 1,
+        "northeast": 0,
+        "center_west": 0,
+        "southeast": 53,
+        "south": 1,
+        "raw_source": "Novembro,1,0,0,53,1,55,85"
+    },
+    {
+        "type": "seasonality",
+        "disaster_type": "Movimento de Massa",
+        "month": "Dezembro",
+        "north": 0,
+        "northeast": 1,
+        "center_west": 1,
+        "southeast": 103,
+        "south": 4,
+        "raw_source": "Dezembro,0,1,1,103,4,109,85"
+    },
+    {
+        "type": "aggregate_occurrence",
+        "disaster_type": "Movimento de Massa",
+        "state": "AC",
+        "mesoregions": 1,
+        "municipalities": 1,
+        "occurrences": 1,
+        "raw_source": "AC,1,1,1,92"
+    },
+    {
+        "type": "aggregate_occurrence",
+        "disaster_type": "Movimento de Massa",
+        "state": "AP",
+        "mesoregions": 0,
+        "municipalities": 0,
+        "occurrences": 0,
+        "raw_source": "AP,0,0,0,92"
+    },
+    {
+        "type": "aggregate_occurrence",
+        "disaster_type": "Movimento de Massa",
+        "state": "AM",
+        "mesoregions": 3,
+        "municipalities": 24,
+        "occurrences": 50,
+        "raw_source": "AM,3,24,50,92"
+    },
+    {
+        "type": "aggregate_occurrence",
+        "disaster_type": "Movimento de Massa",
+        "state": "PA",
+        "mesoregions": 5,
+        "municipalities": 32,
+        "occurrences": 54,
+        "raw_source": "PA,5,32,54,92"
+    },
+    {
+        "type": "aggregate_occurrence",
+        "disaster_type": "Movimento de Massa",
+        "state": "RO",
+        "mesoregions": 1,
+        "municipalities": 1,
+        "occurrences": 1,
+        "raw_source": "RO,1,1,1,92"
+    },
+    {
+        "type": "aggregate_occurrence",
+        "disaster_type": "Movimento de Massa",
+        "state": "RR",
+        "mesoregions": 0,
+        "municipalities": 0,
+        "occurrences": 0,
+        "raw_source": "RR,0,0,0,92"
+    },
+    {
+        "type": "aggregate_occurrence",
+        "disaster_type": "Movimento de Massa",
+        "state": "TO",
+        "mesoregions": 1,
+        "municipalities": 2,
+        "occurrences": 2,
+        "raw_source": "TO,1,2,2,92"
+    },
+    {
+        "type": "aggregate_occurrence",
+        "disaster_type": "Movimento de Massa",
+        "state": "AL",
+        "mesoregions": 1,
+        "municipalities": 7,
+        "occurrences": 13,
+        "raw_source": "AL,1,7,13,92"
+    },
+    {
+        "type": "aggregate_occurrence",
+        "disaster_type": "Movimento de Massa",
+        "state": "BA",
+        "mesoregions": 4,
+        "municipalities": 9,
+        "occurrences": 13,
+        "raw_source": "BA,4,9,13,92"
+    },
+    {
+        "type": "aggregate_occurrence",
+        "disaster_type": "Movimento de Massa",
+        "state": "CE",
+        "mesoregions": 5,
+        "municipalities": 6,
+        "occurrences": 8,
+        "raw_source": "CE,5,6,8,92"
+    },
+    {
+        "type": "aggregate_occurrence",
+        "disaster_type": "Movimento de Massa",
+        "state": "MA",
+        "mesoregions": 0,
+        "municipalities": 0,
+        "occurrences": 0,
+        "raw_source": "MA,0,0,0,92"
+    },
+    {
+        "type": "aggregate_occurrence",
+        "disaster_type": "Movimento de Massa",
+        "state": "PB",
+        "mesoregions": 2,
+        "municipalities": 2,
+        "occurrences": 2,
+        "raw_source": "PB,2,2,2,92"
+    },
+    {
+        "type": "aggregate_occurrence",
+        "disaster_type": "Movimento de Massa",
+        "state": "PE",
+        "mesoregions": 3,
+        "municipalities": 10,
+        "occurrences": 32,
+        "raw_source": "PE,3,10,32,92"
+    },
+    {
+        "type": "aggregate_occurrence",
+        "disaster_type": "Movimento de Massa",
+        "state": "PI",
+        "mesoregions": 0,
+        "municipalities": 0,
+        "occurrences": 0,
+        "raw_source": "PI,0,0,0,92"
+    },
+    {
+        "type": "aggregate_occurrence",
+        "disaster_type": "Movimento de Massa",
+        "state": "RN",
+        "mesoregions": 1,
+        "municipalities": 1,
+        "occurrences": 1,
+        "raw_source": "RN,1,1,1,92"
+    },
+    {
+        "type": "aggregate_occurrence",
+        "disaster_type": "Movimento de Massa",
+        "state": "SE",
+        "mesoregions": 0,
+        "municipalities": 0,
+        "occurrences": 0,
+        "raw_source": "SE,0,0,0,92"
+    },
+    {
+        "type": "aggregate_occurrence",
+        "disaster_type": "Movimento de Massa",
+        "state": "ES",
+        "mesoregions": 4,
+        "municipalities": 21,
+        "occurrences": 25,
+        "raw_source": "ES,4,21,25,92"
+    },
+    {
+        "type": "aggregate_occurrence",
+        "disaster_type": "Movimento de Massa",
+        "state": "MG",
+        "mesoregions": 6,
+        "municipalities": 13,
+        "occurrences": 15,
+        "raw_source": "MG,6,13,15,92"
+    },
+    {
+        "type": "aggregate_occurrence",
+        "disaster_type": "Movimento de Massa",
+        "state": "RJ",
+        "mesoregions": 0,
+        "municipalities": 0,
+        "occurrences": 0,
+        "raw_source": "RJ,0,0,0,92"
+    },
+    {
+        "type": "aggregate_occurrence",
+        "disaster_type": "Movimento de Massa",
+        "state": "SP",
+        "mesoregions": 14,
+        "municipalities": 21,
+        "occurrences": 25,
+        "raw_source": "SP,14,21,25,92"
+    },
+    {
+        "type": "aggregate_occurrence",
+        "disaster_type": "Movimento de Massa",
+        "state": "MT",
+        "mesoregions": 5,
+        "municipalities": 19,
+        "occurrences": 36,
+        "raw_source": "MT,5,19,36,92"
+    },
+    {
+        "type": "aggregate_occurrence",
+        "disaster_type": "Movimento de Massa",
+        "state": "MS",
+        "mesoregions": 4,
+        "municipalities": 4,
+        "occurrences": 6,
+        "raw_source": "MS,4,4,6,92"
+    },
+    {
+        "type": "aggregate_occurrence",
+        "disaster_type": "Movimento de Massa",
+        "state": "PR",
+        "mesoregions": 5,
+        "municipalities": 19,
+        "occurrences": 21,
+        "raw_source": "PR,5,19,21,92"
+    },
+    {
+        "type": "aggregate_occurrence",
+        "disaster_type": "Movimento de Massa",
+        "state": "RS",
+        "mesoregions": 1,
+        "municipalities": 1,
+        "occurrences": 1,
+        "raw_source": "RS,1,1,1,92"
+    },
+    {
+        "type": "aggregate_occurrence",
+        "disaster_type": "Movimento de Massa",
+        "state": "SC",
+        "mesoregions": 5,
+        "municipalities": 7,
+        "occurrences": 13,
+        "raw_source": "SC,5,7,13,92"
+    },
+    {
+        "type": "seasonality",
+        "disaster_type": "Movimento de Massa",
+        "month": "Janeiro",
+        "north": 8,
+        "northeast": 3,
+        "center_west": 11,
+        "southeast": 15,
+        "south": 9,
+        "raw_source": "Janeiro,8,3,11,15,9,46,93"
+    },
+    {
+        "type": "seasonality",
+        "disaster_type": "Movimento de Massa",
+        "month": "Fevereiro",
+        "north": 16,
+        "northeast": 3,
+        "center_west": 16,
+        "southeast": 7,
+        "south": 2,
+        "raw_source": "Fevereiro,16,3,16,7,2,44,93"
+    },
+    {
+        "type": "seasonality",
+        "disaster_type": "Movimento de Massa",
+        "month": "Março",
+        "north": 9,
+        "northeast": 5,
+        "center_west": 19,
+        "southeast": 6,
+        "south": 2,
+        "raw_source": "Março,9,5,19,6,2,41,93"
+    },
+    {
+        "type": "seasonality",
+        "disaster_type": "Movimento de Massa",
+        "month": "Abril",
+        "north": 23,
+        "northeast": 8,
+        "center_west": 6,
+        "southeast": 6,
+        "south": 0,
+        "raw_source": "Abril,23,8,6,6,0,43,93"
+    },
+    {
+        "type": "seasonality",
+        "disaster_type": "Movimento de Massa",
+        "month": "Maio",
+        "north": 5,
+        "northeast": 4,
+        "center_west": 3,
+        "southeast": 3,
+        "south": 2,
+        "raw_source": "Maio,5,4,3,3,2,17,93"
+    },
+    {
+        "type": "seasonality",
+        "disaster_type": "Movimento de Massa",
+        "month": "Junho",
+        "north": 2,
+        "northeast": 4,
+        "center_west": 3,
+        "southeast": 2,
+        "south": 4,
+        "raw_source": "Junho,2,4,3,2,4,15,93"
+    },
+    {
+        "type": "seasonality",
+        "disaster_type": "Movimento de Massa",
+        "month": "Julho",
+        "north": 3,
+        "northeast": 9,
+        "center_west": 1,
+        "southeast": 3,
+        "south": 2,
+        "raw_source": "Julho,3,9,1,3,2,18,93"
+    },
+    {
+        "type": "seasonality",
+        "disaster_type": "Movimento de Massa",
+        "month": "Agosto",
+        "north": 6,
+        "northeast": 12,
+        "center_west": 3,
+        "southeast": 5,
+        "south": 1,
+        "raw_source": "Agosto,6,12,3,5,1,27,93"
+    },
+    {
+        "type": "seasonality",
+        "disaster_type": "Movimento de Massa",
+        "month": "Setembro",
+        "north": 0,
+        "northeast": 8,
+        "center_west": 3,
+        "southeast": 2,
+        "south": 3,
+        "raw_source": "Setembro,0,8,3,2,3,16,93"
+    },
+    {
+        "type": "seasonality",
+        "disaster_type": "Movimento de Massa",
+        "month": "Outubro",
+        "north": 9,
+        "northeast": 4,
+        "center_west": 1,
+        "southeast": 5,
+        "south": 12,
+        "raw_source": "Outubro,9,4,1,5,12,31,93"
+    },
+    {
+        "type": "seasonality",
+        "disaster_type": "Movimento de Massa",
+        "month": "Novembro",
+        "north": 13,
+        "northeast": 4,
+        "center_west": 2,
+        "southeast": 5,
+        "south": 4,
+        "raw_source": "Novembro,13,4,2,5,4,28,93"
+    },
+    {
+        "type": "seasonality",
+        "disaster_type": "Movimento de Massa",
+        "month": "Dezembro",
+        "north": 14,
+        "northeast": 5,
+        "center_west": 4,
+        "southeast": 6,
+        "south": 0,
+        "raw_source": "Dezembro,14,5,4,6,0,29,93"
+    },
+    {
+        "type": "aggregate_occurrence",
+        "disaster_type": "Incêndio Florestal",
+        "state": "AC",
+        "mesoregions": 1,
+        "municipalities": 12,
+        "occurrences": 15,
+        "raw_source": "AC,1,12,15,100"
+    },
+    {
+        "type": "aggregate_occurrence",
+        "disaster_type": "Incêndio Florestal",
+        "state": "AP",
+        "mesoregions": 2,
+        "municipalities": 3,
+        "occurrences": 3,
+        "raw_source": "AP,2,3,3,100"
+    },
+    {
+        "type": "aggregate_occurrence",
+        "disaster_type": "Incêndio Florestal",
+        "state": "AM",
+        "mesoregions": 1,
+        "municipalities": 3,
+        "occurrences": 3,
+        "raw_source": "AM,1,3,3,100"
+    },
+    {
+        "type": "aggregate_occurrence",
+        "disaster_type": "Incêndio Florestal",
+        "state": "PA",
+        "mesoregions": 4,
+        "municipalities": 14,
+        "occurrences": 14,
+        "raw_source": "PA,4,14,14,100"
+    },
+    {
+        "type": "aggregate_occurrence",
+        "disaster_type": "Incêndio Florestal",
+        "state": "RO",
+        "mesoregions": 2,
+        "municipalities": 5,
+        "occurrences": 5,
+        "raw_source": "RO,2,5,5,100"
+    },
+    {
+        "type": "aggregate_occurrence",
+        "disaster_type": "Incêndio Florestal",
+        "state": "RR",
+        "mesoregions": 2,
+        "municipalities": 8,
+        "occurrences": 9,
+        "raw_source": "RR,2,8,9,100"
+    },
+    {
+        "type": "aggregate_occurrence",
+        "disaster_type": "Incêndio Florestal",
+        "state": "TO",
+        "mesoregions": 2,
+        "municipalities": 23,
+        "occurrences": 25,
+        "raw_source": "TO,2,23,25,100"
+    },
+    {
+        "type": "aggregate_occurrence",
+        "disaster_type": "Incêndio Florestal",
+        "state": "AL",
+        "mesoregions": 0,
+        "municipalities": 0,
+        "occurrences": 0,
+        "raw_source": "AL,0,0,0,100"
+    },
+    {
+        "type": "aggregate_occurrence",
+        "disaster_type": "Incêndio Florestal",
+        "state": "BA",
+        "mesoregions": 4,
+        "municipalities": 53,
+        "occurrences": 53,
+        "raw_source": "BA,4,53,53,100"
+    },
+    {
+        "type": "aggregate_occurrence",
+        "disaster_type": "Incêndio Florestal",
+        "state": "CE",
+        "mesoregions": 1,
+        "municipalities": 1,
+        "occurrences": 1,
+        "raw_source": "CE,1,1,1,100"
+    },
+    {
+        "type": "aggregate_occurrence",
+        "disaster_type": "Incêndio Florestal",
+        "state": "MA",
+        "mesoregions": 1,
+        "municipalities": 3,
+        "occurrences": 3,
+        "raw_source": "MA,1,3,3,100"
+    },
+    {
+        "type": "aggregate_occurrence",
+        "disaster_type": "Incêndio Florestal",
+        "state": "PB",
+        "mesoregions": 0,
+        "municipalities": 0,
+        "occurrences": 0,
+        "raw_source": "PB,0,0,0,100"
+    },
+    {
+        "type": "aggregate_occurrence",
+        "disaster_type": "Incêndio Florestal",
+        "state": "PE",
+        "mesoregions": 2,
+        "municipalities": 2,
+        "occurrences": 2,
+        "raw_source": "PE,2,2,2,100"
+    },
+    {
+        "type": "aggregate_occurrence",
+        "disaster_type": "Incêndio Florestal",
+        "state": "PI",
+        "mesoregions": 1,
+        "municipalities": 1,
+        "occurrences": 1,
+        "raw_source": "PI,1,1,1,100"
+    },
+    {
+        "type": "aggregate_occurrence",
+        "disaster_type": "Incêndio Florestal",
+        "state": "RN",
+        "mesoregions": 0,
+        "municipalities": 0,
+        "occurrences": 0,
+        "raw_source": "RN,0,0,0,100"
+    },
+    {
+        "type": "aggregate_occurrence",
+        "disaster_type": "Incêndio Florestal",
+        "state": "SE",
+        "mesoregions": 0,
+        "municipalities": 0,
+        "occurrences": 0,
+        "raw_source": "SE,0,0,0,100"
+    },
+    {
+        "type": "aggregate_occurrence",
+        "disaster_type": "Incêndio Florestal",
+        "state": "ES",
+        "mesoregions": 1,
+        "municipalities": 1,
+        "occurrences": 2,
+        "raw_source": "ES,1,1,2,100"
+    },
+    {
+        "type": "aggregate_occurrence",
+        "disaster_type": "Incêndio Florestal",
+        "state": "MG",
+        "mesoregions": 3,
+        "municipalities": 3,
+        "occurrences": 3,
+        "raw_source": "MG,3,3,3,100"
+    },
+    {
+        "type": "aggregate_occurrence",
+        "disaster_type": "Incêndio Florestal",
+        "state": "RJ",
+        "mesoregions": 3,
+        "municipalities": 5,
+        "occurrences": 8,
+        "raw_source": "RJ,3,5,8,100"
+    },
+    {
+        "type": "aggregate_occurrence",
+        "disaster_type": "Incêndio Florestal",
+        "state": "SP",
+        "mesoregions": 4,
+        "municipalities": 4,
+        "occurrences": 4,
+        "raw_source": "SP,4,4,4,100"
+    },
+    {
+        "type": "aggregate_occurrence",
+        "disaster_type": "Incêndio Florestal",
+        "state": "GO",
+        "mesoregions": 0,
+        "municipalities": 0,
+        "occurrences": 0,
+        "raw_source": "GO,0,0,0,100"
+    },
+    {
+        "type": "aggregate_occurrence",
+        "disaster_type": "Incêndio Florestal",
+        "state": "MT",
+        "mesoregions": 3,
+        "municipalities": 14,
+        "occurrences": 19,
+        "raw_source": "MT,3,14,19,100"
+    },
+    {
+        "type": "aggregate_occurrence",
+        "disaster_type": "Incêndio Florestal",
+        "state": "MS",
+        "mesoregions": 1,
+        "municipalities": 2,
+        "occurrences": 2,
+        "raw_source": "MS,1,2,2,100"
+    },
+    {
+        "type": "aggregate_occurrence",
+        "disaster_type": "Incêndio Florestal",
+        "state": "DF",
+        "mesoregions": 1,
+        "municipalities": 1,
+        "occurrences": 2,
+        "raw_source": "DF,1,1,2,100"
+    },
+    {
+        "type": "aggregate_occurrence",
+        "disaster_type": "Incêndio Florestal",
+        "state": "PR",
+        "mesoregions": 3,
+        "municipalities": 6,
+        "occurrences": 6,
+        "raw_source": "PR,3,6,6,100"
+    },
+    {
+        "type": "aggregate_occurrence",
+        "disaster_type": "Incêndio Florestal",
+        "state": "RS",
+        "mesoregions": 1,
+        "municipalities": 1,
+        "occurrences": 1,
+        "raw_source": "RS,1,1,1,100"
+    },
+    {
+        "type": "aggregate_occurrence",
+        "disaster_type": "Incêndio Florestal",
+        "state": "SC",
+        "mesoregions": 2,
+        "municipalities": 3,
+        "occurrences": 3,
+        "raw_source": "SC,2,3,3,100"
+    },
+    {
+        "type": "seasonality",
+        "disaster_type": "Incêndio Florestal",
+        "month": "Janeiro",
+        "north": 0,
+        "northeast": 0,
+        "center_west": 0,
+        "southeast": 1,
+        "south": 1,
+        "raw_source": "Janeiro,0,0,0,1,1,2,101"
+    },
+    {
+        "type": "seasonality",
+        "disaster_type": "Incêndio Florestal",
+        "month": "Fevereiro",
+        "north": 1,
+        "northeast": 0,
+        "center_west": 0,
+        "southeast": 3,
+        "south": 0,
+        "raw_source": "Fevereiro,1,0,0,3,0,4,101"
+    },
+    {
+        "type": "seasonality",
+        "disaster_type": "Incêndio Florestal",
+        "month": "Março",
+        "north": 8,
+        "northeast": 2,
+        "center_west": 0,
+        "southeast": 0,
+        "south": 0,
+        "raw_source": "Março,8,2,0,0,0,10,101"
+    },
+    {
+        "type": "seasonality",
+        "disaster_type": "Incêndio Florestal",
+        "month": "Abril",
+        "north": 1,
+        "northeast": 1,
+        "center_west": 0,
+        "southeast": 0,
+        "south": 2,
+        "raw_source": "Abril,1,1,0,0,2,4,101"
+    },
+    {
+        "type": "seasonality",
+        "disaster_type": "Incêndio Florestal",
+        "month": "Maio",
+        "north": 0,
+        "northeast": 1,
+        "center_west": 0,
+        "southeast": 1,
+        "south": 0,
+        "raw_source": "Maio,0,1,0,1,0,2,101"
+    },
+    {
+        "type": "seasonality",
+        "disaster_type": "Incêndio Florestal",
+        "month": "Junho",
+        "north": 0,
+        "northeast": 0,
+        "center_west": 0,
+        "southeast": 0,
+        "south": 1,
+        "raw_source": "Junho,0,0,0,0,1,1,101"
+    },
+    {
+        "type": "seasonality",
+        "disaster_type": "Incêndio Florestal",
+        "month": "Julho",
+        "north": 7,
+        "northeast": 1,
+        "center_west": 2,
+        "southeast": 1,
+        "south": 0,
+        "raw_source": "Julho,7,1,2,1,0,11,101"
+    },
+    {
+        "type": "seasonality",
+        "disaster_type": "Incêndio Florestal",
+        "month": "Agosto",
+        "north": 21,
+        "northeast": 0,
+        "center_west": 2,
+        "southeast": 4,
+        "south": 1,
+        "raw_source": "Agosto,21,0,2,4,1,28,101"
+    },
+    {
+        "type": "seasonality",
+        "disaster_type": "Incêndio Florestal",
+        "month": "Setembro",
+        "north": 35,
+        "northeast": 3,
+        "center_west": 12,
+        "southeast": 3,
+        "south": 5,
+        "raw_source": "Setembro,35,3,12,3,5,58,101"
+    },
+    {
+        "type": "seasonality",
+        "disaster_type": "Incêndio Florestal",
+        "month": "Outubro",
+        "north": 2,
+        "northeast": 52,
+        "center_west": 1,
+        "southeast": 3,
+        "south": 0,
+        "raw_source": "Outubro,2,52,1,3,0,58,101"
+    },
+    {
+        "type": "seasonality",
+        "disaster_type": "Incêndio Florestal",
+        "month": "Novembro",
+        "north": 0,
+        "northeast": 0,
+        "center_west": 0,
+        "southeast": 1,
+        "south": 0,
+        "raw_source": "Novembro,0,0,0,1,0,1,101"
+    },
+    {
+        "type": "seasonality",
+        "disaster_type": "Incêndio Florestal",
+        "month": "Dezembro",
+        "north": 1,
+        "northeast": 0,
+        "center_west": 4,
+        "southeast": 0,
+        "south": 0,
+        "raw_source": "Dezembro,1,0,4,0,0,5,101"
+    },
+    {
+        "type": "aggregate_occurrence",
+        "disaster_type": "Onda de Frio/Geada",
+        "state": "ES",
+        "mesoregions": 0,
+        "municipalities": 0,
+        "occurrences": 0,
+        "raw_source": "ES,0,0,0,110"
+    },
+    {
+        "type": "aggregate_occurrence",
+        "disaster_type": "Onda de Frio/Geada",
+        "state": "MG",
+        "mesoregions": 0,
+        "municipalities": 0,
+        "occurrences": 0,
+        "raw_source": "MG,0,0,0,110"
+    },
+    {
+        "type": "aggregate_occurrence",
+        "disaster_type": "Onda de Frio/Geada",
+        "state": "RJ",
+        "mesoregions": 0,
+        "municipalities": 0,
+        "occurrences": 0,
+        "raw_source": "RJ,0,0,0,110"
+    },
+    {
+        "type": "aggregate_occurrence",
+        "disaster_type": "Onda de Frio/Geada",
+        "state": "SP",
+        "mesoregions": 1,
+        "municipalities": 6,
+        "occurrences": 6,
+        "raw_source": "SP,1,6,6,110"
+    },
+    {
+        "type": "aggregate_occurrence",
+        "disaster_type": "Onda de Frio/Geada",
+        "state": "PR",
+        "mesoregions": 1,
+        "municipalities": 1,
+        "occurrences": 1,
+        "raw_source": "PR,1,1,1,110"
+    },
+    {
+        "type": "aggregate_occurrence",
+        "disaster_type": "Onda de Frio/Geada",
+        "state": "RS",
+        "mesoregions": 3,
+        "municipalities": 13,
+        "occurrences": 15,
+        "raw_source": "RS,3,13,15,110"
+    },
+    {
+        "type": "aggregate_occurrence",
+        "disaster_type": "Onda de Frio/Geada",
+        "state": "SC",
+        "mesoregions": 3,
+        "municipalities": 17,
+        "occurrences": 23,
+        "raw_source": "SC,3,17,23,110"
+    },
+    {
+        "type": "human_damage",
+        "disaster_type": "Onda de Frio/Geada",
+        "year": 2000,
+        "region": "Sul",
+        "state": "SC",
+        "deaths": 0,
+        "injured": 347,
+        "displaced": 0,
+        "raw_source": "2000,Sul,SC,0,347,0,38.000,112"
+    },
+    {
+        "type": "human_damage",
+        "disaster_type": "Onda de Frio/Geada",
+        "year": 2009,
+        "region": "Sudeste",
+        "state": "SP",
+        "deaths": 0,
+        "injured": 0,
+        "displaced": 0,
+        "raw_source": "2009,Sudeste,SP,0,0,0,37.168,112"
+    },
+    {
+        "type": "human_damage",
+        "disaster_type": "Onda de Frio/Geada",
+        "year": 2009,
+        "region": "Sudeste",
+        "state": "SP",
+        "deaths": 0,
+        "injured": 0,
+        "displaced": 0,
+        "raw_source": "2009,Sudeste,SP,0,0,0,21.298,112"
+    },
+    {
+        "type": "human_damage",
+        "disaster_type": "Onda de Frio/Geada",
+        "year": 2012,
+        "region": "Sul",
+        "state": "RS",
+        "deaths": 0,
+        "injured": 0,
+        "displaced": 0,
+        "raw_source": "2012,Sul,RS,0,0,0,12.000,112"
+    },
+    {
+        "type": "human_damage",
+        "disaster_type": "Onda de Frio/Geada",
+        "year": 2009,
+        "region": "Sudeste",
+        "state": "SP",
+        "deaths": 0,
+        "injured": 0,
+        "displaced": 0,
+        "raw_source": "2009,Sudeste,SP,0,0,0,6.617,112"
+    }
+]

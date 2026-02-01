@@ -1,0 +1,16 @@
+com\ecoguardians\controller\NasaProxyController.class
+com\ecoguardians\repository\HumanDamageRepository.class
+com\ecoguardians\controller\ImpactController.class
+com\ecoguardians\config\WebConfig.class
+com\ecoguardians\filter\SecurityHeadersFilter.class
+com\ecoguardians\model\ImpactDTO.class
+com\ecoguardians\service\HistoricalDataSeeder.class
+com\ecoguardians\repository\TruthVerdictRepository.class
+com\ecoguardians\model\HumanDamage.class
+com\ecoguardians\model\EnvironmentalSnapshot.class
+com\ecoguardians\model\TruthVerdict.class
+com\ecoguardians\repository\EnvironmentalSnapshotRepository.class
+com\ecoguardians\service\NasaDataService.class
+com\ecoguardians\EcoGuardiansApplication.class
+com\ecoguardians\controller\TruthController.class
+com\ecoguardians\filter\RateLimitFilter.class

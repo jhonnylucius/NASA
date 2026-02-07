@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NASA Earthdata Nexus | EcoGuardians</title>
+
+    <!-- Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/earthdata.css">
+    <style>
+        /* Specific page overrides for Sci-Fi look */
+        :root {
+            --nexus-bg: #0b0f19;
+            --nexus-primary: #00f3ff;
+            --nexus-secondary: #7000ff;
+            --nexus-glass: rgba(11, 15, 25, 0.7);
+            --nexus-border: rgba(0, 243, 255, 0.3);
+        }
+
+        body {
+            background-color: var(--nexus-bg);
+            background-image:
+                radial-gradient(circle at 15% 50%, rgba(112, 0, 255, 0.1) 0%, transparent 25%),
+                radial-gradient(circle at 85% 30%, rgba(0, 243, 255, 0.1) 0%, transparent 25%);
+            font-family: 'Rajdhani', sans-serif;
+        }
+
+        .sci-fi-text {
+            font-family: 'Orbitron', sans-serif;
+            letter-spacing: 2px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar visible">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">EcoGuardians <span
+                    style="color: var(--nexus-primary); font-size: 0.8em; vertical-align: super;">NEXUS</span></a>
+            <div class="nav-toggle" id="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="#" class="nav-link active" style="color: var(--nexus-primary);">Earthdata Nexus</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="nexus-container">
+        <!-- Header Section -->
+        <header class="nexus-header">
+            <h1 class="sci-fi-text text-glow">EARTHDATA NEXUS_</h1>
+            <p class="nexus-subtitle">INTERPLANETARY DATA ACCESS TERMINAL // <span id="connection-status"
+                    style="color: var(--nexus-primary)">INITIALIZING...</span></p>
+        </header>
+
+        <!-- Mission Control Grid -->
+        <div class="mission-control-grid">
+
+            <!-- MODULE 1: IDENTITY CORE -->
+            <section class="nexus-module identity-core">
+                <div class="module-header">
+                    <h3 class="sci-fi-text"><i class="fas fa-id-card-alt"></i> IDENTITY_CORE</h3>
+                    <div class="module-status pulse">ONLINE</div>
+                </div>
+                <div class="module-content" id="identity-display">
+                    <div class="holo-profile">
+                        <div class="scan-line"></div>
+                        <img src="https://ui-avatars.com/api/?name=User&background=00f3ff&color=0b0f19" alt="User"
+                            id="user-avatar">
+                    </div>
+                    <div class="user-details">
+                        <div class="detail-row">
+                            <span class="label">OPERATIVE:</span>
+                            <span class="value typing-effect" id="user-uid">DETECTING...</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="label">CLEARANCE:</span>
+                            <span class="value" id="user-type">LEVEL 3</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="label">TOKEN EXP:</span>
+                            <span class="value" id="token-exp">--:--:--</span>
+                        </div>
+                    </div>
+                    <div class="scramble-text" id="raw-token-preview"></div>
+                </div>
+            </section>
+
+            <!-- MODULE 2: CMR QUERY ENGINE -->
+            <section class="nexus-module query-engine">
+                <div class="module-header">
+                    <h3 class="sci-fi-text"><i class="fas fa-search-location"></i> CMR_QUERY_ENGINE</h3>
+                    <div class="module-status">READY</div>
+                </div>
+                <div class="module-content">
+                    <div class="search-interface">
+                        <div class="holo-input-group">
+                            <input type="text" id="cmr-search-input"
+                                placeholder="ENTER DATASET KEYWORD (e.g., MODIS, FIRE, SENTINEL)...">
+                            <button id="cmr-search-btn" class="sci-fi-btn">INITIATE SCAN</button>
+                        </div>
+                        <div class="quick-filters">
+                            <button class="filter-chip" data-query="Global Fire Emissions">🔥 FIRE</button>
+                            <button class="filter-chip" data-query="Vegetation Indices">🌿 VEGETATION</button>
+                            <button class="filter-chip" data-query="Surface Temperature">🌡️ TEMP</button>
+                            <button class="filter-chip" data-query="Precipitation">💧 RAIN</button>
+                        </div>
+                    </div>
+                    <div class="terminal-output" id="query-log">
+                        > SYSTEM READY.<br>
+                        > WAITING FOR INPUT...<br>
+                    </div>
+                </div>
+            </section>
+
+            <!-- MODULE 3: DATA STREAM -->
+            <section class="nexus-module data-stream">
+                <div class="module-header">
+                    <h3 class="sci-fi-text"><i class="fas fa-stream"></i> GRANULE_STREAM</h3>
+                    <div class="module-status" id="results-count">0 OBJECTS</div>
+                </div>
+                <div class="module-content custom-scrollbar" id="results-container">
+                    <div class="empty-state">
+                        <div class="grid-animation"></div>
+                        <p>AWAITING DATA STREAM UPLINK</p>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- Scripts -->
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <!-- Custom Logic -->
+    <script src="assets/js/earthdata.js"></script>
+</body>
+
+</html>

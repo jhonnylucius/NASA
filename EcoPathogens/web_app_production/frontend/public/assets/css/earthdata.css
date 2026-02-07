@@ -1,0 +1,398 @@
+/* EARTHDATA NEXUS - SCI-FI THEME */
+.nexus-container {
+    padding-top: 80px;
+    max-width: 1600px;
+    margin: 0 auto;
+    color: #fff;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.nexus-header {
+    text-align: center;
+    margin-bottom: 40px;
+    position: relative;
+}
+
+.text-glow {
+    text-shadow: 0 0 10px var(--nexus-primary), 0 0 20px var(--nexus-primary);
+    font-size: 3rem;
+    margin-bottom: 0px;
+}
+
+.nexus-subtitle {
+    opacity: 0.7;
+    letter-spacing: 3px;
+    font-size: 0.9rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    display: inline-block;
+    padding-bottom: 10px;
+}
+
+.mission-control-grid {
+    display: grid;
+    grid-template-columns: 300px 1fr 350px;
+    gap: 20px;
+    height: 70vh;
+}
+
+.nexus-module {
+    background: rgba(11, 15, 25, 0.6);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(0, 243, 255, 0.2);
+    border-radius: 4px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+}
+
+.nexus-module::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--nexus-primary), transparent);
+}
+
+.module-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    padding-bottom: 10px;
+}
+
+.module-header h3 {
+    font-size: 1.1rem;
+    color: var(--nexus-primary);
+    margin: 0;
+}
+
+.module-status {
+    font-size: 0.7rem;
+    padding: 2px 6px;
+    border: 1px solid var(--nexus-primary);
+    color: var(--nexus-primary);
+    border-radius: 2px;
+}
+
+.module-status.pulse {
+    animation: textPulse 1s infinite alternate;
+}
+
+/* Identity Module */
+.holo-profile {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto 20px;
+    position: relative;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 2px solid var(--nexus-primary);
+    box-shadow: 0 0 15px rgba(0, 243, 255, 0.3);
+}
+
+.holo-profile img {
+    width: 100%;
+    height: 100%;
+}
+
+.scan-line {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: rgba(0, 243, 255, 0.8);
+    animation: scan 2s linear infinite;
+    z-index: 2;
+    box-shadow: 0 0 10px var(--nexus-primary);
+}
+
+.user-details .detail-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    font-size: 0.9rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    padding-bottom: 5px;
+}
+
+.user-details .label {
+    color: #888;
+}
+
+.user-details .value {
+    color: #fff;
+    font-weight: bold;
+    font-family: 'Orbitron', monospace;
+}
+
+/* Query Engine */
+.holo-input-group {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.holo-input-group input {
+    flex: 1;
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(0, 243, 255, 0.3);
+    color: #fff;
+    padding: 10px 15px;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 1.1rem;
+    border-radius: 2px;
+}
+
+.holo-input-group input:focus {
+    outline: none;
+    border-color: var(--nexus-primary);
+    box-shadow: 0 0 10px rgba(0, 243, 255, 0.2);
+}
+
+.sci-fi-btn {
+    background: rgba(0, 243, 255, 0.1);
+    border: 1px solid var(--nexus-primary);
+    color: var(--nexus-primary);
+    padding: 0 20px;
+    cursor: pointer;
+    font-family: 'Orbitron', sans-serif;
+    font-weight: bold;
+    transition: all 0.3s;
+}
+
+.sci-fi-btn:hover {
+    background: var(--nexus-primary);
+    color: #000;
+    box-shadow: 0 0 20px rgba(0, 243, 255, 0.4);
+}
+
+.quick-filters {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+.filter-chip {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #ccc;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-family: 'Rajdhani', sans-serif;
+    transition: all 0.2s;
+}
+
+.filter-chip:hover {
+    border-color: var(--nexus-primary);
+    color: #fff;
+}
+
+.terminal-output {
+    background: #000;
+    border: 1px solid #333;
+    padding: 15px;
+    height: 200px;
+    font-family: 'Fira Code', monospace;
+    font-size: 0.8rem;
+    color: #00ff00;
+    overflow-y: auto;
+    opacity: 0.8;
+}
+
+.terminal-output .time {
+    float: right;
+    color: #555;
+    font-size: 0.7rem;
+}
+
+/* Results Stream */
+.nexus-card {
+    background: rgba(255, 255, 255, 0.03);
+    border-left: 2px solid var(--nexus-secondary);
+    padding: 15px;
+    margin-bottom: 10px;
+    transition: all 0.3s;
+    animation: fadeInUp 0.5s both;
+}
+
+.nexus-card:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-left-color: var(--nexus-primary);
+    transform: translateX(5px);
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.7rem;
+    color: #666;
+    margin-bottom: 5px;
+}
+
+.dataset-title {
+    color: #fff;
+    margin-bottom: 5px;
+    font-size: 1rem;
+}
+
+.dataset-summary {
+    color: #aaa;
+    font-size: 0.8rem;
+    margin-bottom: 10px;
+}
+
+.action-btn {
+    font-size: 0.7rem;
+    color: var(--nexus-primary);
+    text-decoration: none;
+    text-transform: uppercase;
+    border: 1px solid rgba(0, 243, 255, 0.3);
+    padding: 2px 8px;
+    display: inline-block;
+}
+
+.action-btn:hover {
+    background: var(--nexus-primary);
+    color: #000;
+}
+
+.custom-scrollbar {
+    overflow-y: auto;
+    padding-right: 5px;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+    width: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+    background: rgba(0, 243, 255, 0.3);
+    border-radius: 3px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.3);
+}
+
+@keyframes scan {
+    0% {
+        top: 0%;
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        top: 100%;
+        opacity: 0;
+    }
+}
+
+@keyframes textPulse {
+    from {
+        opacity: 0.5;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+
+/* Fire Intensity Badges */
+.fire-intensity {
+    padding: 3px 8px;
+    border-radius: 3px;
+    font-size: 0.7rem;
+    font-weight: bold;
+}
+
+.fire-intensity.extreme {
+    background: #ff0000;
+    color: #fff;
+    box-shadow: 0 0 10px #ff0000;
+}
+
+.fire-intensity.high {
+    background: #ff6600;
+    color: #fff;
+}
+
+.fire-intensity.moderate {
+    background: #ffaa00;
+    color: #000;
+}
+
+.fire-intensity.low {
+    background: #ffff00;
+    color: #000;
+}
+
+/* Stats Panel */
+.stats-panel {
+    padding: 20px;
+}
+
+.stat-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.stat-box {
+    background: rgba(0, 243, 255, 0.05);
+    border: 1px solid rgba(0, 243, 255, 0.2);
+    padding: 20px;
+    text-align: center;
+}
+
+.stat-label {
+    font-size: 0.7rem;
+    color: #888;
+    margin-bottom: 10px;
+}
+
+.stat-value {
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--nexus-primary);
+    font-family: 'Orbitron', monospace;
+}
+
+/* Satellite Viewer */
+.satellite-viewer {
+    padding: 20px;
+}
+
+.satellite-viewer h3 {
+    color: var(--nexus-primary);
+    margin-bottom: 10px;
+}
+
+.satellite-viewer img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+.map-placeholder {
+    padding: 20px;
+}
+
+@media (max-width: 768px) {
+    .stat-grid {
+        grid-template-columns: 1fr;
+    }
+}

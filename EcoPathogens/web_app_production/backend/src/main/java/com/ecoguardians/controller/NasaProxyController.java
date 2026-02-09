@@ -33,6 +33,16 @@ public class NasaProxyController {
         return nasaDataService.fetchAndSaveFirmsData(sensor, area, days);
     }
 
+    @GetMapping("/proxy/firms")
+    public String proxyFirms() {
+        return nasaDataService.proxyFirmsRequest();
+    }
+
+    @GetMapping("/proxy/cmr")
+    public String proxyCmr(@RequestParam String keyword) {
+        return nasaDataService.proxyCmrRequest(keyword);
+    }
+
     @PostMapping("/admin/seed-history")
     public CompletableFuture<String> seedHistory(@RequestParam int startYear, @RequestParam int endYear) {
         return historicalSeeder.startSeeding(startYear, endYear);

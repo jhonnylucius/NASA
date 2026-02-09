@@ -1,10 +1,12 @@
-﻿// EcoGuardians Config
-window.EcoConfig = {
-    API_BASE_URL: 'http://localhost:5000',
-    ENVIRONMENT: 'development',
+﻿window.EcoConfig = {
+    // 🌍 Configuração de Produção
+    // Baseado no seu MANUAL_DEPLOY.md e application.properties
+    API_BASE_URL: 'https://api.ecoguardians.com.br:8443',
+
+    ENVIRONMENT: 'production',
     FEATURES: {
-        GSAP_PREMIUM: true,
+        USE_PROXY: true,
         DEBUG_MODE: true
     }
 };
-console.log('EcoGuardians configurado!');
+console.log('🔧 Dev/Prod Config loaded');

@@ -9,7 +9,10 @@
 class EarthdataNexus {
     constructor() {
         // Configuration
-        this.firmsUrl = 'https://firms.modaps.eosdis.nasa.gov/api/area/csv';
+        this.baseUrl = window.EcoConfig?.API_BASE_URL || 'http://localhost:5000';
+        // FIRMS now proxied via Java Backend
+        this.firmsUrl = `${this.baseUrl}/api/nasa/proxy/firms`;
+        // GIBS stays direct as it supports CORS for images
         this.gibsUrl = 'https://gibs.earthdata.nasa.gov/wmts/epsg4326/best';
         this.token = null;
 
@@ -41,7 +44,14 @@ class EarthdataNexus {
         this.loadToken();
 
         // 2. Bind Events - NOW WITH REAL DATA ACTIONS
-        this.dom.searchBtn.addEventListener('click', () => this.loadFireData());
+        this.dom.searchBtn.addEventListener('click', () => {
+            const query = this.dom.searchInput.value;
+            if (query && query.length > 2) {
+                this.searchGranules(query);
+            } else {
+                this.loadFireData();
+            }
+        });
 
         // Update filter chips to real data queries
         document.querySelectorAll('.filter-chip').forEach((chip, index) => {
@@ -119,8 +129,8 @@ class EarthdataNexus {
         this.dom.searchBtn.disabled = true;
 
         try {
-            const mapKey = '02a6b6ad3f23a3af3fe8d8ba432a8c9b';
-            const url = `${this.firmsUrl}/${mapKey}/VIIRS_NOAA20_NRT/${this.brazilBounds}/1`;
+            // Proxy call to Java Backend (handles Auth and CORS)
+            const url = this.firmsUrl; // /api/nasa/proxy/firms
 
             this.log('> REQUESTING VIIRS DATA FOR BRAZIL...');
             const response = await fetch(url, {
@@ -306,6 +316,68 @@ class EarthdataNexus {
             </div>
         `;
         this.dom.resultsCount.innerText = 'MAP READY';
+    }
+
+    // 🔥 NEW: CMR Search via Proxy
+    async searchGranules(keyword) {
+        this.log(`> SEARCHING NASA CMR FOR: ${keyword}...`);
+        this.dom.resultsContainer.innerHTML = '<div class="loading-scanner">SEARCHING EARTHDATA CLOUD...</div>';
+
+        try {
+            const url = `${this.baseUrl}/api/nasa/proxy/cmr?keyword=${encodeURIComponent(keyword)}`;
+            const response = await fetch(url);
+
+            if (!response.ok) throw new Error(`CMR ERROR: ${response.statusText}`);
+
+            const data = await response.json();
+            this.log(`> FOUND ${data.feed.entry.length} GRANULES.`);
+            this.renderGranules(data.feed.entry);
+
+        } catch (error) {
+            this.log(`> SEARCH ERROR: ${error.message}`);
+            this.dom.resultsContainer.innerHTML = `<div class="error-msg">SEARCH FAILED: ${error.message}</div>`;
+        }
+    }
+
+    renderGranules(entries) {
+        this.dom.resultsContainer.innerHTML = '';
+        this.dom.resultsCount.innerText = `${entries.length} RESULTS`;
+
+        if (entries.length === 0) {
+            this.dom.resultsContainer.innerHTML = '<div class="empty-state">NO DATA FOUND</div>';
+            return;
+        }
+
+        let delay = 0;
+        entries.slice(0, 20).forEach(entry => {
+            const card = document.createElement('div');
+            card.className = 'nexus-card';
+            card.style.animationDelay = `${delay}ms`;
+
+            const title = entry.title;
+            const start = entry.time_start.split('T')[0];
+            const size = (parseFloat(entry.granule_size || 0)).toFixed(2) + ' MB';
+            const browse = entry.links.find(l => l.rel.includes('browse'))?.href || '';
+            const download = entry.links.find(l => l.rel.includes('data'))?.href || '#';
+
+            card.innerHTML = `
+                <div class="card-header">
+                    <span class="dataset-id">ID: ${entry.id.substring(0, 15)}...</span>
+                     <span class="fire-intensity low">${size}</span>
+                </div>
+                ${browse ? `<img src="${browse}" style="width:100%; height:120px; object-fit:cover; margin: 5px 0; border: 1px solid #00f3ff;">` : ''}
+                <h4 class="dataset-title">${title}</h4>
+                <p class="dataset-summary">
+                    📅 Date: ${start}<br>
+                    📦 Dataset: ${entry.dataset_id}
+                </p>
+                <div class="card-actions">
+                    <a href="${download}" target="_blank" class="action-btn">DOWNLOAD DATA</a>
+                </div>
+            `;
+            this.dom.resultsContainer.appendChild(card);
+            delay += 50;
+        });
     }
 
     log(message) {

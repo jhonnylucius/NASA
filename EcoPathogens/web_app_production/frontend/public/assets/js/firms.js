@@ -6,7 +6,7 @@ class FIRMSManager {
         // API Configuration
         // API Configuration
         this.apiBase = 'https://firms.modaps.eosdis.nasa.gov/api/area/csv';
-        // this.apiBase = 'http://83.147.37.100:8081/api/nasa/firms'; // VPS Java Proxy
+        // this.apiBase = 'https://api.ecoguardians.com.br:8081/api/nasa/firms'; // VPS Java Proxy via Cloudflare
 
 
         this.mapKey = '02a6b6ad3f23a3af3fe8d8ba432a8c9b';
